@@ -44,17 +44,18 @@
     </div>
 
     <div class="form-group">
-        <div class="col-sm-offset-2 col-sm-10">
-            <div class="checkbox" id="e3">
-                <label>
-                    <input  type="checkbox"> 记住密码
+        <div >
+            <div class="checkbox" style="margin-left: 600px;margin-top: -160px;" >
+                <label >
+                    <input type="checkbox">
+                    <span>记住密码</span>
                 </label>
             </div>
         </div>
     </div>
     <div class="form-group">
-        <div class="col-sm-offset-2 col-sm-10" id="e4">
-            <button  type="submit" class="btn btn-default">登陆</button>
+        <div  style="margin-left: 800px;margin-top: -200px;" >
+            <button   type="submit" class="btn btn-default">登陆</button>
         </div>
     </div>
 

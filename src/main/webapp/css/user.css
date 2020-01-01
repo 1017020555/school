@@ -11,23 +11,15 @@
 	margin-top: -280px;
 }
 #e2{
-	margin-left: 404px;
+	/*margin-left: 404px;*/
 	margin-top: -230px;
 }
 #inputPassword3{
-	margin-left: 700px;
+	/*margin-left: 700px;*/
 	margin-top: -230px;
 }
 
-#e3{
-	/*margin-left: 440px;*/
-	margin-right: 700px;
-	margin-top: -130px;
-}
-#e4{
-	/*margin-left: 790px;*/
-	margin-top: -150px;
-}
+
 #img{
 	float: left;
 	width: 400px;
