@@ -13,6 +13,6 @@
 <body>
     <jsp:include page="head.jsp"></jsp:include>
 
-
+    <jsp:include page="bottom.jsp"></jsp:include>
 </body>
 </html>
