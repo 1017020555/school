@@ -1,0 +1,26 @@
+/* head.html */
+*{margin:0px;padding:0px;}
+
+#head{
+	width: 100%;
+}
+#banner{
+	width: 100%;
+	height: 45px;
+	margin-top: -10px;
+	background-color:#1F467D;
+}
+#lists{
+	list-style: none;
+}
+#lists li{
+	float: left;
+	margin-left: 160px;
+	margin-top: 11px;
+}
+
+#lists li a{
+	color: white;
+	font-weight: bold;
+}
+
