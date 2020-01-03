@@ -35,7 +35,7 @@ public class UserController {
         if ((path.equals(session.getAttribute("validateCode"))) && (user1!=null)){
 
             session.removeAttribute("validateCode");
-            session.setAttribute("emp",user1);
+            session.setAttribute("user1",user1);
 
             System.out.println("111");
             return "redirect:/index.jsp";
