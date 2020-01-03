@@ -44,9 +44,10 @@
 </bean>
  <!-- 扫描mapper接口 -->
 	<bean id="mapperScannerConfigurer" class="org.mybatis.spring.mapper.MapperScannerConfigurer">
-		<property name="basePackage" value="com.offcn.*.mapper"></property>
+		<property name="basePackage" value="com.hsxy.*.mapper"></property>
 	</bean>
 
-<import resource="spring-mail.xml"></import>
+
+
 
 </beans>

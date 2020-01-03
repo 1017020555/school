@@ -1,5 +1,5 @@
 /*
-   user.html
+   user.jsp
 */
 *{margin:0px;padding:0px;}
 #e1{
@@ -10,14 +10,14 @@
 	margin-left: 700px;
 	margin-top: -280px;
 }
-#e2{
-	/*margin-left: 404px;*/
-	margin-top: -230px;
-}
-#inputPassword3{
-	/*margin-left: 700px;*/
-	margin-top: -230px;
-}
+/*#e2{*/
+/*	!*margin-left: -404px;*!*/
+/*	margin-top: -230px;*/
+/*}*/
+/*#inputPassword3{*/
+/*	!*margin-left: 700px;*!*/
+/*	margin-top: -230px;*/
+/*}*/
 
 
 #img{

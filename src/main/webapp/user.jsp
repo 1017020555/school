@@ -18,28 +18,51 @@
 
     <link rel="stylesheet" href="css/user.css"/>
 
+    <script type="text/javascript">
+        $(function () {
+            $("#code").click(function () {
+                $(this).prop("src","${pageContext.request.contextPath}/user/getCode?time="+new Date());
+            });
+        });
+        function login() {
+            $.ajax({
+                method:"get",
+                url:"${pageContext.request.contextPath}/user/load",
+                data:{"studentNo":$("#studentNo").val(),"password":$("#password").val(),"path":$("#path").val()}
+            });
+        }
+    </script>
+
 </head>
 <body>
 
     <jsp:include page="head.jsp"></jsp:include>
 
 
-
-<form class="form-horizontal">
+<form class="form-horizontal" action="http://localhost:8888/school/user/load" method="post">
 
         <img id="img"  src="img/banner.jpg" class="img-thumbnail">
 
     <div class="form-group">
         <label id="e1" for="inputEmail3" class="col-sm-2 control-label">学号:</label>
         <div class="col-sm-10">
-            <input type="email" style="width: 210px;" class="form-control" id="inputEmail3" placeholder="请输入学号：">
+            <input type="input" style="width: 210px;" class="form-control" id="inputEmail3" name="studentNo" placeholder="请输入学号：">
         </div>
     </div>
 
-    <div class="form-group">
-        <label id="e2" for="inputPassword3" class="col-sm-2 control-label">密码：</label>
-        <div class="col-sm-10">
-            <input type="password" style="width: 210px;" class="form-control" id="inputPassword3" placeholder="请输入密码：">
+    <div class="form-group"  >
+        <div class="col-sm-10" >
+            <label style="margin-left: 432px;margin-top: -230px;" for="inputPassword3" class="col-sm-2 control-label">密码：</label>
+            <input style="margin-left: 700px;margin-top: -230px;width: 210px;" type="password" class="form-control"
+                  name="password" id="inputPassword3" placeholder="请输入密码：">
+        </div>
+    </div>
+
+    <div class="form-group" >
+        <div>
+            <input type="text" style="width: 210px;margin-left: 564px;margin-top: -200px;"
+                   placeholder="请输入验证码..." maxlength="4" autocomplete="off" name="path" id="path" class="form-control">
+            <img name="code" style="margin-left: 800px;margin-top: -50px;" id="code" src="${pageContext.request.contextPath}/user/getCode?time='+new Date()'">
         </div>
     </div>
 
@@ -54,8 +77,8 @@
         </div>
     </div>
     <div class="form-group">
-        <div  style="margin-left: 800px;margin-top: -200px;" >
-            <button   type="submit" class="btn btn-default">登陆</button>
+        <div  style="margin-left: 800px;margin-top: -180px;" >
+            <input class="btn btn-default" type="submit" value="登陆">
         </div>
     </div>
 
