@@ -39,14 +39,15 @@
     <jsp:include page="head.jsp"></jsp:include>
 
 
-<form class="form-horizontal" action="http://localhost:8888/school/user/load" method="post">
+<form class="form-horizontal" action="http://localhost:8888/school/user/load" method="get">
 
         <img id="img"  src="img/banner.jpg" class="img-thumbnail">
 
     <div class="form-group">
         <label id="e1" for="inputEmail3" class="col-sm-2 control-label">学号:</label>
         <div class="col-sm-10">
-            <input type="input" style="width: 210px;" class="form-control" id="inputEmail3" name="studentNo" placeholder="请输入学号：">
+            <input type="input" style="width: 210px;" class="form-control" id="inputEmail3"
+                   name="username" placeholder="请输入学号：">
         </div>
     </div>
 
