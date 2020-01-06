@@ -8,31 +8,15 @@ public class User {
     private Integer gender;
     private String email;
     private String phone;
+    private String xueyuan;
 
-    public User() {
-    }
-    public User(Integer id, String username, String password, String name, Integer gender, String email, String phone) {
-        this.id = id;
-        this.username = username;
-        this.password = password;
-        this.name = name;
-        this.gender = gender;
-        this.email = email;
-        this.phone = phone;
-    }
-    @Override
-    public String toString() {
-        return "User{" +
-                "id=" + id +
-                ", username='" + username + '\'' +
-                ", password='" + password + '\'' +
-                ", name='" + name + '\'' +
-                ", gender=" + gender +
-                ", email='" + email + '\'' +
-                ", phone='" + phone + '\'' +
-                '}';
+    public String getXueyuan() {
+        return xueyuan;
     }
 
+    public void setXueyuan(String xueyuan) {
+        this.xueyuan = xueyuan;
+    }
 
     public Integer getId() {
         return id;
@@ -88,5 +72,32 @@ public class User {
 
     public void setPhone(String phone) {
         this.phone = phone;
+    }
+
+    public User() {
+    }
+
+    public User(String username, String password, String name, Integer gender, String email, String phone, String xueyuan) {
+        this.username = username;
+        this.password = password;
+        this.name = name;
+        this.gender = gender;
+        this.email = email;
+        this.phone = phone;
+        this.xueyuan = xueyuan;
+    }
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "id=" + id +
+                ", username='" + username + '\'' +
+                ", password='" + password + '\'' +
+                ", name='" + name + '\'' +
+                ", gender=" + gender +
+                ", email='" + email + '\'' +
+                ", phone='" + phone + '\'' +
+                ", xueyuan='" + xueyuan + '\'' +
+                '}';
     }
 }

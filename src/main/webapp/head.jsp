@@ -23,10 +23,10 @@
 					<a href="head.jsp">首页</a>
 				</li>
 				<li>
-					<a>二手交易</a>
+					<a >二手交易</a>
 				</li>
 				<li>
-					<a>失物招领</a>
+					<a href="lose.jsp">失物招领</a>
 				</li>
 				<li>
 					<a>学科竞赛</a>

@@ -19,7 +19,7 @@ public class UserController {
    private UserService userService;
 
 
-    @RequestMapping(value="getCode")
+    @RequestMapping(value="/getCode")
     public void getCode(@RequestParam(value = "time") String time, HttpServletRequest request, HttpServletResponse response) {
         ValidateCode code = new ValidateCode(100, 30, 4, 30, 25, "validateCode");
         code.getCode(request, response);
@@ -27,18 +27,17 @@ public class UserController {
 
     @RequestMapping(value = "/load",method = RequestMethod.GET)
     public String login(HttpSession session, User user, String path){
+        System.out.println(user+"  "+path);
         String code=(String) session.getAttribute("validateCode");
-        User user1=userService.load(user);
 
-        if ((path.equals(session.getAttribute("validateCode"))) && (user1!=null)){
+        User user1=userService.up(user);
 
+        if ((path.equals(code)) && (user1!=null)){
             session.removeAttribute("validateCode");
             session.setAttribute("user1",user1);
 
-            System.out.println("111");
             return "redirect:/index.jsp";
         }
-        System.out.println("222");
 
         return "redirect:/index.jsp";
     }

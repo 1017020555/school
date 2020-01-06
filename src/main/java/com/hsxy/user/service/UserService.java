@@ -11,7 +11,8 @@ public class UserService {
     @Autowired
    private UserMapper userMapper;
 
-    public User load(User user) {
-       return userMapper.load(user);
+
+    public User up(User user) {
+        return userMapper.up(user);
     }
 }

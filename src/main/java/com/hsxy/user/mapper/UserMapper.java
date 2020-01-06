@@ -5,6 +5,6 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface UserMapper {
-    User load(User user);
+    public User up(User user);
 
 }

@@ -39,7 +39,7 @@
     <jsp:include page="head.jsp"></jsp:include>
 
 
-<form class="form-horizontal" action="http://localhost:8888/school/user/load" method="get">
+<form class="form-horizontal" action="${pageContext.request.contextPath}/user/load" method="get">
 
         <img id="img"  src="img/banner.jpg" class="img-thumbnail">
 
