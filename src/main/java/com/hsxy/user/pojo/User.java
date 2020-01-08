@@ -9,6 +9,15 @@ public class User {
     private String email;
     private String phone;
     private String xueyuan;
+    private Integer manager;
+
+    public Integer getManager() {
+        return manager;
+    }
+
+    public void setManager(Integer manager) {
+        this.manager = manager;
+    }
 
     public String getXueyuan() {
         return xueyuan;
@@ -77,7 +86,7 @@ public class User {
     public User() {
     }
 
-    public User(String username, String password, String name, Integer gender, String email, String phone, String xueyuan) {
+    public User(String username, String password, String name, Integer gender, String email, String phone, String xueyuan, Integer manager) {
         this.username = username;
         this.password = password;
         this.name = name;
@@ -85,6 +94,7 @@ public class User {
         this.email = email;
         this.phone = phone;
         this.xueyuan = xueyuan;
+        this.manager = manager;
     }
 
     @Override
@@ -98,6 +108,7 @@ public class User {
                 ", email='" + email + '\'' +
                 ", phone='" + phone + '\'' +
                 ", xueyuan='" + xueyuan + '\'' +
+                ", manager=" + manager +
                 '}';
     }
 }

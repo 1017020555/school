@@ -18,8 +18,7 @@ public class UserController {
     @Autowired
    private UserService userService;
 
-
-    @RequestMapping(value="/getCode")
+    @RequestMapping(value="getCode")
     public void getCode(@RequestParam(value = "time") String time, HttpServletRequest request, HttpServletResponse response) {
         ValidateCode code = new ValidateCode(100, 30, 4, 30, 25, "validateCode");
         code.getCode(request, response);
@@ -27,19 +26,28 @@ public class UserController {
 
     @RequestMapping(value = "/load",method = RequestMethod.GET)
     public String login(HttpSession session, User user, String path){
-        System.out.println(user+"  "+path);
         String code=(String) session.getAttribute("validateCode");
-
         User user1=userService.up(user);
 
-        if ((path.equals(code)) && (user1!=null)){
+        if ((path.equals(code)) && (user1!=null) && (user1.getManager()==1)){
             session.removeAttribute("validateCode");
             session.setAttribute("user1",user1);
-
-            return "redirect:/index.jsp";
+            return "redirect:/usermessage.jsp";
+        }else if((path.equals(code)) && (user1!=null) && (user1.getManager()==0)){
+            session.removeAttribute("validateCode");
+            session.setAttribute("user1",user1);
+            return "redirect:/admin/index.jsp";
         }
 
         return "redirect:/index.jsp";
     }
 
+    @RequestMapping(value = "/unload")
+    public String unload(HttpServletRequest request){
+
+        HttpSession session = request.getSession();
+        session.removeAttribute("user1");
+        session.invalidate();
+        return "redirect:/index.jsp";
+    }
 }

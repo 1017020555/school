@@ -24,13 +24,6 @@
                 $(this).prop("src","${pageContext.request.contextPath}/user/getCode?time="+new Date());
             });
         });
-        function login() {
-            $.ajax({
-                method:"get",
-                url:"${pageContext.request.contextPath}/user/load",
-                data:{"studentNo":$("#studentNo").val(),"password":$("#password").val(),"path":$("#path").val()}
-            });
-        }
     </script>
 
 </head>
@@ -63,7 +56,8 @@
         <div>
             <input type="text" style="width: 210px;margin-left: 564px;margin-top: -200px;"
                    placeholder="请输入验证码..." maxlength="4" autocomplete="off" name="path" id="path" class="form-control">
-            <img name="code" style="margin-left: 800px;margin-top: -50px;" id="code" src="${pageContext.request.contextPath}/user/getCode?time='+new Date()'">
+            <img name="code" style="margin-left: 800px;margin-top: -50px;" id="code"
+                 src="${pageContext.request.contextPath}/user/getCode?time='+new Date()'">
         </div>
     </div>
 

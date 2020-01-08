@@ -46,15 +46,15 @@
     <label>丢失物品名称：</label>
     <label>丢失地点：</label>&nbsp;&nbsp;
     <label>丢失时间：</label>
-    <select class="form-control" >
+    <select class="form-control" style="width: 120px;">
         <option>1</option>
         <option>2</option>
         <option>3</option>
         <option>4</option>
         <option>5</option>
     </select>
-    <input id="input1" type="text" class="form-control" placeholder="丢失物品名称：">
-    <input id="input2" type="text" class="form-control" placeholder="丢失地点：">
+    <input id="input1" style="width: 120px;" type="text" class="form-control" placeholder="丢失物品名称：">
+    <input id="input2" style="width: 120px;" type="text" class="form-control" placeholder="丢失地点：">
 
     <input id="input3" style="margin-left: 460px;margin-top: -35px;width: 200px;" class="form-control" type="date">
 
@@ -68,10 +68,12 @@
 
 <div id="title5">
     <div>
-        <img src="img/1.jpg" alt="图片" class="img-thumbnail"><br>
-        <label>地点：</label><br>
-        <label>时间：</label><br>
-        <label>联系人：</label>
+        <tr>
+            <td><img src="img/1.jpg" style="width: 200px;height: 200px;" alt="图片" class="img-thumbnail"></td>
+            <td><label>地点：</label></td>
+            <td><label>时间：</label></td>
+            <td><label>联系人：</label></td>
+        </tr>
     </div>
 </div>
 
