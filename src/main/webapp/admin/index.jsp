@@ -37,7 +37,7 @@
         <div onclick="pageClick(this)" datasrc="adminnews.jsp">
             <img src="img/icon-5.png" />新闻咨询信息管理
         </div>
-        <div onclick="pageClick(this)" datasrc="adminuser.jsp">
+        <div onclick="pageClick(this)" datasrc="${pageContext.request.contextPath}/admin/xy">
             <img src="img/icon-3.png" />个人信息管理
         </div>
         <div onclick="pageClick(this)" datasrc="admin.jsp">
