@@ -15,8 +15,6 @@
     <!--引入js-->
     <script src="js/jquery-3.4.1.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
-    <!--引入主页css文件-->
-    <link rel="stylesheet" href="css/head.css"/>
 
     <link rel="stylesheet" href="css/page.css" />
     <script type="text/javascript" src="js/index.js" ></script>
@@ -62,8 +60,8 @@
 
 
 <!-- 右侧内容 -->
-<div class="content">
-    <iframe frameborder="0" scrolling="yes" style="width:80%;height:100%" src="adminsecondhand.jsp" id="aa"></iframe>
+<div style="margin-left: 270px">
+    <iframe frameborder="0" scrolling="yes" style="width:100%;height:80%" src="adminsecondhand.jsp"></iframe>
 </div>
 
 
