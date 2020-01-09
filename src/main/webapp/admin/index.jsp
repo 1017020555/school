@@ -27,20 +27,23 @@
 <div class="left">
     <div class="bigTitle">校园服务平台管理系统</div>
     <div class="lines">
-        <div onclick="pageClick(this)" class="active">
+        <div onclick="pageClick(this)"  class="active" datasrc="adminsecondhand.jsp">
             <img src="img/icon-1.png" />二手交易模块管理
         </div>
-        <div onclick="pageClick(this)">
+        <div onclick="pageClick(this)" datasrc="adminlose.jsp">
             <img src="img/icon-2.png" />失物招领模块管理
         </div>
-        <div onclick="pageClick(this)">
+        <div onclick="pageClick(this)" datasrc="adminexam.jsp">
             <img src="img/icon-4.png" />学科竞赛信息管理
         </div>
-        <div onclick="pageClick(this)">
+        <div onclick="pageClick(this)" datasrc="adminnews.jsp">
             <img src="img/icon-5.png" />新闻咨询信息管理
         </div>
-        <div onclick="pageClick(this)">
+        <div onclick="pageClick(this)" datasrc="adminuser.jsp">
             <img src="img/icon-3.png" />个人信息管理
+        </div>
+        <div onclick="pageClick(this)" datasrc="admin.jsp">
+            <img src="img/icon-3.png" />用户管理
         </div>
     </div>
 </div>
@@ -57,10 +60,21 @@
     </div>
 </div>
 
-<div class="content">
 
-    HELLO WORD
+<!-- 右侧内容 -->
+<div class="content">
+    <iframe frameborder="0" scrolling="yes" style="width:80%;height:100%" src="adminsecondhand.jsp" id="aa"></iframe>
 </div>
+
+
+<script>
+    $(function(){
+        $(".lines div").on("click",function(){
+            var address =$(this).attr("datasrc");
+            $("iframe").attr("src",address);
+        });
+    });
+</script>
 
 
 </body>
