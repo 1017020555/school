@@ -27,7 +27,8 @@
 					<a >二手交易</a>
 				</li>
 				<li>
-					<a href="${pageContext.request.contextPath}/lose/getMessage">失物招领</a>
+<%--					<a href="${pageContext.request.contextPath}/lose/getMessage">失物招领</a>--%>
+						<a href="lose.jsp">失物招领</a>
 				</li>
 				<li>
 					<a>学科竞赛</a>

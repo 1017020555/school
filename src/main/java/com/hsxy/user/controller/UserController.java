@@ -38,7 +38,6 @@ public class UserController {
             session.setAttribute("user1",user1);
             return "redirect:/admin/index.jsp";
         }
-
         return "redirect:/index.jsp";
     }
 
