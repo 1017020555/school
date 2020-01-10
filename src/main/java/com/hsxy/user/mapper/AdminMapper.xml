@@ -8,6 +8,9 @@
     <select id="xy" resultType="java.lang.String">
         select distinct(xueyuan) from user;
     </select>
+    <select id="user" resultType="com.hsxy.user.pojo.User">
+        select * from user
+    </select>
 </mapper>
 
 

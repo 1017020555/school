@@ -1,6 +1,9 @@
 package com.hsxy.user.service;
 
+import com.github.pagehelper.PageHelper;
+import com.github.pagehelper.PageInfo;
 import com.hsxy.user.mapper.AdminMapper;
+import com.hsxy.user.pojo.Params;
 import com.hsxy.user.pojo.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -16,4 +19,11 @@ public class AdminService {
     public List xy() {
       return adminMapper.xy();
     }
+
+
+    public List<User> user() {
+
+        return adminMapper.user();
+    }
+
 }

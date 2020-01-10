@@ -25,18 +25,18 @@
     <tr>
         <td>学号</td>
         <td>
-            <input type="text" value="${user1.username}">
+            <input id="username" name="username" type="text" value="${user1.username}">
         </td>
     </tr>
     <tr>
         <td>密码</td>
         <td>
-            <input type="text" value="${user1.password}">
+            <input id="password" name="password" type="text" value="${user1.password}">
         </td>
     </tr>
     <tr>
         <td>姓名</td>
-        <td><input type="text" value="${user1.name}"></td>
+        <td><input id="name" name="name" type="text" value="${user1.name}"></td>
     </tr>
     <tr>
         <td>性别</td>
@@ -54,13 +54,13 @@
     <tr>
         <td>Email</td>
         <td>
-            <input type="text" value="${user1.email}">
+            <input id="email" name="email" type="email" value="${user1.email}">
         </td>
     </tr>
     <tr>
         <td>电话</td>
         <td>
-            <input type="text" value="${user1.phone}">
+            <input id="phone" name="phone" type="tel" value="${user1.phone}">
         </td>
     </tr>
     <tr>
@@ -68,7 +68,7 @@
         <td>
             <select class="form-control" style="width: 200px;margin-left: 370px;">
                 <c:forEach items="${list}" var="l">
-                        <option
+                        <option name="xueyuan" id="xueyuan"
                                 <c:if test="${user1.xueyuan==l}">selected</c:if>
                         >${l}
                         </option>
@@ -78,10 +78,35 @@
     </tr>
     <tr>
         <td colspan="2">
-            <input type="button" value="修改">
+            <input type="button" onclick="change()" value="修改" id="change">
         </td>
     </tr>
 </table>
+<script type="text/javascript">
+    $(function () {
 
+        function change() {
+            $.ajax({
+                url:"${pageContext.request.contextPath}/admin/modify",
+                method:"get",
+                data:{
+                    "username":$("#username").val() ,
+                    "password":$("#password").val(),
+                    "name":$("#name").val(),
+                    "gender": $("input[name=gender]:checked").val(),
+                    "email":$("#email").val(),
+                    "phone":$("#phone").val(),
+                    "xueyuan":$("#xueyuan").val()
+                },
+                success:function (msg) {
+                    if(msg=="success") {
+                        alert("修改成功,请重新登陆！");
+                    }
+                }
+            });
+        }
+
+    });
+</script>
 </body>
 </html>

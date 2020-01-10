@@ -40,7 +40,7 @@
         <div onclick="pageClick(this)" datasrc="${pageContext.request.contextPath}/admin/xy">
             <img src="img/icon-3.png" />个人信息管理
         </div>
-        <div onclick="pageClick(this)" datasrc="admin.jsp">
+        <div onclick="pageClick(this)" datasrc="${pageContext.request.contextPath}/admin/user">
             <img src="img/icon-3.png" />用户管理
         </div>
     </div>

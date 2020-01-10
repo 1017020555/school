@@ -6,6 +6,7 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
 <head>
     <title>admin</title>
@@ -16,7 +17,14 @@
     <script src="js/bootstrap.min.js"></script>
 
     <link rel="stylesheet" href="css/admin.css">
-
+    <script type="text/javascript">
+        $(function () {
+            $.ajax({
+                url:"${pageContext.request.contextPath}/admin/xy",
+                type:"get"
+            });
+        });
+    </script>
 </head>
 <body>
     <div id="h1">
@@ -30,15 +38,14 @@
                 <td><label>院系:</label></td>
             </tr>
             <tr>
-                <td><input class="form-control" type="text"></td>
-                <td><input class="form-control" type="text"></td>
+                <td><input id="name" class="form-control" type="text"></td>
+                <td><input id="username" class="form-control" type="text"></td>
                 <td>
                     <select class="form-control">
-                        <option>1</option>
-                        <option>2</option>
-                        <option>3</option>
-                        <option>4</option>
-                        <option>5</option>
+                        <c:forEach items="${list}" var="l">
+                            <option name="xueyuan" id="xueyuan">${l}
+                            </option>
+                        </c:forEach>
                     </select>
                 </td>
                 <td>
@@ -62,39 +69,55 @@
                 <td colspan="2">操作</td>
             </tr>
 
-            <tr>
-                <td><input type="checkbox"></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td>编辑</td>
-                <td>删除</td>
-            </tr>
+
+            <c:forEach items="${users}" var="l">
+                <tr>
+                    <td><input type="checkbox"></td>
+                    <td>${l.username}</td>
+                    <td>${l.password}</td>
+                    <td>${l.name}</td>
+                    <td>${l.gender}</td>
+                    <td>${l.email}</td>
+                    <td>${l.phone}</td>
+                    <td>${l.xueyuan}</td>
+                    <td>编辑</td>
+                    <td>删除</td>
+                </tr>
+            </c:forEach>
         </table>
 
-        <nav aria-label="Page navigation">
+        <nav aria-label="Page navigation" style="margin-left: 300px;">
             <ul class="pagination">
-                <li>
-                    <a href="#" aria-label="Previous">
-                        <span aria-hidden="true">&laquo;</span>
-                    </a>
-                </li>
-                <li><a href="#">1</a></li>
-                <li><a href="#">2</a></li>
-                <li><a href="#">3</a></li>
-                <li><a href="#">4</a></li>
-                <li><a href="#">5</a></li>
-                <li>
-                    <a href="#" aria-label="Next">
-                        <span aria-hidden="true">&raquo;</span>
-                    </a>
-                </li>
+
+                <c:if test="${pageInfo.hasPreviousPage  }">
+                    <li>
+                        <a href="${pageContext.request.contextPath}/admin/user?pageNum=${pageInfo.pageNum-1}" aria-label="Previous">
+                            <span aria-hidden="true">&laquo;</span>
+                        </a>
+                    </li>
+                </c:if>
+
+                <c:forEach items="${pageInfo.navigatepageNums  }" var="page">
+                    <c:if test="${page==pageInfo.pageNum }">
+                        <li class="active"><a href="${pageContext.request.contextPath}/admin/user?pageNum=${page}">${page}</a></li>
+                    </c:if>
+                    <c:if test="${page!=pageInfo.pageNum }">
+                        <li><a href="${pageContext.request.contextPath}/admin/user?pageNum=${page}">${page}</a></li>
+                    </c:if>
+                </c:forEach>
+
+                <c:if test="${pageInfo.hasNextPage }">
+                    <li>
+                        <a href="${pageContext.request.contextPath}/admin/user?pageNum=${pageInfo.pageNum+1 }" aria-label="Next">
+                            <span aria-hidden="true">&raquo;</span>
+                        </a>
+                    </li>
+                </c:if>
+
             </ul>
         </nav>
+
+        当前${pageInfo.pageNum }页，总共${pageInfo.pages }页，总共${pageInfo.total }条记录
 
     </div>
 

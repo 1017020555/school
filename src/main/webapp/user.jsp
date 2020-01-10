@@ -56,7 +56,7 @@
         <div>
             <input type="text" style="width: 210px;margin-left: 564px;margin-top: -200px;"
                    placeholder="请输入验证码..." maxlength="4" autocomplete="off" name="path" id="path" class="form-control">
-            <img name="code" style="margin-left: 800px;margin-top: -50px;" id="code"
+            <img name="code" style="margin-left: 800px;margin-top: -350px;" id="code"
                  src="${pageContext.request.contextPath}/user/getCode?time='+new Date()'">
         </div>
     </div>
