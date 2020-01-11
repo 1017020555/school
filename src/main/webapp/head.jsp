@@ -31,7 +31,7 @@
 						<a href="lose.jsp">失物招领</a>
 				</li>
 				<li>
-					<a>学科竞赛</a>
+						<a href="exam.jsp">学科竞赛</a>
 				</li>
 				<li>
 					<a>新闻资讯</a>

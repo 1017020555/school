@@ -19,20 +19,29 @@
 <body>
     <jsp:include page="head.jsp"></jsp:include>
 
-    <div style="margin-left: 170px;margin-top:50px;width: 200px;">
+    <div id="d1" style="margin-left: 170px;margin-top:50px;width: 200px;">
         <ul class="nav nav-pills nav-stacked">
             <li role="presentation" class="active"><a href="#">用户中心</a></li>
-            <li role="presentation"><a href="#">个人资料</a></li>
-            <li role="presentation"><a href="#">修改密码</a></li>
-            <li role="presentation"><a href="#">发布失物申请</a></li>
-            <li role="presentation"><a href="#">发布二手申请</a></li>
+            <li role="presentation"><a href="#" class="studentmessage.jsp">个人资料</a></li>
+            <li role="presentation"><a href="#" class="studentpass.jsp">修改密码</a></li>
+            <li role="presentation"><a href="#" class="usermessagelose.jsp">发布失物申请</a></li>
+            <li role="presentation"><a href="#" class="usermessagesecond.jsp">发布二手申请</a></li>
             <li role="presentation"><a href="#">安全退出</a></li>
         </ul>
     </div>
 
     <div style="margin-left: 550px;margin-top:-300px;width: 600px;">
-
-        <iframe frameborder="0" scrolling="yes" style="width:100%;height:100%" src="usermessagelose.jsp"></iframe>
+        <iframe frameborder="0" scrolling="yes" style="width:100%;height:100%" src="studentmessage.jsp"></iframe>
     </div>
+
+    <script>
+        $(function(){
+            $("#d1 a").on("click",function(){
+                var address =$(this).attr("class");
+                $("iframe").attr("src",address);
+            });
+        });
+    </script>
+
 </body>
 </html>

@@ -21,28 +21,30 @@
 
     <ul class="nav nav-pills nav-stacked">
         <li role="presentation" class="active">
-            <a href="#">Home</a>
+            <a href="#">新增失物招领：</a>
         </li>
 
-        物品名称：goodname
-        <input class="form-control" style="width: 100px;">
-        捡到时间：goodfindtime
-        <input class="form-control" style="width: 100px;">
-        捡到地点：place
-        <input class="form-control" style="width: 100px;">
-        所属类型：typename
-        <select class="form-control" style="width: 200px;margin-left: 370px;">
+        <label>物品名称：goodname</label>
+        <input type="text" class="form-control" style="width: 300px;">
+        <label>捡到时间：goodfindtime</label>
+        <input type="date" class="form-control" style="width: 300px;">
+            <label>捡到地点：place</label>
+        <input class="form-control" style="width: 300px;">
+            <label>所属类型：typename</label>
+
+        <select class="form-control" style="width: 200px;">
             <%--                <c:forEach items="${list}" var="l">--%>
             <option name="xueyuan" id="xueyuan"
-            <%--                            <c:if test="${user1.xueyuan==l}">selected</c:if>--%>
             >${l}
             </option>
             <%--                </c:forEach>--%>
         </select>
-        物品描述：applyexplain
-        <input class="form-control" style="width: 100px;">
-        图片：picture
-        <input class="form-control" style="width: 100px;">
+
+            <label>物品描述：applyexplain</label>
+        <textarea style="width: 400px;height: 200px" class="form-control"></textarea>
+
+        <label> 图片：picture</label>
+        <input type="file" class="form-control" >
 
     </ul>
 
