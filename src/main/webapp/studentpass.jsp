@@ -23,10 +23,10 @@
                 <a href="javascript:void(0)">修改密码：</a>
             </li>
             <li class="list-group-item">
-                新密码：<input type="text" readonly="readonly" class="form-control">
+                新密码：<input type="text" class="form-control">
             </li>
             <li class="list-group-item">
-                确认新密码：<input type="text" readonly="readonly" class="form-control">
+                确认新密码：<input type="text" class="form-control">
             </li>
             <li class="list-group-item">
                 --->> <input type="submit" value="修改" class="form-control">
