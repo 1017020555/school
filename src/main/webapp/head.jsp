@@ -21,7 +21,7 @@
 		<div id="banner">
 			<ul id="lists">
 				<li>
-					<a href="head.jsp">首页</a>
+					<a href="index.jsp">首页</a>
 				</li>
 				<li>
 					<a >二手交易</a>
@@ -34,10 +34,10 @@
 						<a href="exam.jsp">学科竞赛</a>
 				</li>
 				<li>
-					<a>新闻资讯</a>
+					    <a href="news.jsp">新闻资讯</a>
 				</li>
 				<li>
-					<a href="user.jsp">用户中心</a>
+					    <a href="user.jsp">用户中心</a>
 				</li>
 			</ul>
 		</div>
