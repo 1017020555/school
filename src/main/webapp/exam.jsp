@@ -21,6 +21,28 @@
 <jsp:include page="head.jsp"></jsp:include>
 
 
+<div style="width: 300px;margin-left: 140px;margin-top: 50px;">
+    <ul class="nav nav-pills nav-stacked">
+        <li role="presentation" class="active"><a href="#">各院系竞赛信息：</a></li>
+        <li role="presentation"><a href="#">Profile</a></li>
+        <li role="presentation"><a href="#">Messages</a></li>
+        <li role="presentation"><a href="#">Profile</a></li>
+        <li role="presentation"><a href="#">Messages</a></li>
+        <li role="presentation"><a href="#">Profile</a></li>
+        <li role="presentation"><a href="#">Messages</a></li>
+    </ul>
+</div>
+
+<div style="width: 600px;margin-left: 570px;margin-top: -296px;">
+    <ul class="nav nav-pills nav-stacked">
+        <li role="presentation" class="active"><a href="#">文章内容：</a></li>
+
+        <span>title</span>
+        <span>context</span>
+
+    </ul>
+</div>
+
 
 </body>
 </html>

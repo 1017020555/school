@@ -99,17 +99,40 @@
                     <span class="badge" style="margin-right: 0px;">更多》</span>
                 </a>
             </li>
-
-            <div style="width: 200px;height: 200px;">
-
-                <img src="img/one.jpg" alt="is" class="img-thumbnail">
-            </div>
+            <li style="width: 200px;height: 120px;float: left;">
+                <div >
+                     <img src="img/one.jpg" alt="is" class="img-thumbnail">
+                    <span>name</span><br>
+                    <span>price</span>
+                </div>
+            </li>
+            <li style="width: 200px;height: 120px;float: left;">
+                <div >
+                    <img src="img/one.jpg" alt="is" class="img-thumbnail">
+                    <span>name</span><br>
+                    <span>price</span>
+                </div>
+            </li>
+            <li style="width: 200px;height: 120px;float: left;">
+                <div >
+                    <img src="img/one.jpg" alt="is" class="img-thumbnail">
+                    <span>name</span><br>
+                    <span>price</span>
+                </div>
+            </li>
+            <li style="width: 200px;height: 120px;float: left;">
+                <div >
+                    <img src="img/one.jpg" alt="is" class="img-thumbnail">
+                    <span>name</span><br>
+                    <span>price</span>
+                </div>
+            </li>
 
         </ul>
     </div>
 
 
-    <div id="d2" style="margin-left: 850px;margin-top:-250px;width: 300px;">
+    <div id="d2" style="margin-left: 850px;margin-top:-290px;width: 300px;">
         <ul class="nav nav-pills nav-stacked">
             <li role="presentation" class="active">
                 <a href="#">学科竞赛：
