@@ -100,11 +100,10 @@
                 </a>
             </li>
 
-            <li role="presentation"><a href="#" class="studentmessage.jsp">个人资料</a></li>
-            <li role="presentation"><a href="#" class="studentmessage.jsp">个人资料</a></li>
-            <li role="presentation"><a href="#" class="studentmessage.jsp">个人资料</a></li>
-            <li role="presentation"><a href="#" class="studentmessage.jsp">个人资料</a></li>
-            <li role="presentation"><a href="#" class="studentmessage.jsp">个人资料</a></li>
+            <div style="width: 200px;height: 200px;">
+
+                <img src="img/one.jpg" alt="is" class="img-thumbnail">
+            </div>
 
         </ul>
     </div>
