@@ -72,7 +72,10 @@
 
             <c:forEach items="${users}" var="l">
                 <tr>
-                    <td><input type="checkbox"></td>
+                    <td>
+                        1
+                        <input type="checkbox">
+                    </td>
                     <td>${l.username}</td>
                     <td>${l.password}</td>
                     <td>${l.name}</td>
