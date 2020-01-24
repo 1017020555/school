@@ -11,6 +11,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import java.io.IOException;
+import java.io.PrintWriter;
 
 @Controller
 @RequestMapping("/user")
@@ -24,9 +26,24 @@ public class UserController {
         code.getCode(request, response);
     }
 
+    //用户中心-修改密码
+    @RequestMapping(value = "/changepass",method = RequestMethod.POST)
+    public String changepass(HttpServletResponse response,String p1,String p2) throws IOException {
+        PrintWriter out = response.getWriter();
+        if (p1!=p2){
+            out.print(false);
+        }else {
+            out.print(true);
+        }
+
+        out.flush();
+        out.close();
+        return "";
+    }
     @RequestMapping(value = "/load",method = RequestMethod.GET)
     public String login(HttpSession session, User user, String path){
         String code=(String) session.getAttribute("validateCode");
+
         User user1=userService.up(user);
 
         if ((path.equals(code)) && (user1!=null) && (user1.getManager()==1)){

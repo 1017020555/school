@@ -37,7 +37,7 @@
 					    <a href="news.jsp">新闻资讯</a>
 				</li>
 				<li>
-					    <a href="user.jsp">用户中心</a>
+					    <a href="usermessage.jsp">用户中心</a>
 				</li>
 			</ul>
 		</div>
@@ -47,6 +47,8 @@
 			<span style="font-size:25px;color:#e38d13;font-weight: bold;">
 				${user1.name}
 			</span>
+			<button type="button" class="btn btn-warning"
+					onclick="window.location.href='user.jsp'">登陆</button>
 			<button type="button" class="btn btn-warning"
 					onclick="window.location.href='${pageContext.request.contextPath}/user/unload'">登出</button>
 		</div>

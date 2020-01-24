@@ -8,8 +8,18 @@ public class User {
     private Integer gender;
     private String email;
     private String phone;
-    private String xueyuan;
     private Integer manager;
+
+    private Integer departmentid;
+
+    public Integer getDepartmentid() {
+        return departmentid;
+    }
+
+    public void setDepartmentid(Integer departmentid) {
+        this.departmentid = departmentid;
+    }
+
 
     public Integer getManager() {
         return manager;
@@ -19,13 +29,7 @@ public class User {
         this.manager = manager;
     }
 
-    public String getXueyuan() {
-        return xueyuan;
-    }
 
-    public void setXueyuan(String xueyuan) {
-        this.xueyuan = xueyuan;
-    }
 
     public Integer getId() {
         return id;
@@ -86,15 +90,15 @@ public class User {
     public User() {
     }
 
-    public User(String username, String password, String name, Integer gender, String email, String phone, String xueyuan, Integer manager) {
+    public User(String username, String password, String name, Integer gender, String email, String phone, Integer manager, Integer departmentid) {
         this.username = username;
         this.password = password;
         this.name = name;
         this.gender = gender;
         this.email = email;
         this.phone = phone;
-        this.xueyuan = xueyuan;
         this.manager = manager;
+        this.departmentid = departmentid;
     }
 
     @Override
@@ -107,8 +111,8 @@ public class User {
                 ", gender=" + gender +
                 ", email='" + email + '\'' +
                 ", phone='" + phone + '\'' +
-                ", xueyuan='" + xueyuan + '\'' +
                 ", manager=" + manager +
+                ", departmentid=" + departmentid +
                 '}';
     }
 }
