@@ -8,6 +8,9 @@
     <select id="up" resultType="com.hsxy.user.pojo.User">
         select * from USER where username=#{username} and password=#{password}
     </select>
+    <update id="changepass">
+        update user set password=#{password} where id=#{id}
+    </update>
 </mapper>
 
 

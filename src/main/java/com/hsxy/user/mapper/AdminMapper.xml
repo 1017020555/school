@@ -6,7 +6,7 @@
 <mapper namespace="com.hsxy.user.mapper.AdminMapper">
 
     <select id="xy" resultType="java.lang.String">
-        select distinct(departmentname) from department
+        select distinct(departmentid) from user
     </select>
 
     <select id="user" resultType="com.hsxy.user.pojo.User">

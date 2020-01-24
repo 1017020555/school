@@ -82,7 +82,7 @@
                     <td>${l.gender}</td>
                     <td>${l.email}</td>
                     <td>${l.phone}</td>
-                    <td>${l.xueyuan}</td>
+                    <td>${l.departmentid}</td>
                     <td>编辑</td>
                     <td>删除</td>
                 </tr>

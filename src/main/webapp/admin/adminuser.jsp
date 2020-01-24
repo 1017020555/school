@@ -68,9 +68,10 @@
         <td>
             <select class="form-control" style="width: 200px;margin-left: 370px;">
                 <c:forEach items="${list}" var="l">
-                        <option name="xueyuan" id="xueyuan"
-                                <c:if test="${user1.xueyuan==l}">selected</c:if>
-                        >${l}
+                        <option name="departmentid" id="departmentid"
+                                <c:if test="${user1.departmentid==l}">selected</c:if>
+                        >
+                            ${l}
                         </option>
                 </c:forEach>
             </select>
@@ -96,7 +97,7 @@
                     "gender": $("input[name=gender]:checked").val(),
                     "email":$("#email").val(),
                     "phone":$("#phone").val(),
-                    "xueyuan":$("#xueyuan").val()
+                    "departmentid":$("#departmentid").val()
                 },
                 success:function (msg) {
                     if(msg=="success") {

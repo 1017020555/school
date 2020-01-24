@@ -28,17 +28,15 @@ public class UserController {
 
     //用户中心-修改密码
     @RequestMapping(value = "/changepass",method = RequestMethod.POST)
-    public String changepass(HttpServletResponse response,String p1,String p2) throws IOException {
-        PrintWriter out = response.getWriter();
-        if (p1!=p2){
-            out.print(false);
-        }else {
-            out.print(true);
+    public String changepass(String p2,HttpSession session){
+        User user1 = (User) session.getAttribute("user1");
+        Integer id = user1.getId();
+        Integer i= userService.changepass(id,p2);
+        if (i>=0){
+            session.removeAttribute("user1");
+            session.invalidate();
         }
-
-        out.flush();
-        out.close();
-        return "";
+        return "redirect:/studentpass.jsp";
     }
     @RequestMapping(value = "/load",method = RequestMethod.GET)
     public String login(HttpSession session, User user, String path){

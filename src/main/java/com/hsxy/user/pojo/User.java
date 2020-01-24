@@ -10,13 +10,13 @@ public class User {
     private String phone;
     private Integer manager;
 
-    private Integer departmentid;
+    private String departmentid;
 
-    public Integer getDepartmentid() {
+    public String getDepartmentid() {
         return departmentid;
     }
 
-    public void setDepartmentid(Integer departmentid) {
+    public void setDepartmentid(String departmentid) {
         this.departmentid = departmentid;
     }
 
@@ -90,7 +90,7 @@ public class User {
     public User() {
     }
 
-    public User(String username, String password, String name, Integer gender, String email, String phone, Integer manager, Integer departmentid) {
+    public User(String username, String password, String name, Integer gender, String email, String phone, Integer manager, String departmentid) {
         this.username = username;
         this.password = password;
         this.name = name;

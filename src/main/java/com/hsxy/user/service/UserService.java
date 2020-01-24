@@ -15,4 +15,9 @@ public class UserService {
     public User up(User user) {
         return userMapper.up(user);
     }
+
+    public Integer changepass(Integer id, String p2) {
+        String password=p2;
+        return userMapper.changepass(id,password);
+    }
 }
