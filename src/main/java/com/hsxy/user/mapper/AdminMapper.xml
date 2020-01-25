@@ -16,6 +16,9 @@
     <select id="user" resultType="com.hsxy.user.pojo.User">
         select * from user
     </select>
+    <select id="look" resultType="com.hsxy.user.pojo.User">
+        select * from user where name=#{name} and username=#{username}
+    </select>
 </mapper>
 
 

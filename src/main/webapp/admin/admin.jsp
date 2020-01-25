@@ -17,42 +17,28 @@
     <script src="js/bootstrap.min.js"></script>
 
     <link rel="stylesheet" href="css/admin.css">
-    <script type="text/javascript">
-        $(function () {
-            $.ajax({
-                url:"${pageContext.request.contextPath}/admin/xy",
-                type:"get"
-            });
-        });
-    </script>
+
 </head>
 <body>
     <div id="h1">
-        <table>
-            <tr>
-                <td>查询用户:</td>
-            </tr>
-            <tr>
-                <td><label>姓名：</label></td>
-                <td><label>学号：</label></td>
-                <td><label>院系:</label></td>
-            </tr>
-            <tr>
-                <td><input id="name" class="form-control" type="text"></td>
-                <td><input id="username" class="form-control" type="text"></td>
-                <td>
-                    <select class="form-control">
-                        <c:forEach items="${list}" var="l">
-                            <option name="xueyuan" id="xueyuan">${l}
-                            </option>
-                        </c:forEach>
-                    </select>
-                </td>
-                <td>
-                    <button type="button" class="btn btn-info">查询</button>
-                </td>
-            </tr>
-        </table>
+        <form method="get" action="${pageContext.request.contextPath}/admin/look">
+            <table>
+                <tr>
+                    <td>查询用户:</td>
+                </tr>
+                <tr>
+                    <td><label>姓名：</label></td>
+                    <td><label>学号：</label></td>
+                </tr>
+                <tr>
+                    <td><input id="name" name="name" class="form-control" type="text"></td>
+                    <td><input id="username" name="username" class="form-control" type="text"></td>
+                    <td>
+                        <button type="submit" class="btn btn-info">查询</button>
+                    </td>
+                </tr>
+            </table>
+        </form>
     </div>
 
     <div id="h2">

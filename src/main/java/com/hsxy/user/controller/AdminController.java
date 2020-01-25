@@ -22,19 +22,10 @@ public class AdminController {
     @Autowired
     private AdminService adminService;;
 
-    @RequestMapping("/xy")
-    public ModelAndView xy(){
-        ModelAndView mv=new ModelAndView();
-        List list= adminService.xy();
-        mv.setViewName("admin/adminuser");
-        mv.addObject("list",list);
-        return mv;
-    }
+    //个人信息管理--修改个人信息
     @RequestMapping(value = "/modify",method = RequestMethod.POST)
     public String modify(User user, HttpSession session){
         User user1 =(User)session.getAttribute("user1");
-
-        System.out.println(user);
 
         Boolean b= adminService.modify(user,user1.getId());
         if (b){
@@ -45,6 +36,7 @@ public class AdminController {
         return "admin/adminuser";
     }
 
+//    用户管理--查出所有用户
     @RequestMapping("/user")
     public ModelAndView user(
             @RequestParam(required=true,value="pageNum",defaultValue="1") Integer pageNum,
@@ -59,6 +51,18 @@ public class AdminController {
         mv.addObject("users",users);
         mv.setViewName("admin/admin");
         mv.addObject("pageInfo",pageInfo);
+        return mv;
+    }
+
+//    用户管理--查询具体的用户
+    @RequestMapping("/look")
+    public ModelAndView look(String name,String username){
+        ModelAndView mv=new ModelAndView();
+
+        List<User> users= adminService.look(name,username);
+
+        mv.addObject("users",users);
+        mv.setViewName("admin/admin");
         return mv;
     }
 }

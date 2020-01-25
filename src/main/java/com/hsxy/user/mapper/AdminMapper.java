@@ -16,4 +16,6 @@ public interface AdminMapper {
 
     Integer modify(@Param("user") User user, @Param("id") Integer id);
 
+    List<User> look(String name, String username);
+
 }

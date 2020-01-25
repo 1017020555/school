@@ -34,4 +34,8 @@ public class AdminService {
             return false;
         }
     }
+
+    public List<User> look(String name, String username) {
+        return adminMapper.look(name,username);
+    }
 }
