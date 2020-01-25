@@ -12,6 +12,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
+
+import javax.servlet.http.HttpSession;
 import java.util.List;
 
 @Controller
@@ -28,10 +30,19 @@ public class AdminController {
         mv.addObject("list",list);
         return mv;
     }
-    @RequestMapping(value = "/modify")
-    public String modify(User user){
+    @RequestMapping(value = "/modify",method = RequestMethod.POST)
+    public String modify(User user, HttpSession session){
+        User user1 =(User)session.getAttribute("user1");
+
         System.out.println(user);
-        return "success";
+
+        Boolean b= adminService.modify(user,user1.getId());
+        if (b){
+            session.removeAttribute("user1");
+            session.invalidate();
+           return "admin/adminuser";
+        }
+        return "admin/adminuser";
     }
 
     @RequestMapping("/user")

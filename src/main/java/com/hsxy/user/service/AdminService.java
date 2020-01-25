@@ -26,4 +26,12 @@ public class AdminService {
         return adminMapper.user();
     }
 
+    public Boolean modify(User user, Integer id) {
+        Integer i= adminMapper.modify(user,id);
+        if (i>0){
+          return true;
+        }else {
+            return false;
+        }
+    }
 }

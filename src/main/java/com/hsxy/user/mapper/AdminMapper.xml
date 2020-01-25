@@ -5,6 +5,10 @@
 
 <mapper namespace="com.hsxy.user.mapper.AdminMapper">
 
+    <update id="modify" parameterType="com.hsxy.user.pojo.User">
+        update user set username=#{user.username},password=#{user.password},name=#{user.name},
+        gender=#{user.gender},email=#{user.email},phone=#{user.phone},departmentid=#{user.departmentid} where id=#{id}
+    </update>
     <select id="xy" resultType="java.lang.String">
         select distinct(departmentid) from user
     </select>
