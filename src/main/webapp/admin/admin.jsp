@@ -69,7 +69,10 @@
                     <td>${l.email}</td>
                     <td>${l.phone}</td>
                     <td>${l.departmentid}</td>
-                    <td>编辑</td>
+                    <td>
+
+                        编辑
+                    </td>
                     <td>删除</td>
                 </tr>
             </c:forEach>
