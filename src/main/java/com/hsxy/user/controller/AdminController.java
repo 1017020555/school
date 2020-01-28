@@ -13,7 +13,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
-
 import javax.servlet.http.HttpSession;
 import java.util.List;
 
@@ -23,19 +22,27 @@ public class AdminController {
     @Autowired
     private AdminService adminService;;
 
+//    个人信息管理--点击进入
+   @RequestMapping(value = "/adminuser")
+   public ModelAndView adminuser(){
+       ModelAndView mv=new ModelAndView();
+       List xy = adminService.xy();
+       mv.addObject("list",xy);
+       mv.setViewName("admin/adminuser");
+       return mv;
+   }
     //个人信息管理--修改个人信息
     @RequestMapping(value = "/modify",method = RequestMethod.POST)
     public String modify(User user, HttpSession session){
         User user1 =(User)session.getAttribute("user1");
-
         Boolean b= adminService.modify(user,user1.getId());
         if (b){
             session.removeAttribute("user1");
             session.invalidate();
-           return "admin/adminuser";
         }
         return "admin/adminuser";
     }
+
 
 //    用户管理--查出所有用户
     @RequestMapping("/user")
@@ -49,12 +56,14 @@ public class AdminController {
         List<User> users = adminService.user();
         PageInfo<User> pageInfo=new PageInfo<>(users);
 
+        List xy = adminService.xy();
+        mv.addObject("list",xy);
+
         mv.addObject("users",users);
         mv.setViewName("admin/admin");
         mv.addObject("pageInfo",pageInfo);
         return mv;
     }
-
 //    用户管理--查询具体的用户
     @RequestMapping("/look")
     public ModelAndView look(String name,String username){
@@ -66,8 +75,6 @@ public class AdminController {
         mv.setViewName("admin/admin");
         return mv;
     }
-
-
 //用户管理--编辑某一个用户信息(查询)
     @RequestMapping("/adminmessagechange/{id}")
     public ModelAndView adminmessagechange(@PathVariable(value = "id") Integer id){
@@ -89,6 +96,11 @@ public class AdminController {
         }
         return mv;
     }
-
+//用户管理--删除某一用户
+@RequestMapping("/admindelete/{id}")
+    public String admindelete(@PathVariable(value = "id") Integer id){
+        adminService.admindelete(id);
+        return "redirect:/admin/user";
+    }
 
 }

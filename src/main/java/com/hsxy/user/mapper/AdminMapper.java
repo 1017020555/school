@@ -22,4 +22,6 @@ public interface AdminMapper {
 
     Integer adminmessagechange2(@Param("user") User user);
 
+    void admindelete(@Param("id") Integer id);
+
 }

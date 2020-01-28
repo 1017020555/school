@@ -72,15 +72,18 @@
                     <td>
                         <a href="${pageContext.request.contextPath}/admin/adminmessagechange/${l.id}">编辑</a>
                     </td>
-                    <td>删除</td>
+                    <td>
+                        <a href="${pageContext.request.contextPath}/admin/admindelete/${l.id}">删除</a>
+                    </td>
                 </tr>
             </c:forEach>
+
         </table>
 
         <nav aria-label="Page navigation" style="margin-left: 300px;">
             <ul class="pagination">
 
-                <c:if test="${pageInfo.hasPreviousPage  }">
+                <c:if test="${pageInfo.hasPreviousPage}">
                     <li>
                         <a href="${pageContext.request.contextPath}/admin/user?pageNum=${pageInfo.pageNum-1}" aria-label="Previous">
                             <span aria-hidden="true">&laquo;</span>

@@ -29,6 +29,9 @@
         gender=#{user.gender},email=#{user.email},phone=#{user.phone},departmentid=#{user.departmentid} where id=#{user.id}
     </update>
 
-</mapper>
+    <delete id="admindelete" parameterType="java.lang.Integer">
+        delete from user where id=#{id}
+    </delete>
 
+</mapper>
 

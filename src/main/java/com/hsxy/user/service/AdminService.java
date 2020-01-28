@@ -20,7 +20,6 @@ public class AdminService {
       return adminMapper.xy();
     }
 
-
     public List<User> user() {
 
         return adminMapper.user();
@@ -45,5 +44,9 @@ public class AdminService {
 
     public Integer adminmessagechange2(User user) {
         return adminMapper.adminmessagechange2(user);
+    }
+
+    public void admindelete(Integer id) {
+        adminMapper.admindelete(id);
     }
 }

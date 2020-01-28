@@ -36,6 +36,10 @@
         <label style="margin-left: 100px;">新闻标题</label><input type="text" class="form-control" placeholder="请输入文章标题：">
         <label>新闻发布时间</label><input type="date" class="form-control">
         <button type="button" class="form-control" >查询</button>
+
+        <input type="button" class="form-control" value="点击发布新闻！"
+               onclick="window.location.href='${pageContext.request.contextPath}/news/fb'">
+
     </div>
     <br>
     <div>
