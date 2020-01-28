@@ -70,8 +70,7 @@
                     <td>${l.phone}</td>
                     <td>${l.departmentid}</td>
                     <td>
-
-                        编辑
+                        <a href="${pageContext.request.contextPath}/admin/adminmessagechange/${l.id}">编辑</a>
                     </td>
                     <td>删除</td>
                 </tr>

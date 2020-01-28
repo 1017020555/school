@@ -38,4 +38,12 @@ public class AdminService {
     public List<User> look(String name, String username) {
         return adminMapper.look(name,username);
     }
+
+    public User adminmessagechange(Integer id) {
+        return adminMapper.adminmessagechange(id);
+    }
+
+    public Integer adminmessagechange2(User user) {
+        return adminMapper.adminmessagechange2(user);
+    }
 }

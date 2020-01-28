@@ -19,6 +19,16 @@
     <select id="look" resultType="com.hsxy.user.pojo.User">
         select * from user where name=#{name} and username=#{username}
     </select>
+
+    <select id="adminmessagechange" resultType="com.hsxy.user.pojo.User">
+        select * from user where id=#{id}
+    </select>
+
+    <update id="adminmessagechange2" parameterType="com.hsxy.user.pojo.User">
+         update user set username=#{user.username},password=#{user.password},name=#{user.name},
+        gender=#{user.gender},email=#{user.email},phone=#{user.phone},departmentid=#{user.departmentid} where id=#{user.id}
+    </update>
+
 </mapper>
 
 

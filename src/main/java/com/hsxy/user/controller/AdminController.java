@@ -8,6 +8,7 @@ import com.hsxy.user.pojo.User;
 import com.hsxy.user.service.AdminService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -65,4 +66,29 @@ public class AdminController {
         mv.setViewName("admin/admin");
         return mv;
     }
+
+
+//用户管理--编辑某一个用户信息(查询)
+    @RequestMapping("/adminmessagechange/{id}")
+    public ModelAndView adminmessagechange(@PathVariable(value = "id") Integer id){
+        ModelAndView mv=new ModelAndView();
+        User user=adminService.adminmessagechange(id);
+        List xy = adminService.xy();
+        mv.setViewName("admin/adminmessagechange");
+        mv.addObject("user",user);
+        mv.addObject("list",xy);
+        return mv;
+    }
+//用户管理--编辑某一个用户信息（修改）
+    @RequestMapping("/adminmessagechange2")
+    public ModelAndView adminmessagechange2(User user){
+        ModelAndView mv=new ModelAndView();
+        Integer i=adminService.adminmessagechange2(user);
+        if (i>0){
+            mv.setViewName("admin/admin");
+        }
+        return mv;
+    }
+
+
 }
