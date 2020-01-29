@@ -14,7 +14,7 @@ public class NewsController {
     @RequestMapping("/fb")
     public String fb(){
 
-        return "";
+        return "admin/adminnewsadd";
     }
 
 }
