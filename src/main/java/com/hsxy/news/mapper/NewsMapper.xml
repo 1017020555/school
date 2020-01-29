@@ -8,6 +8,9 @@
     <select id="fb" resultType="java.lang.String">
         select name from newtype
     </select>
-
+    <insert id="upload">
+        insert into news(title,context,time,userid,newstypeid,file)
+          values(#{title},#{context},#{time},#{userid},#{newstypeid},#{file})
+    </insert>
 </mapper>
 

@@ -2,6 +2,7 @@ package com.hsxy.news.controller;
 import com.hsxy.news.pojo.News;
 import com.hsxy.news.pojo.Newtype;
 import com.hsxy.news.service.NewsService;
+import com.hsxy.user.pojo.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -12,8 +13,10 @@ import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 import java.io.File;
 import java.io.IOException;
+import java.util.Date;
 import java.util.List;
 import java.util.UUID;
 
@@ -34,18 +37,20 @@ public class NewsController {
     }
 //新闻咨询管理--发布新闻按钮（发布新闻）
     @RequestMapping(value="/upload",method= RequestMethod.POST)
-    public ModelAndView uploadFile(@RequestParam MultipartFile file,
-                                   String title,String content,Integer newtypeid, HttpServletRequest request) throws IllegalStateException, IOException {
+    public ModelAndView uploadFile(@RequestParam MultipartFile file, HttpSession session,
+                                   String title, String content,String newstypeid, HttpServletRequest request) throws IllegalStateException, IOException {
         ModelAndView mv=new ModelAndView("admin/adminnews");
-
         ServletContext context = request.getServletContext();
         String realPath = context.getRealPath("/upload");
-
         File f=new File(realPath);
         if (!f.exists()) {
             f.mkdirs();
         }
         String fileName= UUID.randomUUID().toString().replaceAll("-", "")+file.getOriginalFilename();
+        User user=(User) session.getAttribute("user1");
+        int newstypename = Integer.parseInt(newstypeid);
+
+        newsService.upload(title,content,new Date(),user.getId(),newstypename,fileName);
 
         file.transferTo(new File(realPath+"/"+fileName));
         mv.addObject("filePath",fileName);

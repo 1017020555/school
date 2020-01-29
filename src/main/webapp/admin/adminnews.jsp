@@ -48,7 +48,6 @@
                 <td>标题</td>
                 <td>内容</td>
                 <td>时间</td>
-                <td>审批状态</td>
                 <td>新闻类型</td>
                 <td colspan="2">操作</td>
             </tr>
@@ -64,7 +63,6 @@
                     <td>${l.name}</td>
                     <td>${l.gender}</td>
                     <td>${l.email}</td>
-
                     <td>编辑</td>
                     <td>删除</td>
                 </tr>

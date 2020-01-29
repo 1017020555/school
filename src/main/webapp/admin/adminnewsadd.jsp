@@ -55,8 +55,18 @@
             <td>新闻类型</td>
             <td>
                 <select class="form-control" style="width: 200px;margin-left: 370px;" name="newstypeid" id="newstypeid">
-                    <c:forEach items="${list}" var="l">
-                        <option  value="${l}">
+                    <c:forEach  items="${list}" var="l">
+                        <option
+                                <c:if test="${l=='教务管理'}" > value="1"</c:if>
+                                <c:if test="${l=='教育科研'}" > value="2"</c:if>
+                                <c:if test="${l=='教育动态'}" > value="3"</c:if>
+                                <c:if test="${l=='对外交流'}" > value="4"</c:if>
+                                <c:if test="${l=='校友历史'}" > value="5"</c:if>
+                                <c:if test="${l=='财务管理'}" > value="6"</c:if>
+                                <c:if test="${l=='校务公开'}" > value="7"</c:if>
+                                <c:if test="${l=='办事指南'}" > value="8"</c:if>
+                                <c:if test="${l=='工会之家'}" > value="9"</c:if>
+                        >
                                 ${l}
                         </option>
                     </c:forEach>
