@@ -28,6 +28,10 @@ public class Newtype {
         this.name = name;
     }
 
+    public Newtype(String name) {
+        this.name = name;
+    }
+
     @Override
     public String toString() {
         return "Newtype{" +

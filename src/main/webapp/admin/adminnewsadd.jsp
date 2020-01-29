@@ -6,6 +6,7 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
 <head>
     <title>adminnewsadd</title>
@@ -28,23 +29,22 @@
         }
     </style>
 
-
 </head>
 <body>
 
-<form method="post" action="${pageContext.request.contextPath}/admin/modify">
+<form action="${pageContext.request.contextPath}/news/upload"  method="post" enctype="multipart/form-data">
     <table class="table table-bordered table-striped" style="text-align: center;">
         <tr>
             <td>标题：</td>
             <td>
-                <input id="title" name="title" type="text" value="${user1.username}">
+                <input id="title" name="title" type="text">
             </td>
         </tr>
         <tr>
             <td>内容：</td>
             <td>
 
-                <script id="editor" type="text/plain" style="width:800px;height:150px;"></script>
+                <script id="editor" name="content" type="text/plain" style="width:800px;height:150px;"></script>
                 <script type="text/javascript">
                     var ue = UE.getEditor('editor');
                 </script>
@@ -52,25 +52,21 @@
             </td>
         </tr>
         <tr>
-            <td>审批状态</td>
-            <td>
-
-                <input id="state" name="state" type="text" value="${user1.password}">
-
-            </td>
-        </tr>
-        <tr>
             <td>新闻类型</td>
             <td>
-
-                <input id="email" name="email" type="email" value="${user1.email}">
-
+                <select class="form-control" style="width: 200px;margin-left: 370px;" name="newstypeid" id="newstypeid">
+                    <c:forEach items="${list}" var="l">
+                        <option  value="${l}">
+                                ${l}
+                        </option>
+                    </c:forEach>
+                </select>
             </td>
         </tr>
         <tr>
             <td>上传文件</td>
             <td>
-                <input id="file" name="file" type="file" value="${user1.email}">
+                <input id="file" name="file" type="file">
             </td>
         </tr>
 

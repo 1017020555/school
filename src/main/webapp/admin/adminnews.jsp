@@ -10,10 +10,10 @@
 <head>
     <title>adminnews</title>
     <!--引入css-->
-    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/bootstrap.min.css">
     <!--引入js-->
-    <script src="js/jquery-3.4.1.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
+    <script src="${pageContext.request.contextPath}/js/jquery-3.4.1.min.js"></script>
+    <script src="${pageContext.request.contextPath}/js/bootstrap.min.js"></script>
     <style rel="stylesheet" type="text/css">
         #d1 label{
             margin-left: 20px;
@@ -39,7 +39,6 @@
 
         <input type="button" class="form-control" value="点击发布新闻！"
                onclick="window.location.href='${pageContext.request.contextPath}/news/fb'">
-
     </div>
     <br>
     <div>
@@ -70,9 +69,9 @@
                     <td>删除</td>
                 </tr>
             </c:forEach>
+
         </table>
     </div>
-
 
 </body>
 </html>

@@ -5,6 +5,9 @@
 
 <mapper namespace="com.hsxy.news.mapper.NewsMapper">
 
+    <select id="fb" resultType="java.lang.String">
+        select name from newtype
+    </select>
 
 </mapper>
 
