@@ -1,3 +1,6 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 <%--
   Created by IntelliJ IDEA.
   User: user
@@ -40,7 +43,9 @@
         <input type="button" class="form-control" value="点击发布新闻！"
                onclick="window.location.href='${pageContext.request.contextPath}/news/fb'">
     </div>
+
     <br>
+
     <div>
         <table class="table table-bordered table-striped" style="text-align: center;">
             <tr>
@@ -53,24 +58,41 @@
             </tr>
 
             <c:forEach items="${news}" var="n">
-                <tr>
-                    <td>
-                        1
-                        <input type="checkbox">
-                    </td>
-                    <td>${n.title}</td>
-                    <td>${n.context}</td>
-                    <td>${n.time}</td>
-                    <td>${n.newstypeid}</td>
-                    <td>编辑</td>
-                    <td>删除</td>
-                </tr>
+            <tr>
+                <td>
+                    1
+                    <input type="checkbox">
+                </td>
+                <td>${n.title}</td>
+                <td>
+                    <c:if test="${fn:length(n.context)>10}">
+                        ${fn:substring(n.context, 1, 11)}.....
+                    </c:if>
+                </td>
+                <td>
+                    <fmt:formatDate value="${n.time}" pattern="yyyy-MM-dd"/>
+                </td>
+                <td>
+                    <c:if test="${n.newstypeid=='1'}" > 教务管理</c:if>
+                    <c:if test="${n.newstypeid=='2'}" > 教育科研</c:if>
+                    <c:if test="${n.newstypeid=='3'}" > 教育动态</c:if>
+                    <c:if test="${n.newstypeid=='4'}" > 对外交流</c:if>
+                    <c:if test="${n.newstypeid=='5'}" > 校友历史</c:if>
+                    <c:if test="${n.newstypeid=='6'}" > 财务管理</c:if>
+                    <c:if test="${n.newstypeid=='7'}" > 校务公开</c:if>
+                    <c:if test="${n.newstypeid=='8'}" > 办事指南</c:if>
+                    <c:if test="${n.newstypeid=='9'}" > 工会之家</c:if>
+                </td>
+                <td>
+                    <a href="${pageContext.request.contextPath}/">编辑</a>
+                </td>
+                <td>
+                    <a href="${pageContext.request.contextPath}/">删除</a>
+                </td>
+            </tr>
             </c:forEach>
-
         </table>
-    </div>
 
-<div>
     <nav aria-label="Page navigation" style="margin-left: 300px;">
         <ul class="pagination">
 

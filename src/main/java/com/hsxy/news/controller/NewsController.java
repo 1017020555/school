@@ -41,7 +41,7 @@ public class NewsController {
     @RequestMapping(value="/upload",method= RequestMethod.POST)
     public ModelAndView uploadFile(@RequestParam MultipartFile file, HttpSession session,
                                    String title, String content,String newstypeid, HttpServletRequest request) throws IllegalStateException, IOException {
-        ModelAndView mv=new ModelAndView("admin/adminnews");
+        ModelAndView mv=new ModelAndView();
         ServletContext context = request.getServletContext();
         String realPath = context.getRealPath("/upload");
         File f=new File(realPath);
@@ -56,6 +56,7 @@ public class NewsController {
 
         file.transferTo(new File(realPath+"/"+fileName));
         mv.addObject("filePath",fileName);
+        mv.setViewName("redirect:/news/show");
         return mv;
     }
 
