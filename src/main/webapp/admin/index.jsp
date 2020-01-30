@@ -11,13 +11,13 @@
     <title>Title</title>
 
     <!--引入css-->
-    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/bootstrap.min.css">
     <!--引入js-->
-    <script src="js/jquery-3.4.1.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
+    <script src="${pageContext.request.contextPath}/js/jquery-3.4.1.min.js"></script>
+    <script src="${pageContext.request.contextPath}/js/bootstrap.min.js"></script>
 
-    <link rel="stylesheet" href="css/page.css" />
-    <script type="text/javascript" src="js/index.js" ></script>
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/admin/css/page.css" />
+    <script type="text/javascript" src="${pageContext.request.contextPath}/admin/js/index.js" ></script>
 
 </head>
 <body>
@@ -34,7 +34,7 @@
         <div onclick="pageClick(this)" datasrc="adminexam.jsp">
             <img src="img/icon-4.png" />学科竞赛信息管理
         </div>
-        <div onclick="pageClick(this)" datasrc="adminnews.jsp">
+        <div onclick="pageClick(this)" datasrc="${pageContext.request.contextPath}/news/show">
             <img src="img/icon-5.png" />新闻咨询信息管理
         </div>
         <div onclick="pageClick(this)" datasrc="${pageContext.request.contextPath}/admin/adminuser">

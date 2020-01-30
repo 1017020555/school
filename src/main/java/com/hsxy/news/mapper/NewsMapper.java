@@ -16,4 +16,6 @@ public interface NewsMapper {
     void upload(@Param("title") String title,@Param("context") String context,@Param("time") Date date,
                 @Param("userid") Integer id,@Param("newstypeid")int newstypename, @Param("file") String fileName);
 
+    List<News> show();
+
 }

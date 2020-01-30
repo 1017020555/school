@@ -1,4 +1,6 @@
 package com.hsxy.news.controller;
+import com.github.pagehelper.PageHelper;
+import com.github.pagehelper.PageInfo;
 import com.hsxy.news.pojo.News;
 import com.hsxy.news.pojo.Newtype;
 import com.hsxy.news.service.NewsService;
@@ -57,5 +59,23 @@ public class NewsController {
         return mv;
     }
 
+
+//    新闻咨询管理--显示所有新闻
+    @RequestMapping("/show")
+    public ModelAndView show(
+            @RequestParam(required=true,value="pageNum",defaultValue="1") Integer pageNum,
+            @RequestParam(required=true,value="pageSize",defaultValue="2") Integer pageSize
+    ){
+        ModelAndView mv=new ModelAndView();
+        PageHelper.startPage(pageNum, pageSize);
+
+        List<News> news = newsService.show();
+        PageInfo<News> pageInfo=new PageInfo<>(news);
+
+        mv.addObject("news",news);
+        mv.setViewName("admin/adminnews");
+        mv.addObject("pageInfo",pageInfo);
+        return mv;
+    }
 
 }

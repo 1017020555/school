@@ -52,17 +52,16 @@
                 <td colspan="2">操作</td>
             </tr>
 
-
-            <c:forEach items="${users}" var="l">
+            <c:forEach items="${news}" var="n">
                 <tr>
-                    <td>1
+                    <td>
+                        1
                         <input type="checkbox">
                     </td>
-                    <td>${l.username}</td>
-                    <td>${l.password}</td>
-                    <td>${l.name}</td>
-                    <td>${l.gender}</td>
-                    <td>${l.email}</td>
+                    <td>${n.title}</td>
+                    <td>${n.context}</td>
+                    <td>${n.time}</td>
+                    <td>${n.newstypeid}</td>
                     <td>编辑</td>
                     <td>删除</td>
                 </tr>
@@ -70,6 +69,41 @@
 
         </table>
     </div>
+
+<div>
+    <nav aria-label="Page navigation" style="margin-left: 300px;">
+        <ul class="pagination">
+
+            <c:if test="${pageInfo.hasPreviousPage}">
+                <li>
+                    <a href="${pageContext.request.contextPath}/news/show?pageNum=${pageInfo.pageNum-1}" aria-label="Previous">
+                        <span aria-hidden="true">&laquo;</span>
+                    </a>
+                </li>
+            </c:if>
+
+            <c:forEach items="${pageInfo.navigatepageNums  }" var="page">
+                <c:if test="${page==pageInfo.pageNum }">
+                    <li class="active"><a href="${pageContext.request.contextPath}/news/show?pageNum=${page}">${page}</a></li>
+                </c:if>
+                <c:if test="${page!=pageInfo.pageNum }">
+                    <li><a href="${pageContext.request.contextPath}/news/show?pageNum=${page}">${page}</a></li>
+                </c:if>
+            </c:forEach>
+
+            <c:if test="${pageInfo.hasNextPage }">
+                <li>
+                    <a href="${pageContext.request.contextPath}/news/show?pageNum=${pageInfo.pageNum+1 }" aria-label="Next">
+                        <span aria-hidden="true">&raquo;</span>
+                    </a>
+                </li>
+            </c:if>
+
+        </ul>
+    </nav>
+
+    当前${pageInfo.pageNum }页，总共${pageInfo.pages }页，总共${pageInfo.total }条记录
+</div>
 
 </body>
 </html>

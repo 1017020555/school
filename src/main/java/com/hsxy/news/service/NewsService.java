@@ -23,4 +23,8 @@ public class NewsService {
         String context=content;
         newsMapper.upload(title,context,date,id,newstypename,fileName);
     }
+
+    public List<News> show() {
+        return newsMapper.show();
+    }
 }

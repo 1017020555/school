@@ -12,5 +12,8 @@
         insert into news(title,context,time,userid,newstypeid,file)
           values(#{title},#{context},#{time},#{userid},#{newstypeid},#{file})
     </insert>
+    <select id="show" resultType="com.hsxy.news.pojo.News">
+        select * from news
+    </select>
 </mapper>
 
