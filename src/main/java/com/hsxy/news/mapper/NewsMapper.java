@@ -27,4 +27,6 @@ public interface NewsMapper {
 
     List<News> search(@Param("title") String title, @Param("time") String time);
 
+    List<News> index();
+
 }

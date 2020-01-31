@@ -27,5 +27,8 @@
     <select id="search" resultType="com.hsxy.news.pojo.News">
         select * from news where title=#{title} and time=#{time}
     </select>
+    <select id="index" resultType="com.hsxy.news.pojo.News">
+        select * from news
+    </select>
 </mapper>
 

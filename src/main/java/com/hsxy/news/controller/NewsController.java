@@ -31,6 +31,13 @@ public class NewsController {
     @Autowired
     private NewsService newsService;
 
+//    首页新闻
+    @RequestMapping("/index")
+    public List<News> index(HttpServletRequest request){
+        List<News> news= newsService.index();
+        return news;
+    }
+
 //    新闻咨询管理--查询
     @RequestMapping("/search")
     public ModelAndView search(String title,String time){

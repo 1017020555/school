@@ -1,20 +1,14 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: user
-  Date: 2019/12/30
-  Time: 20:43
-  To change this template use File | Settings | File Templates.
---%>
 <%@ page contentType="text/html; charset=utf-8" pageEncoding="utf-8" language="java" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
 <head>
     <title>Title</title>
 
     <!--引入css-->
-    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/bootstrap.min.css">
     <!--引入js-->
-    <script src="js/jquery-3.4.1.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
+    <script src="${pageContext.request.contextPath}/js/jquery-3.4.1.min.js"></script>
+    <script src="${pageContext.request.contextPath}/js/bootstrap.min.js"></script>
 
 </head>
 <body>
@@ -58,22 +52,20 @@
     </div>
 
 
+
     <div id="d1" style="margin-left: 170px;margin-top:60px;width: 600px;">
         <ul class="nav nav-pills nav-stacked">
-            <li role="presentation" class="active">
-                <a href="#">新闻资讯：
+            <li role="presentation" class="active" id="news">
+                <a href="news.jsp">新闻资讯：
                     <span class="badge" style="margin-right: 0px;">更多》</span>
                 </a>
             </li>
 
-            <li role="presentation"><a href="#" class="studentmessage.jsp">个人资料</a></li>
-            <li role="presentation"><a href="#" class="studentmessage.jsp">个人资料</a></li>
-            <li role="presentation"><a href="#" class="studentmessage.jsp">个人资料</a></li>
-            <li role="presentation"><a href="#" class="studentmessage.jsp">个人资料</a></li>
-            <li role="presentation"><a href="#" class="studentmessage.jsp">个人资料</a></li>
 
         </ul>
     </div>
+
+
 
     <div id="d2" style="margin-left: 850px;margin-top:-250px;width: 300px;">
         <ul class="nav nav-pills nav-stacked">
@@ -154,5 +146,25 @@
     <jsp:include page="bottom.jsp"></jsp:include>
 </div>
 
+<script type="text/javascript">
+    $(function () {
+        $.ajax({
+            url:'${pageContext.request.contextPath}/news/index',
+            method:'get',
+            success:function (data) {
+                showdata(data);
+            }
+        })
+    })
+    function showdata(data) {
+        $.each(data,function(i,o){
+            $('#news').append(
+                '  <li role="presentation">\n' +
+                '                <a href="#" class="studentmessage.jsp">o</a>\n' +
+                '                </li>'
+            );
+        })
+    }
+</script>
 </body>
 </html>

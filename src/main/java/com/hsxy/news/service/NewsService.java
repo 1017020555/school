@@ -43,4 +43,8 @@ public class NewsService {
     public List<News> search(String title, String time) {
         return newsMapper.search(title,time);
     }
+
+    public List<News> index() {
+        return newsMapper.index();
+    }
 }
