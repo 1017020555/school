@@ -34,15 +34,19 @@
     </style>
 </head>
 <body>
+<form action="${pageContext.request.contextPath}/news/search" method="post">
     <div id="d1">
         <label>查询条件：</label><br>
-        <label style="margin-left: 100px;">新闻标题</label><input type="text" class="form-control" placeholder="请输入文章标题：">
-        <label>新闻发布时间</label><input type="date" class="form-control">
-        <button type="button" class="form-control" >查询</button>
+        <label style="margin-left: 100px;">新闻标题</label>
+            <input name="title" type="text" class="form-control" placeholder="请输入文章标题：">
+        <label>新闻发布时间</label>
+            <input name="time" type="date" class="form-control">
+        <button type="submit" class="form-control" >查询</button>
 
         <input type="button" class="form-control" value="点击发布新闻！"
                onclick="window.location.href='${pageContext.request.contextPath}/news/fb'">
     </div>
+</form>
 
     <br>
 
@@ -84,7 +88,7 @@
                     <c:if test="${n.newstypeid=='9'}" > 工会之家</c:if>
                 </td>
                 <td>
-                    <a href="${pageContext.request.contextPath}/">编辑</a>
+                    <a href="${pageContext.request.contextPath}/news/modify1/${n.id}">编辑</a>
                 </td>
                 <td>
                     <a href="${pageContext.request.contextPath}/news/delete/${n.id}">删除</a>

@@ -20,4 +20,11 @@ public interface NewsMapper {
 
     void delete(@Param("id") Integer id);
 
+    News modify1(@Param("id") Integer id);
+
+    void modify2(@Param("title") String title, @Param("context") String context,
+                 @Param("newstypeid") String newstypeid,@Param("id") String id);
+
+    List<News> search(@Param("title") String title, @Param("time") String time);
+
 }

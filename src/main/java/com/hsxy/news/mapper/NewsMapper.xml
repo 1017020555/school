@@ -18,6 +18,14 @@
     <delete id="delete" parameterType="java.lang.Integer">
         delete from news where id=#{id}
     </delete>
-
+    <select id="modify1" resultType="com.hsxy.news.pojo.News">
+        select * from news where id=#{id}
+    </select>
+    <update id="modify2" parameterType="java.lang.String">
+        update news set title=#{title},context=#{context},newstypeid=#{newstypeid} where id=#{id}
+    </update>
+    <select id="search" resultType="com.hsxy.news.pojo.News">
+        select * from news where title=#{title} and time=#{time}
+    </select>
 </mapper>
 

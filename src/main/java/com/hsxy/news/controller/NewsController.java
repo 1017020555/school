@@ -5,8 +5,10 @@ import com.hsxy.news.pojo.News;
 import com.hsxy.news.pojo.Newtype;
 import com.hsxy.news.service.NewsService;
 import com.hsxy.user.pojo.User;
+import com.sun.org.apache.xpath.internal.operations.Mod;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -28,6 +30,34 @@ import java.util.UUID;
 public class NewsController {
     @Autowired
     private NewsService newsService;
+
+//    新闻咨询管理--查询
+    @RequestMapping("/search")
+    public ModelAndView search(String title,String time){
+        ModelAndView mv=new ModelAndView();
+        List<News> news =newsService.search(title,time);
+
+        System.out.println(news);
+
+        mv.addObject("news",news);
+        mv.setViewName("admin/adminnews");
+        return mv;
+    }
+//新闻咨询管理--修改编辑页面
+    @RequestMapping(value = "/modify2/{id}",method = RequestMethod.POST)
+    public ModelAndView modify2(String title, String context,String newstypeid,@PathVariable("id") String id){
+        ModelAndView mv=new ModelAndView();
+        newsService.modify2(title,context,newstypeid,id);
+        mv.setViewName("redirect:/news/show");
+        return mv;
+    }
+//新闻咨询管理--点击编辑（进入编辑页面adminnewschange）
+@RequestMapping("/modify1/{id}")
+public String modify1(Model model,@PathVariable Integer id){
+      News news= newsService.modify1(id);
+    model.addAttribute("news",news);
+    return "admin/adminnewschange";
+}
 
 //    新闻咨询管理--删除新闻
     @RequestMapping("/delete/{id}")

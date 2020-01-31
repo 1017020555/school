@@ -31,4 +31,16 @@ public class NewsService {
     public void delete(Integer id) {
         newsMapper.delete(id);
     }
+
+    public News modify1(Integer id) {
+       return newsMapper.modify1(id);
+    }
+
+    public void modify2(String title, String context, String newstypeid,String id) {
+         newsMapper.modify2(title,context,newstypeid,id);
+    }
+
+    public List<News> search(String title, String time) {
+        return newsMapper.search(title,time);
+    }
 }
