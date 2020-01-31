@@ -18,4 +18,6 @@ public interface NewsMapper {
 
     List<News> show();
 
+    void delete(@Param("id") Integer id);
+
 }

@@ -27,4 +27,8 @@ public class NewsService {
     public List<News> show() {
         return newsMapper.show();
     }
+
+    public void delete(Integer id) {
+        newsMapper.delete(id);
+    }
 }

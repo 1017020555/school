@@ -87,7 +87,7 @@
                     <a href="${pageContext.request.contextPath}/">编辑</a>
                 </td>
                 <td>
-                    <a href="${pageContext.request.contextPath}/">删除</a>
+                    <a href="${pageContext.request.contextPath}/news/delete/${n.id}">删除</a>
                 </td>
             </tr>
             </c:forEach>

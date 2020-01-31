@@ -15,5 +15,9 @@
     <select id="show" resultType="com.hsxy.news.pojo.News">
         select * from news
     </select>
+    <delete id="delete" parameterType="java.lang.Integer">
+        delete from news where id=#{id}
+    </delete>
+
 </mapper>
 

@@ -7,6 +7,7 @@ import com.hsxy.news.service.NewsService;
 import com.hsxy.user.pojo.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -28,6 +29,14 @@ public class NewsController {
     @Autowired
     private NewsService newsService;
 
+//    新闻咨询管理--删除新闻
+    @RequestMapping("/delete/{id}")
+    public ModelAndView delete(@PathVariable Integer id){
+        ModelAndView mv=new ModelAndView();
+        newsService.delete(id);
+        mv.setViewName("redirect:/news/show");
+        return mv;
+    }
 //新闻咨询信息管理--发布新闻按钮(进入发布界面)
     @RequestMapping("/fb")
     public ModelAndView fb(){
