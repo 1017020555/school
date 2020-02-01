@@ -37,7 +37,7 @@
         <tr>
             <td>标题：</td>
             <td>
-                <input id="title" name="title" type="text">
+                <input id="title" class="form-control" name="title" type="text">
             </td>
         </tr>
         <tr>
@@ -82,7 +82,7 @@
 
         <tr>
             <td colspan="2">
-                <input type="submit"  value="发布" id="change">
+                <input type="submit"  class="form-control" value="发布" id="change">
             </td>
         </tr>
     </table>

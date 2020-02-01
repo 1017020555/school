@@ -4,6 +4,8 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="com.hsxy.exam.mapper.CompitionMapper">
-
+    <select id="show" resultType="com.hsxy.exam.pojo.Compition">
+        select * from compition
+    </select>
 </mapper>
 
