@@ -150,21 +150,9 @@
     $(function () {
         $.ajax({
             url:'${pageContext.request.contextPath}/news/index',
-            method:'get',
-            success:function (data) {
-                showdata(data);
-            }
+            method:'get'
         })
     })
-    function showdata(data) {
-        $.each(data,function(i,o){
-            $('#news').append(
-                '  <li role="presentation">\n' +
-                '                <a href="#" class="studentmessage.jsp">o</a>\n' +
-                '                </li>'
-            );
-        })
-    }
 </script>
 </body>
 </html>

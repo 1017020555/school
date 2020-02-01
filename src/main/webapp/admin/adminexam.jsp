@@ -44,22 +44,18 @@
             <td>序号</td>
             <td>标题</td>
             <td>内容</td>
-            <td>所属部门</td>
-            <td>审批状态</td>
             <td>发布时间</td>
             <td colspan="2">操作</td>
         </tr>
 
 
-        <c:forEach items="${users}" var="l">
+        <c:forEach items="${compitions}" var="c">
             <tr>
                 <td>1
                     <input type="checkbox">
                 </td>
                 <td>${l.username}</td>
                 <td>${l.password}</td>
-                <td>${l.name}</td>
-                <td>${l.gender}</td>
                 <td>${l.email}</td>
 
                 <td>编辑</td>

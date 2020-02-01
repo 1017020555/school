@@ -31,7 +31,7 @@
         <div onclick="pageClick(this)" datasrc="adminlose.jsp">
             <img src="img/icon-2.png" />失物招领模块管理
         </div>
-        <div onclick="pageClick(this)" datasrc="adminexam.jsp">
+        <div onclick="pageClick(this)" datasrc="${pageContext.request.contextPath}/compition/show">
             <img src="img/icon-4.png" />学科竞赛信息管理
         </div>
         <div onclick="pageClick(this)" datasrc="${pageContext.request.contextPath}/news/show">
