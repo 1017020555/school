@@ -7,5 +7,18 @@
     <select id="show" resultType="com.hsxy.exam.pojo.Compition">
         select * from compition
     </select>
+    <insert id="add">
+        insert into compition(title,context,time,userid) values(#{title},#{context},#{time},#{userid})
+    </insert>
+    <delete id="delete" parameterType="java.lang.Integer">
+        delete from compition where id=#{id}
+    </delete>
+    <select id="modify1" resultType="com.hsxy.exam.pojo.Compition">
+        select * from compition where id=#{id}
+    </select>
+    <update id="modify2">
+        update compition set title=#{title},context=#{context} where id=#{id}
+    </update>
+
 </mapper>
 

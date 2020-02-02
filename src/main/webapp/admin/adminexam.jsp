@@ -72,8 +72,13 @@
                     <fmt:formatDate value="${c.time}" pattern="yyyy-MM-dd"/>
                 </td>
                 <td>${c.count}</td>
-                <td>编辑</td>
-                <td>删除</td>
+
+                <td>
+                    <a href="${pageContext.request.contextPath}/compition/modify1/${c.id}">编辑</a>
+                </td>
+                <td>
+                    <a href="${pageContext.request.contextPath}/compition/delete/${c.id}">删除</a>
+                </td>
             </tr>
         </c:forEach>
     </table>
@@ -83,7 +88,7 @@
 
             <c:if test="${pageInfo.hasPreviousPage}">
                 <li>
-                    <a href="${pageContext.request.contextPath}/news/show?pageNum=${pageInfo.pageNum-1}" aria-label="Previous">
+                    <a href="${pageContext.request.contextPath}/compition/show?pageNum=${pageInfo.pageNum-1}" aria-label="Previous">
                         <span aria-hidden="true">&laquo;</span>
                     </a>
                 </li>
@@ -91,16 +96,16 @@
 
             <c:forEach items="${pageInfo.navigatepageNums  }" var="page">
                 <c:if test="${page==pageInfo.pageNum }">
-                    <li class="active"><a href="${pageContext.request.contextPath}/news/show?pageNum=${page}">${page}</a></li>
+                    <li class="active"><a href="${pageContext.request.contextPath}/compition/show?pageNum=${page}">${page}</a></li>
                 </c:if>
                 <c:if test="${page!=pageInfo.pageNum }">
-                    <li><a href="${pageContext.request.contextPath}/news/show?pageNum=${page}">${page}</a></li>
+                    <li><a href="${pageContext.request.contextPath}/compition/show?pageNum=${page}">${page}</a></li>
                 </c:if>
             </c:forEach>
 
             <c:if test="${pageInfo.hasNextPage }">
                 <li>
-                    <a href="${pageContext.request.contextPath}/news/show?pageNum=${pageInfo.pageNum+1 }" aria-label="Next">
+                    <a href="${pageContext.request.contextPath}/compition/show?pageNum=${pageInfo.pageNum+1 }" aria-label="Next">
                         <span aria-hidden="true">&raquo;</span>
                     </a>
                 </li>

@@ -29,7 +29,7 @@
 </head>
 <body>
 
-    <form id="f1" method="post" action="">
+    <form id="f1" method="post" action="${pageContext.request.contextPath}/compition/add">
         <table class="table table-bordered table-striped" style="text-align: center;">
             <tr>
                 <td>标题：</td>
