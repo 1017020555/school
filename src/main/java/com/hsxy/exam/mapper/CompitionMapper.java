@@ -21,4 +21,6 @@ public interface CompitionMapper {
 
     void modify2(@Param("title")String title, @Param("context") String context,@Param("id") String id);
 
+    List<Compition> search(@Param("title")String title,@Param("time") String time);
+
 }

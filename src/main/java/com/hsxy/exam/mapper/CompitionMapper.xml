@@ -19,6 +19,8 @@
     <update id="modify2">
         update compition set title=#{title},context=#{context} where id=#{id}
     </update>
-
+    <select id="search" resultType="com.hsxy.exam.pojo.Compition">
+        select * from compition where title=#{title} and time=#{time}
+    </select>
 </mapper>
 

@@ -34,16 +34,20 @@
     </style>
 </head>
 <body>
+<form action="${pageContext.request.contextPath}/compition/search" method="post">
 <div id="d1">
     <label>查询条件：</label><br>
-    <label style="margin-left: 100px;">竞赛文章标题</label><input type="text" class="form-control" placeholder="请输入文章标题：">
-    <label>竞赛文章发布时间</label><input type="date" class="form-control">
-    <button type="button" class="form-control" >查询</button>
+    <label style="margin-left: 100px;">竞赛文章标题</label>
+        <input name="title" type="text" class="form-control" placeholder="请输入文章标题：">
+    <label>竞赛文章发布时间</label>
+        <input name="time" type="date" class="form-control">
+    <button type="submit" class="form-control" >查询</button>
 
     <input type="button" class="form-control" value="点击发布竞赛信息！"
            onclick="window.location.href='${pageContext.request.contextPath}/compition/fb'">
 
 </div>
+</form>
 <br>
 <div>
     <table class="table table-bordered table-striped" style="text-align: center;">

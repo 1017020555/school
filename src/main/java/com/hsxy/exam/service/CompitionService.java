@@ -33,4 +33,8 @@ public class CompitionService {
     public void modify2(String title, String context, String id) {
         compitionMapper.modify2(title,context,id);
     }
+
+    public List<Compition> search(String title, String time) {
+        return compitionMapper.search(title,time);
+    }
 }

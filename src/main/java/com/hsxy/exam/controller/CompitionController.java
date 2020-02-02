@@ -24,7 +24,15 @@ public class CompitionController {
     @Autowired
     private CompitionService compitionService;
 
-
+//    新闻咨询管理--搜索
+    @RequestMapping("/search")
+    public ModelAndView search(String title,String time){
+        ModelAndView mv=new ModelAndView();
+        List<Compition> compitions =compitionService.search(title,time);
+        mv.addObject("compitions",compitions);
+        mv.setViewName("admin/adminexam");
+        return mv;
+    }
     //新闻咨询管理--修改编辑页面
     @RequestMapping(value = "/modify2/{id}",method = RequestMethod.POST)
     public ModelAndView modify2(String title, String context,@PathVariable("id") String id){
