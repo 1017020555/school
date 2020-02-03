@@ -14,7 +14,16 @@ public class Apply {
 
     private String picture;
     private String place;
+    private String name;
 
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
 
     public Integer getApplyid() {
         return applyid;
@@ -103,6 +112,7 @@ public class Apply {
                 ", userid=" + userid +
                 ", picture='" + picture + '\'' +
                 ", place='" + place + '\'' +
+                ", name='" + name + '\'' +
                 '}';
     }
 }

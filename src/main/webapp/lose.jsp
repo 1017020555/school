@@ -6,13 +6,14 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
 <head>
     <title>lose</title>
-    <link rel="stylesheet" href="css/bootstrap.min.css">
-    <script src="js/jquery-3.4.1.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
-    <link rel="stylesheet" href="css/lose.css"/>
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/bootstrap.min.css">
+    <script src="${pageContext.request.contextPath}/js/jquery-3.4.1.min.js"></script>
+    <script src="${pageContext.request.contextPath}/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/lose.css"/>
 
 
 </head>
@@ -21,7 +22,7 @@
 <jsp:include page="head.jsp"></jsp:include>
 
 <div id="title" style="margin-left: 90px;margin-top: 50px;" class="alert alert-info" role="alert">
-    <img src="img/img1.png">
+    <img src="${pageContext.request.contextPath}/img/img1.png">
     <label>失物招领请注意：</label>
 </div>
 
@@ -35,7 +36,7 @@
 
 
 <div id="title2" class="alert alert-info" role="alert" style="margin-top: -200px;">
-    <img src="img/img1.png">
+    <img src="${pageContext.request.contextPath}/img/img1.png">
     <label>查询条件：</label>
 </div>
 
@@ -60,22 +61,22 @@
 
 
 <div id="title4" class="alert alert-info" role="alert">
-    <img src="img/img1.png">
+    <img src="${pageContext.request.contextPath}/img/img1.png">
     <label>查询结果：</label>
 </div>
 
 <div id="title5" style="margin-left: 500px;width: 600px;">
 
         <ul class="nav nav-pills nav-stacked">
-
+            <c:forEach items="${applys}" var="apply">
                 <li style="width: 200px;height: 200px;float: left;">
                     <div>
                         <img src="img/1.jpg" style="width: 120px;height: 120px;" alt="图片" class="img-thumbnail"><br>
-                        <label>地点：</label><br>
-                        <label>时间：</label><br>
-                        <label>联系人：</label>
+                        <label>名称：${apply.name}</label><br>
+                        <label>地点：${apply.place}</label>
                     </div>
                 </li>
+            </c:forEach>
 
         </ul>
 

@@ -4,19 +4,18 @@
 	<head>
 		<meta charset="utf-8" />
 		<title></title>
-	     <!--引入css-->
-		 <link rel="stylesheet" href="css/bootstrap.min.css">
-		 <!--引入js-->
-		 <script src="js/jquery-3.4.1.min.js"></script>
-		 <script src="js/bootstrap.min.js"></script>
+
+		<link rel="stylesheet" href="${pageContext.request.contextPath}/css/bootstrap.min.css">
+		<script src="${pageContext.request.contextPath}/js/jquery-3.4.1.min.js"></script>
+		<script src="${pageContext.request.contextPath}/js/bootstrap.min.js"></script>
 		 
 		 <!--引入主页css文件-->
-		 <link rel="stylesheet" href="css/head.css"/>
+		 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/head.css"/>
 
 	</head>
 	<body>
 		<div>
-			<img id="head" src="img/head.jpg"/>
+			<img id="head" src="${pageContext.request.contextPath}/img/head.jpg" />
 		</div>
 		<div id="banner">
 			<ul id="lists">
@@ -27,8 +26,7 @@
 					<a href="second.jsp">二手交易</a>
 				</li>
 				<li>
-<%--					<a href="${pageContext.request.contextPath}/lose/getMessage">失物招领</a>--%>
-						<a href="lose.jsp">失物招领</a>
+					<a href="${pageContext.request.contextPath}/lose/getMessage">失物招领</a>
 				</li>
 				<li>
 						<a href="exam.jsp">学科竞赛</a>

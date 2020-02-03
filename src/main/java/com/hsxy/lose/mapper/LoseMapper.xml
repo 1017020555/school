@@ -4,7 +4,9 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="com.hsxy.lose.mapper.LoseMapper">
-
+    <select id="getMessage" resultType="com.hsxy.lose.pojo.Apply">
+         select * from apply order by applytime desc limit 0,5
+    </select>
 
 </mapper>
 
