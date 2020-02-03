@@ -5,13 +5,15 @@ public class Apply {
     private Integer applyid;
     private Date applytime;
     private String applyexplain;
-    private String applystate;
 
     private Good good;
+    private Integer goodid;
 
     private User user;
+    private Integer userid;
 
     private String picture;
+    private String place;
 
 
     public Integer getApplyid() {
@@ -38,20 +40,20 @@ public class Apply {
         this.applyexplain = applyexplain;
     }
 
-    public String getApplystate() {
-        return applystate;
-    }
-
-    public void setApplystate(String applystate) {
-        this.applystate = applystate;
-    }
-
     public Good getGood() {
         return good;
     }
 
     public void setGood(Good good) {
         this.good = good;
+    }
+
+    public Integer getGoodid() {
+        return goodid;
+    }
+
+    public void setGoodid(Integer goodid) {
+        this.goodid = goodid;
     }
 
     public User getUser() {
@@ -62,6 +64,14 @@ public class Apply {
         this.user = user;
     }
 
+    public Integer getUserid() {
+        return userid;
+    }
+
+    public void setUserid(Integer userid) {
+        this.userid = userid;
+    }
+
     public String getPicture() {
         return picture;
     }
@@ -70,16 +80,15 @@ public class Apply {
         this.picture = picture;
     }
 
-    public Apply() {
+    public String getPlace() {
+        return place;
     }
 
-    public Apply(Date applytime, String applyexplain, String applystate, Good good, User user, String picture) {
-        this.applytime = applytime;
-        this.applyexplain = applyexplain;
-        this.applystate = applystate;
-        this.good = good;
-        this.user = user;
-        this.picture = picture;
+    public void setPlace(String place) {
+        this.place = place;
+    }
+
+    public Apply() {
     }
 
     @Override
@@ -88,10 +97,12 @@ public class Apply {
                 "applyid=" + applyid +
                 ", applytime=" + applytime +
                 ", applyexplain='" + applyexplain + '\'' +
-                ", applystate='" + applystate + '\'' +
                 ", good=" + good +
+                ", goodid=" + goodid +
                 ", user=" + user +
+                ", userid=" + userid +
                 ", picture='" + picture + '\'' +
+                ", place='" + place + '\'' +
                 '}';
     }
 }

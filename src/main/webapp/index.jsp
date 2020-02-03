@@ -67,14 +67,13 @@
 
 
 
-    <div id="d2" style="margin-left: 850px;margin-top:-250px;width: 300px;">
+    <div id="d2" style="margin-left: 850px;width: 300px;">
         <ul class="nav nav-pills nav-stacked">
             <li role="presentation" class="active">
                 <a href="#">失物招领：
                     <span class="badge" style="margin-right: 0px;">更多》</span>
                 </a>
             </li>
-
             <li role="presentation"><a href="#" class="studentmessage.jsp">个人资料</a></li>
             <li role="presentation"><a href="#" class="studentmessage.jsp">个人资料</a></li>
             <li role="presentation"><a href="#" class="studentmessage.jsp">个人资料</a></li>
