@@ -46,7 +46,7 @@
 				${user1.name}
 			</span>
 			<button type="button" class="btn btn-warning"
-					onclick="window.location.href='user.jsp'">登陆</button>
+					onclick="window.location.href='${pageContext.request.contextPath}/user.jsp'">登陆</button>
 			<button type="button" class="btn btn-warning"
 					onclick="window.location.href='${pageContext.request.contextPath}/user/unload'">登出</button>
 		</div>

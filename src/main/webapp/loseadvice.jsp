@@ -1,10 +1,3 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: user
-  Date: 2020/1/4
-  Time: 22:24
-  To change this template use File | Settings | File Templates.
---%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
@@ -33,7 +26,7 @@
     <a href="${pageContext.request.contextPath}/lose/losefound" class="list-group-item">
         捡到物品：
     </a>
-    <a href="${pageContext.request.contextPath}/lose/loseadvice" class="list-group-item">
+    <a href="#" class="list-group-item">
         失物招领流程：
     </a>
 </div>
@@ -93,25 +86,6 @@
     </table>
 </div>
 </form>
-
-<div id="title4" class="alert alert-info" role="alert">
-    <img src="${pageContext.request.contextPath}/img/img1.png">
-    <label>查询结果：</label>
-</div>
-
-<div id="title5" style="margin-left: 500px;width: 600px;">
-        <ul class="nav nav-pills nav-stacked">
-            <c:forEach items="${applys}" var="apply">
-                <li style="width: 200px;height: 200px;float: left;">
-                    <div>
-                        <img src="${pageContext.request.contextPath}/upload/${apply.picture}" style="width: 120px;height: 120px;" alt="图片" class="img-thumbnail"><br>
-                        <label>名称：${apply.name}</label><br>
-                        <label>地点：${apply.place}</label>
-                    </div>
-                </li>
-            </c:forEach>
-        </ul>
-</div>
 
 </body>
 </html>

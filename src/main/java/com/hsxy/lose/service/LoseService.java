@@ -36,4 +36,7 @@ public class LoseService {
         }
     }
 
+    public void loselose2(Date applytime, String applyexplain, Integer userid, String fileName, String place, String name, String typeid) {
+        loseMapper.loselose2(applytime,applyexplain,userid,fileName,place,name,typeid);
+    }
 }

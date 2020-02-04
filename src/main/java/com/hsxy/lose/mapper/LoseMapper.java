@@ -23,4 +23,8 @@ public interface LoseMapper {
 
     List<Apply> search4(@Param("typeid") String typeid,@Param("name") String name);
 
+    void loselose2(@Param("applytime") Date applytime,@Param("applyexplain") String applyexplain,
+                   @Param("userid") Integer userid,@Param("picture") String fileName,@Param("place") String place,
+                   @Param("name") String name,@Param("typeid") String typeid);
+
 }
