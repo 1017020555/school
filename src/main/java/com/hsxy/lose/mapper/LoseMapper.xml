@@ -5,8 +5,24 @@
 
 <mapper namespace="com.hsxy.lose.mapper.LoseMapper">
     <select id="getMessage" resultType="com.hsxy.lose.pojo.Apply">
-         select * from apply order by applytime desc limit 0,5
+         select * from apply order by applytime desc limit 0,6
     </select>
+    <select id="getAllTypes" resultType="java.lang.String">
+        select typename from type
+    </select>
+    <select id="search" resultType="com.hsxy.lose.pojo.Apply">
+        select * from apply where typeid=#{typeid} and name=#{name} and applytime=#{applytime}
+    </select>
+    <select id="search2" resultType="com.hsxy.lose.pojo.Apply">
+        select * from apply where typeid=#{typeid}
+    </select>
+    <select id="search3" resultType="com.hsxy.lose.pojo.Apply">
+        select * from apply where typeid=#{typeid} and applytime=#{applytime}
+    </select>
+    <select id="search4" resultType="com.hsxy.lose.pojo.Apply">
+        select * from apply where typeid=#{typeid} and name=#{name}
+    </select>
+
 
 </mapper>
 

@@ -40,25 +40,55 @@
     <label>查询条件：</label>
 </div>
 
+<form method="post" action="${pageContext.request.contextPath}/lose/search">
 <div id="title3">
-    <label style="margin-left: 8px;">选择丢失物品类别：</label>
-    <label>丢失物品名称：</label>
-    <label>丢失地点：</label>&nbsp;&nbsp;
-    <label>丢失时间：</label>
-    <select class="form-control" style="width: 120px;">
-        <option>1</option>
-        <option>2</option>
-        <option>3</option>
-        <option>4</option>
-        <option>5</option>
+    <table>
+        <tr>
+            <td>
+                <label style="margin-left: 8px;">选择丢失物品类别：</label>
+            </td>
+            <td>
+                <label>丢失物品名称：</label>&nbsp;&nbsp;
+            </td>
+          <td>
+              <label>丢失时间：</label>
+          </td>
+        </tr>
+    <tr>
+        <td>
+    <select class="form-control" style="width: 120px;" name="typeid">
+        <c:forEach items="${types}" var="type">
+            <option
+                    <c:if test="${type=='校园卡'}">value="1" </c:if>
+                    <c:if test="${type=='银行卡'}">value="2" </c:if>
+                    <c:if test="${type=='U盘'}">value="3" </c:if>
+                    <c:if test="${type=='现金或钱包'}">value="4" </c:if>
+                    <c:if test="${type=='钥匙'}">value="5" </c:if>
+                    <c:if test="${type=='手机'}">value="6" </c:if>
+                    <c:if test="${type=='包包或服饰'}">value="7" </c:if>
+                    <c:if test="${type=='图书资料'}">value="8" </c:if>
+                    <c:if test="${type=='生活用品'}">value="9" </c:if>
+                    <c:if test="${type=='其它物品'}">value="10" </c:if>
+                    <c:if test="${type=='眼镜'}">value="11" </c:if>
+                    <c:if test="${type=='身份证'}">value="12" </c:if>
+            >${type}
+            </option>
+        </c:forEach>
     </select>
-    <input id="input1" style="width: 120px;" type="text" class="form-control" placeholder="丢失物品名称：">
-    <input id="input2" style="width: 120px;" type="text" class="form-control" placeholder="丢失地点：">
-
-    <input id="input3" style="margin-left: 460px;margin-top: -35px;width: 150px;" class="form-control" type="date">
-    <input type="submit" class="form-control" style="margin-left: 640px;width: 50px;margin-top: -35px;" value="搜索">
+        </td>
+        <td>
+            <input name="name" style="width: 120px;" type="text" class="form-control" placeholder="丢失物品名称：">
+        </td>
+    <td>
+        <input name="applytime" style="width: 150px;" class="form-control" type="date">
+    </td>
+        <td>
+            <input type="submit" class="form-control" style="width: 50px;" value="搜索">
+        </td>
+    </tr>
+    </table>
 </div>
-
+</form>
 
 <div id="title4" class="alert alert-info" role="alert">
     <img src="${pageContext.request.contextPath}/img/img1.png">

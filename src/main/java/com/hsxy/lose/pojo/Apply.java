@@ -15,7 +15,15 @@ public class Apply {
     private String picture;
     private String place;
     private String name;
+    private Integer typeid;
 
+    public Integer getTypeid() {
+        return typeid;
+    }
+
+    public void setTypeid(Integer typeid) {
+        this.typeid = typeid;
+    }
 
     public String getName() {
         return name;
@@ -113,6 +121,7 @@ public class Apply {
                 ", picture='" + picture + '\'' +
                 ", place='" + place + '\'' +
                 ", name='" + name + '\'' +
+                ", typeid=" + typeid +
                 '}';
     }
 }
