@@ -51,8 +51,6 @@ public class NewsController {
         ModelAndView mv=new ModelAndView();
         List<News> news =newsService.search(title,time);
 
-        System.out.println(news);
-
         mv.addObject("news",news);
         mv.setViewName("admin/adminnews");
         return mv;
@@ -95,8 +93,11 @@ public String modify1(Model model,@PathVariable Integer id){
     public ModelAndView uploadFile(@RequestParam MultipartFile file, HttpSession session,
                                    String title, String content,String newstypeid, HttpServletRequest request) throws IllegalStateException, IOException {
         ModelAndView mv=new ModelAndView();
-        ServletContext context = request.getServletContext();
-        String realPath = context.getRealPath("/upload");
+
+//        ServletContext context = request.getServletContext();
+//        String realPath = context.getRealPath("/upload");
+        String realPath = "F:\\schoolimages";
+
         File f=new File(realPath);
         if (!f.exists()) {
             f.mkdirs();

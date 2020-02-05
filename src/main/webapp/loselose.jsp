@@ -20,12 +20,12 @@
 
 <div class="list-group" id="lists" style="margin-left: 90px;">
     <a href="${pageContext.request.contextPath}/lose/loselose" class="list-group-item active">
-        丢失物品：
+        发布丢失物品通告：
     </a>
     <a href="${pageContext.request.contextPath}/lose/losefound" class="list-group-item">
-        捡到物品：
+        发布捡到物品通告：
     </a>
-    <a href="#" class="list-group-item">
+    <a href="${pageContext.request.contextPath}/lose/loseadvice" class="list-group-item">
         失物招领流程：
     </a>
 </div>

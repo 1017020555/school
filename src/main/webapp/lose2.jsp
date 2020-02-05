@@ -136,37 +136,32 @@
         </c:forEach>
     </ul>
 
-
     <nav aria-label="Page navigation" style="margin-left: 300px;">
         <ul class="pagination">
             <c:if test="${pageInfo.hasPreviousPage}">
                 <li>
-                    <a href="${pageContext.request.contextPath}/lose/getMessage?pageNum=${pageInfo.pageNum-1}" aria-label="Previous">
+                    <a href="${pageContext.request.contextPath}/lose/search?pageNum=${pageInfo.pageNum-1}&type=${type}&typeid=${typeid}&name=${name}&applytime=${applytime}" aria-label="Previous">
                         <span aria-hidden="true">&laquo;&laquo;</span>
                     </a>
                 </li>
             </c:if>
-
             <c:forEach items="${pageInfo.navigatepageNums}" var="page">
                 <c:if test="${page==pageInfo.pageNum }">
-                    <li class="active"><a href="${pageContext.request.contextPath}/lose/getMessage?pageNum=${page}">${page}</a></li>
+                    <li class="active"><a href="${pageContext.request.contextPath}/lose/search?pageNum=${page}&type=${type}&typeid=${typeid}&name=${name}&applytime=${applytime}">${page}</a></li>
                 </c:if>
                 <c:if test="${page!=pageInfo.pageNum }">
-                    <li><a href="${pageContext.request.contextPath}/lose/getMessage?pageNum=${page}">${page}</a></li>
+                    <li><a href="${pageContext.request.contextPath}/lose/search?pageNum=${page}&type=${type}&typeid=${typeid}&name=${name}&applytime=${applytime}">${page}</a></li>
                 </c:if>
             </c:forEach>
-
             <c:if test="${pageInfo.hasNextPage }">
                 <li>
-                    <a href="${pageContext.request.contextPath}/lose/getMessage?pageNum=${pageInfo.pageNum+1 }" aria-label="Next">
+                    <a href="${pageContext.request.contextPath}/lose/search?pageNum=${pageInfo.pageNum+1 }&type=${type}&typeid=${typeid}&name=${name}&applytime=${applytime}" aria-label="Next">
                         <span aria-hidden="true">&raquo;&raquo;</span>
                     </a>
                 </li>
             </c:if>
-
         </ul>
     </nav>
-
     当前${pageInfo.pageNum }页，总共${pageInfo.pages}页，总共${pageInfo.total }条记录
 </div>
 

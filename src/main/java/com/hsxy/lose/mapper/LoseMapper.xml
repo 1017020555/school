@@ -5,11 +5,12 @@
 
 <mapper namespace="com.hsxy.lose.mapper.LoseMapper">
     <select id="getMessage" resultType="com.hsxy.lose.pojo.Apply">
-         select * from apply order by applyid desc limit 0,6
+         select * from apply order by applyid desc
     </select>
     <select id="getAllTypes" resultType="java.lang.String">
         select typename from type
     </select>
+
     <select id="search" resultType="com.hsxy.lose.pojo.Apply">
         select * from apply where typeid=#{typeid} and name=#{name} and applytime=#{applytime}
     </select>
@@ -22,9 +23,28 @@
     <select id="search4" resultType="com.hsxy.lose.pojo.Apply">
         select * from apply where typeid=#{typeid} and name=#{name}
     </select>
+
+    <select id="searchgoods" resultType="com.hsxy.lose.pojo.Good">
+        select * from good where typeid=#{typeid} and goodname=#{goodname} and time=#{time}
+    </select>
+    <select id="searchgoods2" resultType="com.hsxy.lose.pojo.Good">
+        select * from good where typeid=#{typeid}
+    </select>
+    <select id="searchgoods3" resultType="com.hsxy.lose.pojo.Good">
+        select * from good where typeid=#{typeid} and time=#{time}
+    </select>
+    <select id="searchgoods4" resultType="com.hsxy.lose.pojo.Good">
+        select * from good where typeid=#{typeid} and goodname=#{goodname}
+    </select>
+
+
     <insert id="loselose2">
         insert into apply(applytime,applyexplain,userid,picture,place,name,typeid)
         values(#{applytime},#{applyexplain},#{userid},#{picture},#{place},#{name},#{typeid})
+    </insert>
+    <insert id="losefound2">
+        insert into good(goodname,typeid,userid,goodexplain,time,place,photo)
+        values(#{goodname},#{typeid},#{userid},#{goodexplain},#{time},#{place},#{photo})
     </insert>
 
 </mapper>

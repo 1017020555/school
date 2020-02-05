@@ -2,6 +2,7 @@ package com.hsxy.lose.service;
 
 import com.hsxy.lose.mapper.LoseMapper;
 import com.hsxy.lose.pojo.Apply;
+import com.hsxy.lose.pojo.Good;
 import com.hsxy.lose.pojo.Type;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -35,8 +36,24 @@ public class LoseService {
             return loseMapper.search(typeid, name, applytime);
         }
     }
+    public List<Good> searchgoods(String typeid, String goodname, String time) {
+        if (goodname == "" && time == "") {
+            return loseMapper.searchgoods2(typeid);
+        } else if (goodname == "" && time != "") {
+            return loseMapper.searchgoods3(typeid,time);
+        } else if (goodname != "" && time == "") {
+            return loseMapper.searchgoods4(typeid,goodname);
+        }else {
+            return loseMapper.searchgoods(typeid, goodname, time);
+        }
+    }
 
     public void loselose2(Date applytime, String applyexplain, Integer userid, String fileName, String place, String name, String typeid) {
         loseMapper.loselose2(applytime,applyexplain,userid,fileName,place,name,typeid);
     }
+
+    public void losefound2(Date applytime, String goodexplain, Integer userid, String fileName, String place, String goodname, String typeid) {
+        loseMapper.losefound2(goodname,typeid,userid,goodexplain,applytime,place,fileName);
+    }
+
 }
