@@ -38,6 +38,27 @@
     </select>
 
 
+    <select id="htsearch4" resultType="com.hsxy.lose.pojo.Apply">
+        select * from apply where name=#{name}
+    </select>
+    <select id="htsearch3" resultType="com.hsxy.lose.pojo.Apply">
+        select * from apply where applytime=#{applytime}
+    </select>
+    <select id="htsearch2" resultType="com.hsxy.lose.pojo.Apply">
+        select * from apply where name=#{name} and applytime=#{applytime}
+    </select>
+
+    <select id="htsearchgoods4" resultType="com.hsxy.lose.pojo.Good">
+        select * from good where goodname=#{goodname}
+    </select>
+    <select id="htsearchgoods3" resultType="com.hsxy.lose.pojo.Good">
+        select * from good where time=#{time}
+    </select>
+    <select id="htsearchgoods2" resultType="com.hsxy.lose.pojo.Good">
+        select * from good where goodname=#{goodname} and time=#{time}
+    </select>
+
+
     <insert id="loselose2">
         insert into apply(applytime,applyexplain,userid,picture,place,name,typeid)
         values(#{applytime},#{applyexplain},#{userid},#{picture},#{place},#{name},#{typeid})

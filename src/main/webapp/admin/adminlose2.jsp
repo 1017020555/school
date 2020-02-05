@@ -57,31 +57,30 @@
             <td>类型</td>
             <td colspan="2">操作</td>
         </tr>
-
-        <c:forEach items="${applys}" var="apply" varStatus="i">
+        <c:forEach items="${goods}" var="good" varStatus="i">
             <tr>
                 <td>${i.index+1}
                     <input type="checkbox">
                 </td>
-                <td>${apply.name}</td>
-                <td>${apply.applyexplain}</td>
+                <td>${good.goodname}</td>
+                <td>${good.goodexplain}</td>
                 <td>
-                    <fmt:formatDate value="${apply.applytime}" pattern="yyyy-MM-dd"/>
+                    <fmt:formatDate value="${good.time}" pattern="yyyy-MM-dd"/>
                 </td>
-                <td>${apply.place}</td>
+                <td>${good.place}</td>
                 <td>
-                    <c:if test="${apply.typeid=='1'}">校园卡 </c:if>
-                    <c:if test="${apply.typeid=='2'}">银行卡 </c:if>
-                    <c:if test="${apply.typeid=='3'}">U盘</c:if>
-                    <c:if test="${apply.typeid=='4'}">现金或钱包 </c:if>
-                    <c:if test="${apply.typeid=='5'}">钥匙</c:if>
-                    <c:if test="${apply.typeid=='6'}">手机</c:if>
-                    <c:if test="${apply.typeid=='7'}">包包或服饰</c:if>
-                    <c:if test="${apply.typeid=='8'}">图书资料</c:if>
-                    <c:if test="${apply.typeid=='9'}">生活用品</c:if>
-                    <c:if test="${apply.typeid=='10'}">其它物品</c:if>
-                    <c:if test="${apply.typeid=='11'}">眼镜</c:if>
-                    <c:if test="${apply.typeid=='12'}">身份证</c:if>
+                    <c:if test="${good.typeid=='1'}">校园卡 </c:if>
+                    <c:if test="${good.typeid=='2'}">银行卡 </c:if>
+                    <c:if test="${good.typeid=='3'}">U盘</c:if>
+                    <c:if test="${good.typeid=='4'}">现金或钱包 </c:if>
+                    <c:if test="${good.typeid=='5'}">钥匙</c:if>
+                    <c:if test="${good.typeid=='6'}">手机</c:if>
+                    <c:if test="${good.typeid=='7'}">包包或服饰</c:if>
+                    <c:if test="${good.typeid=='8'}">图书资料</c:if>
+                    <c:if test="${good.typeid=='9'}">生活用品</c:if>
+                    <c:if test="${good.typeid=='10'}">其它物品</c:if>
+                    <c:if test="${good.typeid=='11'}">眼镜</c:if>
+                    <c:if test="${good.typeid=='12'}">身份证</c:if>
                 </td>
                 <td>编辑</td>
                 <td>删除</td>
@@ -104,7 +103,7 @@
                 <li class="active"><a href="${pageContext.request.contextPath}/lose/show?pageNum=${page}&type=${type}&goodname=${goodname}&time=${time}">${page}</a></li>
             </c:if>
             <c:if test="${page!=pageInfo.pageNum }">
-                <li><a href="${pageContext.request.contextPath}/lose/show?pageNum=${page}&type=${type}&goodname=${goodname}&time=${time}">${page}</a></li>
+                <li><a href="${pageContext.request.contextPath}/lose/show?pageNum=${page}&type=${type}&type=${type}&goodname=${goodname}&time=${time}">${page}</a></li>
             </c:if>
         </c:forEach>
         <c:if test="${pageInfo.hasNextPage }">

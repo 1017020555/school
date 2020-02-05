@@ -33,4 +33,12 @@ public interface LoseMapper {
                    @Param("goodexplain") String goodexplain,@Param("time") Date time,
                     @Param("place") String place, @Param("photo")String photo);
 
+
+    List<Apply> htsearch2(@Param("name") String name,@Param("applytime") String applytime);
+    List<Apply> htsearch3(@Param("applytime")String applytime);
+    List<Apply> htsearch4(@Param("name")String name);
+
+    List<Good> htsearchgoods2(@Param("goodname") String goodname,@Param("time") String time);
+    List<Good> htsearchgoods3(@Param("time")String time);
+    List<Good> htsearchgoods4(@Param("goodname")String goodname);
 }

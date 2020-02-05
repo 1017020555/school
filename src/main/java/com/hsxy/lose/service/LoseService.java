@@ -56,4 +56,23 @@ public class LoseService {
         loseMapper.losefound2(goodname,typeid,userid,goodexplain,applytime,place,fileName);
     }
 
+    public List<Apply> htsearch(String name, String applytime) {
+        if (name=="" && applytime==""){
+            return loseMapper.htsearch2(name,applytime);
+        }else if(name=="" && applytime!=""){
+            return loseMapper.htsearch3(applytime);
+        }else{
+            return loseMapper.htsearch4(name);
+        }
+    }
+    public List<Good> htsearchgoods(String goodname, String time) {
+        if (goodname=="" && time==""){
+            return loseMapper.htsearchgoods2(goodname,time);
+        }else if(goodname=="" && time!=""){
+            return loseMapper.htsearchgoods3(time);
+        }else {
+            return loseMapper.htsearchgoods4(goodname);
+        }
+    }
+
 }

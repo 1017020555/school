@@ -28,7 +28,7 @@
         <div onclick="pageClick(this)"  class="active" datasrc="adminsecondhand.jsp">
             <img src="img/icon-1.png" />二手交易模块管理
         </div>
-        <div onclick="pageClick(this)" datasrc="adminlose.jsp">
+        <div onclick="pageClick(this)" datasrc="${pageContext.request.contextPath}/lose/show">
             <img src="img/icon-2.png" />失物招领模块管理
         </div>
         <div onclick="pageClick(this)" datasrc="${pageContext.request.contextPath}/compition/show">

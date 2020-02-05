@@ -31,6 +31,53 @@ public class LoseController {
     @Autowired
     private LoseService loseService;
 
+//    后台--失物招领--显示所有
+    @RequestMapping("/show")
+    public ModelAndView show(
+            @RequestParam(required=true,value="pageNum",defaultValue="1") Integer pageNum,
+            @RequestParam(required=true,value="pageSize",defaultValue="5") Integer pageSize){
+        ModelAndView mv=new ModelAndView();
+        PageHelper.startPage(pageNum, pageSize);
+        List<Apply> applys= loseService.getMessage();
+        PageInfo<Apply> pageInfo=new PageInfo<>(applys);
+        mv.addObject("pageInfo",pageInfo);
+        mv.addObject("applys",applys);
+        mv.setViewName("admin/adminlose");
+        return mv;
+    }
+//后台--失物招领--查询
+@RequestMapping(value = "/search2",method = RequestMethod.GET)
+public ModelAndView search2(String type,String goodname, String time,
+                           @RequestParam(required=true,value="pageNum",defaultValue="1") Integer pageNum,
+                           @RequestParam(required=true,value="pageSize",defaultValue="5") Integer pageSize){
+    ModelAndView mv=new ModelAndView();
+    mv.addObject("type",type);
+    mv.addObject("goodname",goodname);
+    mv.addObject("time",time);
+
+    PageHelper.startPage(pageNum, pageSize);
+    if ("lose".equals(type)){
+        String name=goodname;
+        String applytime=time;
+        List<Apply> applys= loseService.htsearch(name,applytime);
+        PageInfo<Apply> pageInfo=new PageInfo<>(applys);
+        mv.addObject("pageInfo",pageInfo);
+        mv.addObject("applys",applys);
+        mv.setViewName("admin/adminlose");
+        return mv;
+    }else {
+        List<Good> goods= loseService.htsearchgoods(goodname,time);
+        PageInfo<Good> pageInfo=new PageInfo<>(goods);
+        mv.addObject("pageInfo",pageInfo);
+        mv.addObject("goods",goods);
+        mv.setViewName("admin/adminlose2");
+        return mv;
+    }
+}
+
+
+
+
 //    前台--失物招领--进入发布失物页面
 @RequestMapping(value = "/loselose")
 public ModelAndView loselose(){
