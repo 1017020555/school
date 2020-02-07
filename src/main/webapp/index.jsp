@@ -68,17 +68,14 @@
 
 
     <div id="d2" style="margin-left: 850px;width: 300px;">
-        <ul class="nav nav-pills nav-stacked">
+        <ul class="nav nav-pills nav-stacked" id="uu">
             <li role="presentation" class="active">
                 <a href="${pageContext.request.contextPath}/lose/getMessage">失物招领：
                     <span class="badge" style="margin-right: 0px;">更多》</span>
                 </a>
             </li>
-            <li role="presentation"><a href="#" class="studentmessage.jsp">个人资料</a></li>
-            <li role="presentation"><a href="#" class="studentmessage.jsp">个人资料</a></li>
-            <li role="presentation"><a href="#" class="studentmessage.jsp">个人资料</a></li>
-            <li role="presentation"><a href="#" class="studentmessage.jsp">个人资料</a></li>
-            <li role="presentation"><a href="#" class="studentmessage.jsp">个人资料</a></li>
+
+            <li role="presentation"><a href="#" class="studentmessage.jsp">lost</a></li>
 
         </ul>
     </div>
@@ -147,9 +144,23 @@
 
 <script type="text/javascript">
     $(function () {
+        <%--$.ajax({--%>
+        <%--    url:'${pageContext.request.contextPath}/news/index',--%>
+        <%--    method:'get'--%>
+        <%--});--%>
         $.ajax({
-            url:'${pageContext.request.contextPath}/news/index',
-            method:'get'
+            url:"${pageContext.request.contextPath}/lose/index",
+            type:'get',
+            success:function(applies) {
+                alert(applies);
+                $.each(applies,function(index,obj){
+                    $("#uu").append(
+                        "<li role='presentation'>" +
+                             "<a href='#' class='studentmessage.jsp'>"+'obj.name'+"</a>"
+                        + "</li>"
+                    );
+                });
+            }
         })
     })
 </script>

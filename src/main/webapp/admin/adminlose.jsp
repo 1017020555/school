@@ -1,6 +1,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <html>
 <head>
     <title>adminlose</title>
@@ -39,9 +40,11 @@
         <option value="lose">丢失物品</option>
         <option value="found">找到物品</option>
     </select>
-    <label >丢失物品名称</label><input name="goodname" type="text" class="form-control" placeholder="请输入物品名称：">
-    <label>丢失时间</label><input name="time" type="date" class="form-control">
-    <button type="button" class="form-control" >查询</button>
+    <label >丢失物品名称</label>
+        <input name="goodname" type="text" class="form-control" placeholder="请输入物品名称：">
+    <label>丢失时间</label>
+        <input name="time" type="date" class="form-control">
+    <button type="submit" class="form-control" >查询</button>
 </div>
 </form>
 <br>
@@ -64,7 +67,11 @@
                     <input type="checkbox">
                 </td>
                 <td>${apply.name}</td>
-                <td>${apply.applyexplain}</td>
+                <td>
+                          <c:if test="${fn:length(apply.applyexplain)>5}">
+                              ${fn:substring(apply.applyexplain, 0, 6)}.....
+                          </c:if>
+                </td>
                 <td>
                     <fmt:formatDate value="${apply.applytime}" pattern="yyyy-MM-dd"/>
                 </td>
@@ -83,8 +90,12 @@
                     <c:if test="${apply.typeid=='11'}">眼镜</c:if>
                     <c:if test="${apply.typeid=='12'}">身份证</c:if>
                 </td>
-                <td>编辑</td>
-                <td>删除</td>
+                <td>
+                    <a href="${pageContext.request.contextPath}/lose/modify1/${apply.applyid}">编辑</a>
+                </td>
+                <td>
+                    <a href="${pageContext.request.contextPath}/lose/delete/${apply.applyid}">删除</a>
+                </td>
             </tr>
         </c:forEach>
     </table>

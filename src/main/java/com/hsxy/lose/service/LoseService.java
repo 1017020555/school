@@ -57,22 +57,54 @@ public class LoseService {
     }
 
     public List<Apply> htsearch(String name, String applytime) {
-        if (name=="" && applytime==""){
+        if (name!="" && applytime!=""){
             return loseMapper.htsearch2(name,applytime);
         }else if(name=="" && applytime!=""){
             return loseMapper.htsearch3(applytime);
-        }else{
+        }else if(name!="" && applytime==""){
             return loseMapper.htsearch4(name);
+        }else {
+            return loseMapper.htsearch5();
         }
     }
     public List<Good> htsearchgoods(String goodname, String time) {
-        if (goodname=="" && time==""){
+        if (goodname!="" && time!=""){
             return loseMapper.htsearchgoods2(goodname,time);
         }else if(goodname=="" && time!=""){
             return loseMapper.htsearchgoods3(time);
-        }else {
+        }else if(goodname!="" && time==""){
             return loseMapper.htsearchgoods4(goodname);
+        }else {
+            return loseMapper.htsearchgoods5();
         }
     }
+
+//
+    public void delete(Integer id) {
+        loseMapper.delete(id);
+    }
+    public Apply modify2(Integer applyid) {
+        return loseMapper.modify2(applyid);
+    }
+    public void modify3(String name, String applyexplain, String place, String typeid, String id) {
+        loseMapper.modify3(name,applyexplain,place,typeid,id);
+    }
+
+    public void delete2(Integer id) {
+        loseMapper.delete2(id);
+    }
+    public Good modify4(Integer id) {
+        return loseMapper.modify4(id);
+    }
+    public void modify5(String goodname, String goodexplain, String place, String typeid, String id) {
+        loseMapper.modify5(goodname,goodexplain,place,typeid,id);
+    }
+
+    //
+
+    public List<Apply> index() {
+        return loseMapper.index();
+    }
+
 
 }

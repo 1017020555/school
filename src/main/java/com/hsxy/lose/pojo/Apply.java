@@ -6,16 +6,24 @@ public class Apply {
     private Date applytime;
     private String applyexplain;
 
-    private Good good;
-    private Integer goodid;
-
     private User user;
     private Integer userid;
 
     private String picture;
     private String place;
     private String name;
+
     private Integer typeid;
+    private Type type;
+
+
+    public Type getType() {
+        return type;
+    }
+
+    public void setType(Type type) {
+        this.type = type;
+    }
 
     public Integer getTypeid() {
         return typeid;
@@ -55,22 +63,6 @@ public class Apply {
 
     public void setApplyexplain(String applyexplain) {
         this.applyexplain = applyexplain;
-    }
-
-    public Good getGood() {
-        return good;
-    }
-
-    public void setGood(Good good) {
-        this.good = good;
-    }
-
-    public Integer getGoodid() {
-        return goodid;
-    }
-
-    public void setGoodid(Integer goodid) {
-        this.goodid = goodid;
     }
 
     public User getUser() {
@@ -114,14 +106,13 @@ public class Apply {
                 "applyid=" + applyid +
                 ", applytime=" + applytime +
                 ", applyexplain='" + applyexplain + '\'' +
-                ", good=" + good +
-                ", goodid=" + goodid +
                 ", user=" + user +
                 ", userid=" + userid +
                 ", picture='" + picture + '\'' +
                 ", place='" + place + '\'' +
                 ", name='" + name + '\'' +
                 ", typeid=" + typeid +
+                ", type=" + type +
                 '}';
     }
 }

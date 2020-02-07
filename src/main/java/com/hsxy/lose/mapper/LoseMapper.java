@@ -37,8 +37,24 @@ public interface LoseMapper {
     List<Apply> htsearch2(@Param("name") String name,@Param("applytime") String applytime);
     List<Apply> htsearch3(@Param("applytime")String applytime);
     List<Apply> htsearch4(@Param("name")String name);
+    List<Apply> htsearch5();
 
     List<Good> htsearchgoods2(@Param("goodname") String goodname,@Param("time") String time);
     List<Good> htsearchgoods3(@Param("time")String time);
     List<Good> htsearchgoods4(@Param("goodname")String goodname);
+    List<Good> htsearchgoods5();
+
+    void delete(@Param("applyid") Integer applyid);
+    Apply modify2(@Param("applyid") Integer applyid);
+    void modify3(@Param("name") String name,@Param("applyexplain") String applyexplain,@Param("place") String place,
+                 @Param("typeid") String typeid,@Param("applyid") String applyid);
+
+    void delete2(@Param("goodid") Integer goodid);
+    Good modify4(@Param("goodid") Integer goodid);
+    void modify5(@Param("goodname") String goodname,@Param("goodexplain") String goodexplain,
+                 @Param("place") String place,@Param("typeid") String typeid,@Param("goodid") String goodid);
+
+
+    List<Apply> index();
+
 }

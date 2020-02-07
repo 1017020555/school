@@ -1,6 +1,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <html>
 <head>
     <title>adminlose</title>
@@ -39,9 +40,11 @@
         <option value="lose">丢失物品</option>
         <option value="found">找到物品</option>
     </select>
-    <label >丢失物品名称</label><input name="goodname" type="text" class="form-control" placeholder="请输入物品名称：">
-    <label>丢失时间</label><input name="time" type="date" class="form-control">
-    <button type="button" class="form-control" >查询</button>
+    <label >丢失物品名称</label>
+        <input name="goodname" type="text" class="form-control" placeholder="请输入物品名称：">
+    <label>丢失时间</label>
+        <input name="time" type="date" class="form-control">
+    <button type="submit" class="form-control" >查询</button>
 </div>
 </form>
 <br>
@@ -57,13 +60,52 @@
             <td>类型</td>
             <td colspan="2">操作</td>
         </tr>
+
+        <c:forEach items="${applys}" var="apply" varStatus="i">
+            <tr>
+                <td>${i.index+1}
+                    <input type="checkbox">
+                </td>
+                <td>${apply.name}</td>
+                <td>${apply.applyexplain}</td>
+                <td>
+                    <fmt:formatDate value="${apply.applytime}" pattern="yyyy-MM-dd"/>
+                </td>
+                <td>${apply.place}</td>
+                <td>
+                    <c:if test="${apply.typeid=='1'}">校园卡 </c:if>
+                    <c:if test="${apply.typeid=='2'}">银行卡 </c:if>
+                    <c:if test="${apply.typeid=='3'}">U盘</c:if>
+                    <c:if test="${apply.typeid=='4'}">现金或钱包 </c:if>
+                    <c:if test="${apply.typeid=='5'}">钥匙</c:if>
+                    <c:if test="${apply.typeid=='6'}">手机</c:if>
+                    <c:if test="${apply.typeid=='7'}">包包或服饰</c:if>
+                    <c:if test="${apply.typeid=='8'}">图书资料</c:if>
+                    <c:if test="${apply.typeid=='9'}">生活用品</c:if>
+                    <c:if test="${apply.typeid=='10'}">其它物品</c:if>
+                    <c:if test="${apply.typeid=='11'}">眼镜</c:if>
+                    <c:if test="${apply.typeid=='12'}">身份证</c:if>
+                </td>
+                <td>
+                    <a href="${pageContext.request.contextPath}/lose/modify1/${apply.applyid}">编辑</a>
+                </td>
+                <td>
+                    <a href="${pageContext.request.contextPath}/lose/delete/${apply.applyid}">删除</a>
+                </td>
+            </tr>
+        </c:forEach>
+
         <c:forEach items="${goods}" var="good" varStatus="i">
             <tr>
                 <td>${i.index+1}
                     <input type="checkbox">
                 </td>
                 <td>${good.goodname}</td>
-                <td>${good.goodexplain}</td>
+                <td>
+                      <c:if test="${fn:length(good.goodexplain)>5}">
+                          ${fn:substring(good.goodexplain, 0, 6)}.....
+                      </c:if>
+                </td>
                 <td>
                     <fmt:formatDate value="${good.time}" pattern="yyyy-MM-dd"/>
                 </td>
@@ -82,8 +124,12 @@
                     <c:if test="${good.typeid=='11'}">眼镜</c:if>
                     <c:if test="${good.typeid=='12'}">身份证</c:if>
                 </td>
-                <td>编辑</td>
-                <td>删除</td>
+                <td>
+                    <a href="${pageContext.request.contextPath}/lose/modify4/${good.goodid}">编辑</a>
+                </td>
+                <td>
+                    <a href="${pageContext.request.contextPath}/lose/delete2/${good.goodid}">删除</a>
+                </td>
             </tr>
         </c:forEach>
     </table>
@@ -93,22 +139,22 @@
     <ul class="pagination">
         <c:if test="${pageInfo.hasPreviousPage}">
             <li>
-                <a href="${pageContext.request.contextPath}/lose/show?pageNum=${pageInfo.pageNum-1}&type=${type}&goodname=${goodname}&time=${time}" aria-label="Previous">
+                <a href="${pageContext.request.contextPath}/lose/search2?pageNum=${pageInfo.pageNum-1}&type=${type}&goodname=${goodname}&time=${time}" aria-label="Previous">
                     <span aria-hidden="true">&laquo;&laquo;</span>
                 </a>
             </li>
         </c:if>
         <c:forEach items="${pageInfo.navigatepageNums}" var="page">
             <c:if test="${page==pageInfo.pageNum }">
-                <li class="active"><a href="${pageContext.request.contextPath}/lose/show?pageNum=${page}&type=${type}&goodname=${goodname}&time=${time}">${page}</a></li>
+                <li class="active"><a href="${pageContext.request.contextPath}/lose/search2?pageNum=${page}&type=${type}&goodname=${goodname}&time=${time}">${page}</a></li>
             </c:if>
             <c:if test="${page!=pageInfo.pageNum }">
-                <li><a href="${pageContext.request.contextPath}/lose/show?pageNum=${page}&type=${type}&type=${type}&goodname=${goodname}&time=${time}">${page}</a></li>
+                <li><a href="${pageContext.request.contextPath}/lose/search2?pageNum=${page}&type=${type}&goodname=${goodname}&time=${time}">${page}</a></li>
             </c:if>
         </c:forEach>
         <c:if test="${pageInfo.hasNextPage }">
             <li>
-                <a href="${pageContext.request.contextPath}/lose/show?pageNum=${pageInfo.pageNum+1 }&type=${type}&goodname=${goodname}&time=${time}" aria-label="Next">
+                <a href="${pageContext.request.contextPath}/lose/search2?pageNum=${pageInfo.pageNum+1 }&type=${type}&goodname=${goodname}&time=${time}" aria-label="Next">
                     <span aria-hidden="true">&raquo;&raquo;</span>
                 </a>
             </li>

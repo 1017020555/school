@@ -4,19 +4,18 @@ import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import com.hsxy.lose.pojo.Apply;
 import com.hsxy.lose.pojo.Good;
-import com.hsxy.lose.pojo.Type;
 import com.hsxy.lose.service.LoseService;
 import com.hsxy.user.pojo.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
-import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import java.io.File;
@@ -30,7 +29,6 @@ import java.util.UUID;
 public class LoseController {
     @Autowired
     private LoseService loseService;
-
 //    后台--失物招领--显示所有
     @RequestMapping("/show")
     public ModelAndView show(
@@ -54,7 +52,6 @@ public ModelAndView search2(String type,String goodname, String time,
     mv.addObject("type",type);
     mv.addObject("goodname",goodname);
     mv.addObject("time",time);
-
     PageHelper.startPage(pageNum, pageSize);
     if ("lose".equals(type)){
         String name=goodname;
@@ -63,7 +60,7 @@ public ModelAndView search2(String type,String goodname, String time,
         PageInfo<Apply> pageInfo=new PageInfo<>(applys);
         mv.addObject("pageInfo",pageInfo);
         mv.addObject("applys",applys);
-        mv.setViewName("admin/adminlose");
+        mv.setViewName("admin/adminlose2");
         return mv;
     }else {
         List<Good> goods= loseService.htsearchgoods(goodname,time);
@@ -74,6 +71,57 @@ public ModelAndView search2(String type,String goodname, String time,
         return mv;
     }
 }
+    //后台--失物招领（丢失）--修改编辑页面
+    @RequestMapping(value = "/modify3/{id}",method = RequestMethod.POST)
+    public ModelAndView modify3(String name, String applyexplain,String place,String typeid,@PathVariable("id") String id){
+        ModelAndView mv=new ModelAndView();
+        loseService.modify3(name,applyexplain,place,typeid,id);
+        mv.setViewName("redirect:/lose/show");
+        return mv;
+    }
+    //后台--失物招领（丢失） -- 点击编辑（进入编辑页面adminlosechange）
+    @RequestMapping("/modify1/{id}")
+    public String modify1(Model model,@PathVariable Integer id){
+        List types = loseService.getAllTypes();
+        model.addAttribute("types",types);
+        Apply apply= loseService.modify2(id);
+        model.addAttribute("apply",apply);
+        return "admin/adminlosechange";
+    }
+    // 后台--失物招领（丢失） -- 删除新闻
+    @RequestMapping("/delete/{id}")
+    public ModelAndView delete(@PathVariable Integer id){
+        ModelAndView mv=new ModelAndView();
+        loseService.delete(id);
+        mv.setViewName("redirect:/lose/show");
+        return mv;
+    }
+
+    //后台--失物招领（找到）--修改编辑页面
+    @RequestMapping(value = "/modify5/{id}",method = RequestMethod.POST)
+    public ModelAndView modify5(String goodname, String goodexplain,String place,String typeid,@PathVariable("id") String id){
+        ModelAndView mv=new ModelAndView();
+        loseService.modify5(goodname,goodexplain,place,typeid,id);
+        mv.setViewName("redirect:/lose/show");
+        return mv;
+    }
+    //后台--失物招领（找到） -- 点击编辑（进入编辑页面adminlosechange）
+    @RequestMapping("/modify4/{id}")
+    public String modify4(Model model,@PathVariable Integer id){
+        List types = loseService.getAllTypes();
+        model.addAttribute("types",types);
+        Good good= loseService.modify4(id);
+        model.addAttribute("good",good);
+        return "admin/adminlosechange2";
+    }
+    // 后台--失物招领（找到） -- 删除新闻
+    @RequestMapping("/delete2/{id}")
+    public ModelAndView delete2(@PathVariable Integer id){
+        ModelAndView mv=new ModelAndView();
+        loseService.delete2(id);
+        mv.setViewName("redirect:/lose/show");
+        return mv;
+    }
 
 
 
@@ -101,7 +149,6 @@ public ModelAndView loselose2(String typeid, String name, String place,
             mv.addObject("msg","未登录，请先登录！！！");
             return mv;
         }else {
-//            ServletContext context = request.getServletContext();
             String realPath = "F:\\schoolimages";
             File f=new File(realPath);
             if (!f.exists()) {
@@ -182,12 +229,10 @@ public String loseadvice(){
         ModelAndView mv=new ModelAndView();
         List types=loseService.getAllTypes();
         mv.addObject("types",types);
-
         mv.addObject("type",type);
         mv.addObject("typeid",typeid);
         mv.addObject("name",name);
         mv.addObject("applytime",applytime);
-
         PageHelper.startPage(pageNum, pageSize);
         if ("lose".equals(type)){
             List<Apply> applys= loseService.search(typeid,name,applytime);
@@ -208,6 +253,12 @@ public String loseadvice(){
         }
     }
 
-
+//    首页--显示
+    @RequestMapping("/index")
+    public List<Apply> index(){
+        ModelAndView mv=new ModelAndView();
+        List<Apply> applies= loseService.index();
+        return applies;
+    }
 
 }

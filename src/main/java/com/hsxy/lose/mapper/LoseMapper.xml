@@ -37,7 +37,9 @@
         select * from good where typeid=#{typeid} and goodname=#{goodname}
     </select>
 
-
+    <select id="htsearch5" resultType="com.hsxy.lose.pojo.Apply">
+        select * from apply order by applyid desc
+    </select>
     <select id="htsearch4" resultType="com.hsxy.lose.pojo.Apply">
         select * from apply where name=#{name}
     </select>
@@ -48,6 +50,9 @@
         select * from apply where name=#{name} and applytime=#{applytime}
     </select>
 
+    <select id="htsearchgoods5" resultType="com.hsxy.lose.pojo.Good">
+        select * from good order by goodid desc
+    </select>
     <select id="htsearchgoods4" resultType="com.hsxy.lose.pojo.Good">
         select * from good where goodname=#{goodname}
     </select>
@@ -67,6 +72,33 @@
         insert into good(goodname,typeid,userid,goodexplain,time,place,photo)
         values(#{goodname},#{typeid},#{userid},#{goodexplain},#{time},#{place},#{photo})
     </insert>
+
+
+
+    <delete id="delete" parameterType="java.lang.Integer">
+        delete from apply where applyid=#{applyid}
+    </delete>
+    <select id="modify2" resultType="com.hsxy.lose.pojo.Apply">
+        select * from apply where applyid=#{applyid}
+    </select>
+    <update id="modify3">
+        update apply set name=#{name},applyexplain=#{applyexplain},place=#{place},typeid=#{typeid} where applyid=#{applyid}
+    </update>
+
+    <delete id="delete2" parameterType="java.lang.Integer">
+        delete from good where goodid=#{goodid}
+    </delete>
+    <select id="modify4" resultType="com.hsxy.lose.pojo.Good">
+        select * from good where goodid=#{goodid}
+    </select>
+    <update id="modify5">
+        update good set goodname=#{goodname},goodexplain=#{goodexplain},place=#{place},typeid=#{typeid} where goodid=#{goodid}
+    </update>
+
+
+        <select id="index" resultType="com.hsxy.lose.pojo.Apply">
+            select * from apply order by applyid desc
+        </select>
 
 </mapper>
 

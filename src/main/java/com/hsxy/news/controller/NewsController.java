@@ -50,7 +50,6 @@ public class NewsController {
     public ModelAndView search(String title,String time){
         ModelAndView mv=new ModelAndView();
         List<News> news =newsService.search(title,time);
-
         mv.addObject("news",news);
         mv.setViewName("admin/adminnews");
         return mv;
