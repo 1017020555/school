@@ -25,7 +25,7 @@
 <div class="left">
     <div class="bigTitle">校园服务平台管理系统</div>
     <div class="lines">
-        <div onclick="pageClick(this)"  class="active" datasrc="adminsecondhand.jsp">
+        <div onclick="pageClick(this)" class="active" datasrc="${pageContext.request.contextPath}/second/show">
             <img src="img/icon-1.png" />二手交易模块管理
         </div>
         <div onclick="pageClick(this)" datasrc="${pageContext.request.contextPath}/lose/show">
@@ -61,7 +61,7 @@
 
 <!-- 右侧内容 -->
 <div style="margin-left: 270px">
-    <iframe frameborder="0" scrolling="yes" style="width:100%;height:80%" src="adminsecondhand.jsp"></iframe>
+    <iframe frameborder="0" scrolling="yes" style="width:100%;height:80%" src="${pageContext.request.contextPath}/second/show"></iframe>
 </div>
 
 

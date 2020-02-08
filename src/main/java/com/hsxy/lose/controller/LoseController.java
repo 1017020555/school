@@ -253,7 +253,11 @@ public String loseadvice(){
         }
     }
 
-//    首页--显示
+
+
+
+
+//    首页--显示--（未完）
     @RequestMapping("/index")
     public List<Apply> index(){
         ModelAndView mv=new ModelAndView();

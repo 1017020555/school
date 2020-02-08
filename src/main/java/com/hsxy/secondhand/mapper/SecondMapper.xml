@@ -4,6 +4,14 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="com.hsxy.secondhand.mapper.SecondMapper">
-
+    <select id="show" resultType="com.hsxy.secondhand.pojo.Second">
+        select * from second
+    </select>
+    <select id="message" resultType="java.lang.Integer">
+        select count(*) from message where to_days(time) = to_days(now())
+    </select>
+    <select id="messages" resultType="com.hsxy.secondhand.pojo.Message">
+        select * from message
+    </select>
 </mapper>
 

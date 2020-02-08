@@ -1,19 +1,13 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: user
-  Date: 2020/1/9
-  Time: 14:48
-  To change this template use File | Settings | File Templates.
---%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 <html>
 <head>
     <title>adminsecondhand</title>
-    <!--引入css-->
-    <link rel="stylesheet" href="css/bootstrap.min.css">
-    <!--引入js-->
-    <script src="js/jquery-3.4.1.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/bootstrap.min.css">
+    <script src="${pageContext.request.contextPath}/js/jquery-3.4.1.min.js"></script>
+    <script src="${pageContext.request.contextPath}/js/bootstrap.min.js"></script>
     <style rel="stylesheet" type="text/css">
         #d1 label{
             margin-left: 20px;
@@ -34,16 +28,26 @@
 <div id="d1">
     <label>查询条件：</label><br>
     <label style="margin-left: 80px;">商品留言管理：</label>
-            <button class="btn btn-primary" type="button" onclick="comment()">
-                点击跳转 <span class="badge">4</span>
+            <button class="btn btn-primary" type="button" onclick="window.location.href='${pageContext.request.contextPath}/second/messages'">
+                点击跳转 <span class="badge">${count}</span>
             </button>
     <br><br>
-    <label style="margin-left: 80px;">二手物品名称</label><input type="text" class="form-control" placeholder="请输入物品名称：">
-    <label>发布时间</label><input type="date" class="form-control">
+    <label style="margin-left: 80px;">二手物品名称</label>
+        <input type="text" class="form-control" placeholder="请输入物品名称：">
+    <label>发布时间</label>
+        <input type="date" class="form-control">
     <label>所属类型</label>
     <select class="form-control">
-        <option>1</option>
-        <option>2</option>
+        <option value="1">手机数码</option>
+        <option value="2">智能设备及3C配件</option>
+        <option value="3">服饰配件</option>
+        <option value="4">书籍</option>
+        <option value="5">食品</option>
+        <option value="6">运动户外</option>
+        <option value="7">生活用品</option>
+        <option value="8">游戏设备</option>
+        <option value="9">健身器材</option>
+        <option value="10">其它物品</option>
     </select>
 
     <button style="display: inline;width: 80px;" type="button" class="form-control" >查询</button>
@@ -57,36 +61,70 @@
             <td>描述</td>
             <td>发布时间</td>
             <td>分类</td>
-            <td>旧的价格</td>
-            <td>新价格</td>
-            <td>图片路径</td>
-            <td>联系方式</td>
+            <td>价格</td>
             <td colspan="2">操作</td>
         </tr>
 
-        <c:forEach items="${users}" var="l">
+        <c:forEach varStatus="i" items="${seconds}" var="s">
             <tr>
-                <td>1
-                    <input type="checkbox">
+                <td>
+                    ${i.index+1}
                 </td>
-                <td>${l.username}</td>
-                <td>${l.password}</td>
-                <td>${l.name}</td>
-                <td>${l.gender}</td>
-                <td>${l.email}</td>
-                <td></td>
-                <td></td>
-                <td></td>
+                <td>${s.name}</td>
+                <td>
+                    <c:if test="${fn:length(s.context)>5}">
+                        ${fn:substring(s.context, 0, 6)}.....
+                    </c:if>
+                </td>
+                <td>
+                    <fmt:formatDate value="${s.time}" pattern="yyyy-MM-dd"/>
+                </td>
+                <td>
+                    <c:if test="${s.categoryid=='1'}">手机数码 </c:if>
+                    <c:if test="${s.categoryid=='2'}">智能设备及3C配件 </c:if>
+                    <c:if test="${s.categoryid=='3'}">服饰配件</c:if>
+                    <c:if test="${s.categoryid=='4'}">书籍 </c:if>
+                    <c:if test="${s.categoryid=='5'}">食品</c:if>
+                    <c:if test="${s.categoryid=='6'}">运动户外</c:if>
+                    <c:if test="${s.categoryid=='7'}">生活用品</c:if>
+                    <c:if test="${s.categoryid=='8'}">游戏设备</c:if>
+                    <c:if test="${s.categoryid=='9'}">健身器材</c:if>
+                    <c:if test="${s.categoryid=='10'}">其它物品</c:if>
+                </td>
+                <td>${s.price}</td>
                 <td>编辑</td>
                 <td>删除</td>
             </tr>
         </c:forEach>
     </table>
+
+    <nav aria-label="Page navigation" style="margin-left: 300px;">
+        <ul class="pagination">
+            <c:if test="${pageInfo.hasPreviousPage}">
+                <li>
+                    <a href="${pageContext.request.contextPath}/second/show?pageNum=${pageInfo.pageNum-1}" aria-label="Previous">
+                        <span aria-hidden="true">&laquo;&laquo;</span>
+                    </a>
+                </li>
+            </c:if>
+            <c:forEach items="${pageInfo.navigatepageNums}" var="page">
+                <c:if test="${page==pageInfo.pageNum }">
+                    <li class="active"><a href="${pageContext.request.contextPath}/second/show?pageNum=${page}">${page}</a></li>
+                </c:if>
+                <c:if test="${page!=pageInfo.pageNum }">
+                    <li><a href="${pageContext.request.contextPath}/second/show?pageNum=${page}">${page}</a></li>
+                </c:if>
+            </c:forEach>
+            <c:if test="${pageInfo.hasNextPage }">
+                <li>
+                    <a href="${pageContext.request.contextPath}/second/show?pageNum=${pageInfo.pageNum+1 }" aria-label="Next">
+                        <span aria-hidden="true">&raquo;&raquo;</span>
+                    </a>
+                </li>
+            </c:if>
+        </ul>
+    </nav>
+    当前${pageInfo.pageNum }页，总共${pageInfo.pages}页，总共${pageInfo.total }条记录
 </div>
-<script>
-    function comment() {
-        window.location.href="adminsecondhandcomment.jsp";
-    }
-</script>
 </body>
 </html>

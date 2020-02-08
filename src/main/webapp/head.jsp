@@ -23,7 +23,7 @@
 					<a href="index.jsp">首页</a>
 				</li>
 				<li>
-					<a href="second.jsp">二手交易</a>
+					<a href="${pageContext.request.contextPath}/second/getMessage">二手交易</a>
 				</li>
 				<li>
 					<a href="${pageContext.request.contextPath}/lose/getMessage">失物招领</a>

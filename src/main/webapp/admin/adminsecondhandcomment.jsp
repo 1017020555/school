@@ -1,19 +1,13 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: user
-  Date: 2020/1/16
-  Time: 21:33
-  To change this template use File | Settings | File Templates.
---%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 <html>
 <head>
     <title>adminsecondhandcomment</title>
-    <!--引入css-->
-    <link rel="stylesheet" href="css/bootstrap.min.css">
-    <!--引入js-->
-    <script src="js/jquery-3.4.1.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/bootstrap.min.css">
+    <script src="${pageContext.request.contextPath}/js/jquery-3.4.1.min.js"></script>
+    <script src="${pageContext.request.contextPath}/js/bootstrap.min.js"></script>
     <style rel="stylesheet" type="text/css">
         #d1 label{
             margin-left: 20px;
@@ -33,7 +27,7 @@
 <body>
 <div id="d1">
     <label>查询条件：</label><br>
-    <label style="margin-left: 100px;">新闻标题</label><input type="text" class="form-control" placeholder="请输入文章标题：">
+    <label style="margin-left: 100px;">留言人id</label><input type="text" class="form-control" placeholder="请输入留言人id：">
     <label>新闻发布时间</label><input type="date" class="form-control">
     <button type="button" class="form-control" >查询</button>
 </div>
@@ -42,30 +36,57 @@
     <table class="table table-bordered table-striped" style="text-align: center;">
         <tr>
             <td>序号</td>
-            <td>二手交易编号</td>
             <td>留言人id</td>
-            <td>留言人姓名</td>
             <td>评论内容</td>
             <td>评论时间</td>
             <td colspan="2">操作</td>
         </tr>
-
-
-        <c:forEach items="${users}" var="l">
+        <c:forEach items="${messages}" varStatus="i" var="m">
             <tr>
-                <td>1
-                    <input type="checkbox">
+                <td>${i.index+1}
                 </td>
-                <td>${l.username}</td>
-                <td>${l.password}</td>
-                <td>${l.name}</td>
-                <td>${l.gender}</td>
-                <td>${l.email}</td>
+                <td>${m.userid}</td>
+                <td>
+                    <c:if test="${fn:length(m.context)>5}">
+                        ${fn:substring(m.context, 0, 6)}.....
+                    </c:if>
+                </td>
+                <td>
+                    <fmt:formatDate value="${m.time}" pattern="yyyy-MM-dd"/>
+                </td>
                 <td>编辑</td>
                 <td>删除</td>
             </tr>
         </c:forEach>
     </table>
+
+    <nav aria-label="Page navigation" style="margin-left: 300px;">
+        <ul class="pagination">
+            <c:if test="${pageInfo.hasPreviousPage}">
+                <li>
+                    <a href="${pageContext.request.contextPath}/second/messages?pageNum=${pageInfo.pageNum-1}" aria-label="Previous">
+                        <span aria-hidden="true">&laquo;&laquo;</span>
+                    </a>
+                </li>
+            </c:if>
+            <c:forEach items="${pageInfo.navigatepageNums}" var="page">
+                <c:if test="${page==pageInfo.pageNum }">
+                    <li class="active"><a href="${pageContext.request.contextPath}/second/messages?pageNum=${page}">${page}</a></li>
+                </c:if>
+                <c:if test="${page!=pageInfo.pageNum }">
+                    <li><a href="${pageContext.request.contextPath}/second/messages?pageNum=${page}">${page}</a></li>
+                </c:if>
+            </c:forEach>
+            <c:if test="${pageInfo.hasNextPage }">
+                <li>
+                    <a href="${pageContext.request.contextPath}/second/messages?pageNum=${pageInfo.pageNum+1 }" aria-label="Next">
+                        <span aria-hidden="true">&raquo;&raquo;</span>
+                    </a>
+                </li>
+            </c:if>
+        </ul>
+    </nav>
+    当前${pageInfo.pageNum }页，总共${pageInfo.pages}页，总共${pageInfo.total }条记录
 </div>
 </body>
 </html>
