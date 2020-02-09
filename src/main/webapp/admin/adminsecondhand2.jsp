@@ -4,7 +4,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 <html>
 <head>
-    <title>adminsecondhand</title>
+    <title>adminsecondhand2</title>
     <link rel="stylesheet" href="${pageContext.request.contextPath}/css/bootstrap.min.css">
     <script src="${pageContext.request.contextPath}/js/jquery-3.4.1.min.js"></script>
     <script src="${pageContext.request.contextPath}/js/bootstrap.min.js"></script>
@@ -104,22 +104,22 @@
         <ul class="pagination">
             <c:if test="${pageInfo.hasPreviousPage}">
                 <li>
-                    <a href="${pageContext.request.contextPath}/second/show?pageNum=${pageInfo.pageNum-1}" aria-label="Previous">
+                    <a href="${pageContext.request.contextPath}/second/search1?pageNum=${pageInfo.pageNum-1}&name=${name}&time=${time}&categoryid=${categoryid}" aria-label="Previous">
                         <span aria-hidden="true">&laquo;&laquo;</span>
                     </a>
                 </li>
             </c:if>
             <c:forEach items="${pageInfo.navigatepageNums}" var="page">
                 <c:if test="${page==pageInfo.pageNum }">
-                    <li class="active"><a href="${pageContext.request.contextPath}/second/show?pageNum=${page}">${page}</a></li>
+                    <li class="active"><a href="${pageContext.request.contextPath}/second/search1?pageNum=${page}&name=${name}&time=${time}&categoryid=${categoryid}">${page}</a></li>
                 </c:if>
                 <c:if test="${page!=pageInfo.pageNum }">
-                    <li><a href="${pageContext.request.contextPath}/second/show?pageNum=${page}">${page}</a></li>
+                    <li><a href="${pageContext.request.contextPath}/second/search1?pageNum=${page}&name=${name}&time=${time}&categoryid=${categoryid}">${page}</a></li>
                 </c:if>
             </c:forEach>
             <c:if test="${pageInfo.hasNextPage }">
                 <li>
-                    <a href="${pageContext.request.contextPath}/second/show?pageNum=${pageInfo.pageNum+1 }" aria-label="Next">
+                    <a href="${pageContext.request.contextPath}/second/search1?pageNum=${pageInfo.pageNum+1}&name=${name}&time=${time}&categoryid=${categoryid}" aria-label="Next">
                         <span aria-hidden="true">&raquo;&raquo;</span>
                     </a>
                 </li>

@@ -38,7 +38,7 @@ public class UserController {
         }
         return "redirect:/studentpass.jsp";
     }
-    @RequestMapping(value = "/load",method = RequestMethod.GET)
+    @RequestMapping(value = "/load",method = RequestMethod.POST)
     public String login(HttpSession session, User user, String path){
         String code=(String) session.getAttribute("validateCode");
 

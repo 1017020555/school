@@ -27,4 +27,17 @@ public class SecondService {
     public List<Second> getMessage() {
         return secondMapper.getMessage();
     }
+
+    public List<Second> search1(String name, String time, String categoryid) {
+        if (name!="" && time !=""){
+           return secondMapper.search1(name,time,categoryid);
+        }else if(name!="" && time==""){
+            return secondMapper.search2(name,categoryid);
+        }else if (name=="" && time!=""){
+            return secondMapper.search3(time,categoryid);
+        }else {
+            return secondMapper.search4(categoryid);
+        }
+    }
+
 }

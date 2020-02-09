@@ -13,5 +13,20 @@
     <select id="messages" resultType="com.hsxy.secondhand.pojo.Message">
         select * from message
     </select>
+
+    <select id="search1" resultType="com.hsxy.secondhand.pojo.Second">
+        select * from second where name=#{name} and time=#{time} and categoryid=#{categoryid}
+    </select>
+    <select id="search2" resultType="com.hsxy.secondhand.pojo.Second">
+         select * from second where name=#{name} and categoryid=#{categoryid}
+    </select>
+    <select id="search3" resultType="com.hsxy.secondhand.pojo.Second">
+         select * from second where time=#{time} and categoryid=#{categoryid}
+    </select>
+    <select id="search4" resultType="com.hsxy.secondhand.pojo.Second">
+         select * from second where categoryid=#{categoryid}
+    </select>
+
+
 </mapper>
 
