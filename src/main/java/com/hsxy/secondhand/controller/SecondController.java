@@ -35,18 +35,18 @@ public ModelAndView getMessage(
     PageInfo<Second> pageInfo=new PageInfo<>(seconds);
     mv.addObject("pageInfo",pageInfo);
     mv.addObject("seconds",seconds);
-
     mv.setViewName("lose");
     return mv;
 }
 
 
 
+
     //后台--二手交易(评论)--提交修改
     @RequestMapping(value = "/modify4/{id}",method = RequestMethod.POST)
-    public ModelAndView modify4(String time,String context, @PathVariable("id") String id){
+    public ModelAndView modify4(String context, @PathVariable("id") String id){
         ModelAndView mv=new ModelAndView();
-        secondService.modify4(time,context,id);
+        secondService.modify4(context,id);
         mv.setViewName("redirect:/second/show");
         return mv;
     }

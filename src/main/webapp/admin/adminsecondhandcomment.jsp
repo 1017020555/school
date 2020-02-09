@@ -59,10 +59,10 @@
                     <fmt:formatDate value="${m.time}" pattern="yyyy-MM-dd"/>
                 </td>
                 <td>
-                    <a href="${pageContext.request.contextPath}/second/modify3/${s.id}">编辑</a>
+                    <a href="${pageContext.request.contextPath}/second/modify3/${m.id}">编辑</a>
                 </td>
                 <td>
-                    <a href="${pageContext.request.contextPath}/second/delete2/${s.id}">删除</a>
+                    <a href="${pageContext.request.contextPath}/second/delete2/${m.id}">删除</a>
                 </td>
             </tr>
         </c:forEach>

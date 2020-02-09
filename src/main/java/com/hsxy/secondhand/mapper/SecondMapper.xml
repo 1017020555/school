@@ -56,7 +56,7 @@
         select * from message where id=#{id}
     </select>
     <update id="modify4">
-        update second set time=#{time},context=#{context} where id=#{id}
+        update message set context=#{context} where id=#{id}
     </update>
 </mapper>
 

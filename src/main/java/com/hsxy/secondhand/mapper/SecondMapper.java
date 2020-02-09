@@ -36,5 +36,5 @@ public interface SecondMapper {
 
     void delete2(@Param("id") Integer id);
     Message modify3(@Param("id")Integer id);
-    void modify4(@Param("time") String time,@Param("context") String context,@Param("id") String id);
+    void modify4(@Param("context") String context,@Param("id") String id);
 }

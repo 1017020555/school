@@ -68,7 +68,7 @@ public class SecondService {
     public Message modify3(Integer id) {
         return secondMapper.modify3(id);
     }
-    public void modify4(String time, String context, String id) {
-        secondMapper.modify4(time,context,id);
+    public void modify4(String context, String id) {
+        secondMapper.modify4(context,id);
     }
 }
