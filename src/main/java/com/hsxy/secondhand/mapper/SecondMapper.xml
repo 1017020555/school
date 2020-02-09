@@ -27,6 +27,36 @@
          select * from second where categoryid=#{categoryid}
     </select>
 
+    <select id="searchcomment1" resultType="com.hsxy.secondhand.pojo.Message">
+        select * from message where userid=#{userid} and time=#{time}
+    </select>
+    <select id="searchcomment2" resultType="com.hsxy.secondhand.pojo.Message">
+        select * from message where userid=#{userid}
+    </select>
+    <select id="searchcomment3" resultType="com.hsxy.secondhand.pojo.Message">
+        select * from message where time=#{time}
+    </select>
+    <select id="searchcomment4" resultType="com.hsxy.secondhand.pojo.Message">
+        select * from message
+    </select>
 
+    <delete id="delete" parameterType="java.lang.Integer">
+        delete from second where id=#{id}
+    </delete>
+    <select id="modify" resultType="com.hsxy.secondhand.pojo.Second">
+        select * from second where id=#{id}
+    </select>
+    <update id="modify2">
+        update second set name=#{name},context=#{context},price=#{price},categoryid=#{categoryid} where id=#{id}
+    </update>
+    <delete id="delete2" parameterType="java.lang.Integer">
+        delete from message where id=#{id}
+    </delete>
+    <select id="modify3" resultType="com.hsxy.secondhand.pojo.Message">
+        select * from message where id=#{id}
+    </select>
+    <update id="modify4">
+        update second set time=#{time},context=#{context} where id=#{id}
+    </update>
 </mapper>
 

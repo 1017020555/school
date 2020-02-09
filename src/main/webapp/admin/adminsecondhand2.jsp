@@ -94,8 +94,12 @@
                     <c:if test="${s.categoryid=='10'}">其它物品</c:if>
                 </td>
                 <td>${s.price}</td>
-                <td>编辑</td>
-                <td>删除</td>
+                <td>
+                    <a href="${pageContext.request.contextPath}/second/modify/${s.id}">编辑</a>
+                </td>
+                <td>
+                    <a href="${pageContext.request.contextPath}/second/delete/${s.id}">删除</a>
+                </td>
             </tr>
         </c:forEach>
     </table>

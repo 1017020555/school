@@ -28,7 +28,8 @@
 <div id="d1">
     <label>查询条件：</label><br>
     <label style="margin-left: 80px;">商品留言管理：</label>
-            <button class="btn btn-primary" type="button" onclick="window.location.href='${pageContext.request.contextPath}/second/messages'">
+            <button class="btn btn-primary" type="button"
+                    onclick="window.location.href='${pageContext.request.contextPath}/second/messages'">
                 点击跳转 <span class="badge">${count}</span>
             </button>
     <br><br>
@@ -94,8 +95,12 @@
                     <c:if test="${s.categoryid=='10'}">其它物品</c:if>
                 </td>
                 <td>${s.price}</td>
-                <td>编辑</td>
-                <td>删除</td>
+                <td>
+                    <a href="${pageContext.request.contextPath}/second/modify/${s.id}">编辑</a>
+                </td>
+                <td>
+                    <a href="${pageContext.request.contextPath}/second/delete/${s.id}">删除</a>
+                </td>
             </tr>
         </c:forEach>
     </table>

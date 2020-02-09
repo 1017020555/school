@@ -24,4 +24,17 @@ public interface SecondMapper {
     List<Second> search4(@Param("categoryid") String categoryid);
 
 
+    List<Message> searchcomment1(@Param("userid") String userid,@Param("time") String time);
+    List<Message> searchcomment2(@Param("userid") String userid);
+    List<Message> searchcomment3(@Param("time") String time);
+    List<Message> searchcomment4();
+
+    void delete(@Param("id") Integer id);
+    Second modify(@Param("id") Integer id);
+    void modify2(@Param("name") String name, @Param("context") String context,
+                 @Param("price") String price, @Param("categoryid") String categoryid,@Param("id") String id);
+
+    void delete2(@Param("id") Integer id);
+    Message modify3(@Param("id")Integer id);
+    void modify4(@Param("time") String time,@Param("context") String context,@Param("id") String id);
 }

@@ -8,6 +8,8 @@ import com.hsxy.secondhand.pojo.Second;
 import com.hsxy.secondhand.service.SecondService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -40,7 +42,46 @@ public ModelAndView getMessage(
 
 
 
+    //后台--二手交易(评论)--提交修改
+    @RequestMapping(value = "/modify4/{id}",method = RequestMethod.POST)
+    public ModelAndView modify4(String time,String context, @PathVariable("id") String id){
+        ModelAndView mv=new ModelAndView();
+        secondService.modify4(time,context,id);
+        mv.setViewName("redirect:/second/show");
+        return mv;
+    }
+    //后台--二手交易(评论)--进入修改页面
+    @RequestMapping("/modify3/{id}")
+    public String modify3(Model model, @PathVariable Integer id){
+        Message message= secondService.modify3(id);
+        model.addAttribute("message",message);
+        return "admin/adminsecondhandcommentchange";
+    }
+    // 后台--二手交易(评论)--删除
+    @RequestMapping("/delete2/{id}")
+    public ModelAndView delete2(@PathVariable Integer id){
+        ModelAndView mv=new ModelAndView();
+        secondService.delete2(id);
+        mv.setViewName("redirect:/second/show");
+        return mv;
+    }
 
+//后台--二手交易--留言管理（条件查询）
+    @RequestMapping(value = "/searchcomment",method = RequestMethod.GET)
+    public ModelAndView searchcomment(String userid,String time,
+                                @RequestParam(required=true,value="pageNum",defaultValue="1") Integer pageNum,
+                                @RequestParam(required=true,value="pageSize",defaultValue="5") Integer pageSize){
+        PageHelper.startPage(pageNum, pageSize);
+        ModelAndView mv=new ModelAndView();
+        mv.addObject("userid",userid);
+        mv.addObject("time",time);
+        List<Message> messages= secondService.searchcomment1(time,userid);
+        PageInfo<Message> pageInfo=new PageInfo<>(messages);
+        mv.addObject("pageInfo",pageInfo);
+        mv.addObject("messages",messages);
+        mv.setViewName("admin/adminsecondhandcomment2");
+        return mv;
+    }
 //    后台--二手交易--留言管理
     @RequestMapping("/messages")
     public ModelAndView messages(
@@ -57,7 +98,33 @@ public ModelAndView getMessage(
         return mv;
     }
 
-//    后台--二手交易--查询
+
+//后台--二手交易--提交修改
+    @RequestMapping(value = "/modify2/{id}",method = RequestMethod.POST)
+    public ModelAndView modify2(String name,String context,String price,String categoryid,
+            @PathVariable("id") String id){
+        ModelAndView mv=new ModelAndView();
+        secondService.modify2(name,context,price,categoryid,id);
+        mv.setViewName("redirect:/second/show");
+        return mv;
+    }
+//后台--二手交易--进入修改页面
+    @RequestMapping("/modify/{id}")
+    public String modify1(Model model, @PathVariable Integer id){
+        Second second= secondService.modify(id);
+        model.addAttribute("second",second);
+        return "admin/adminsecondhandchange";
+    }
+// 后台--二手交易--删除
+    @RequestMapping("/delete/{id}")
+    public ModelAndView delete(@PathVariable Integer id){
+        ModelAndView mv=new ModelAndView();
+        secondService.delete(id);
+        mv.setViewName("redirect:/second/show");
+        return mv;
+}
+
+//    后台--二手交易--所有（条件查询）
 @RequestMapping(value = "/search1",method = RequestMethod.GET)
 public ModelAndView search1(String name,String time, String categoryid,
                            @RequestParam(required=true,value="pageNum",defaultValue="1") Integer pageNum,
@@ -74,7 +141,6 @@ public ModelAndView search1(String name,String time, String categoryid,
         mv.addObject("seconds",seconds);
         mv.setViewName("admin/adminsecondhand2");
         return mv;
-
 }
 //    后台--二手交易信息--显示所有
     @RequestMapping("/show")
@@ -82,13 +148,13 @@ public ModelAndView search1(String name,String time, String categoryid,
             @RequestParam(required=true,value="pageNum",defaultValue="1") Integer pageNum,
             @RequestParam(required=true,value="pageSize",defaultValue="5") Integer pageSize
     ){
-        PageHelper.startPage(pageNum, pageSize);
+        PageHelper.startPage(pageNum,pageSize);
         ModelAndView mv=new ModelAndView();
-        Integer count= secondService.message();
         List<Second> seconds= secondService.show();
+        mv.addObject("seconds",seconds);
         PageInfo<Second> pageInfo=new PageInfo<>(seconds);
         mv.addObject("pageInfo",pageInfo);
-        mv.addObject("seconds",seconds);
+        Integer count= secondService.message();
         mv.addObject("count",count);
         mv.setViewName("admin/adminsecondhand");
          return mv;

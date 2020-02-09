@@ -40,4 +40,35 @@ public class SecondService {
         }
     }
 
+    public List<Message> searchcomment1(String time, String userid) {
+        if (userid!="" && time!=""){
+           return secondMapper.searchcomment1(userid,time);
+        }else if (userid!="" && time==""){
+           return secondMapper.searchcomment2(userid);
+        }else if (userid=="" && time!=""){
+            return secondMapper.searchcomment3(time);
+        }else {
+            return secondMapper.searchcomment4();
+        }
+    }
+
+    public void delete(Integer id) {
+        secondMapper.delete(id);
+    }
+    public Second modify(Integer id) {
+        return secondMapper.modify(id);
+    }
+    public void modify2(String name, String context, String price, String categoryid,String id) {
+        secondMapper.modify2(name,context,price,categoryid,id);
+    }
+
+    public void delete2(Integer id) {
+        secondMapper.delete2(id);
+    }
+    public Message modify3(Integer id) {
+        return secondMapper.modify3(id);
+    }
+    public void modify4(String time, String context, String id) {
+        secondMapper.modify4(time,context,id);
+    }
 }
