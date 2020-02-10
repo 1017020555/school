@@ -6,6 +6,7 @@ import com.hsxy.lose.pojo.Good;
 import com.hsxy.secondhand.pojo.Message;
 import com.hsxy.secondhand.pojo.Second;
 import com.hsxy.secondhand.service.SecondService;
+import com.hsxy.user.pojo.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -13,9 +14,15 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
+import javax.servlet.http.HttpSession;
+import java.io.File;
+import java.io.IOException;
+import java.util.Date;
 import java.util.List;
+import java.util.UUID;
 
 @Controller
 @RequestMapping("/second")
@@ -23,11 +30,32 @@ public class SecondController {
     @Autowired
     private SecondService secondService;
 
-//   前台--用户中心--发布二手交易
-    @RequestMapping("/fb")
-    public String fb(){
 
-        return "";
+//   前台--用户中心--发布二手交易
+    @RequestMapping(value = "/fb",method = RequestMethod.POST)
+    public ModelAndView fb(String categoryid, String name, String price, String context,
+                     @RequestParam MultipartFile photo, HttpSession session)throws IOException {
+        ModelAndView mv=new ModelAndView();
+        User user=(User) session.getAttribute("user1");
+        if (user==null){
+            mv.setViewName("seconffb");
+            mv.addObject("msg","未登录，请先登录！！！");
+            return mv;
+        }else {
+            String realPath = "F:\\schoolimages";
+            File f=new File(realPath);
+            if (!f.exists()) {
+                f.mkdirs();
+            }
+String fileName= UUID.randomUUID().toString().replaceAll("-", "")+photo.getOriginalFilename();
+            Date time=new Date();
+            secondService.fb(name,categoryid,context,user.getId(),time,price,fileName);
+            photo.transferTo(new File(realPath+"/"+fileName));
+            mv.addObject("filePath",fileName);
+            mv.addObject("msg","发布成功,点击上方二手交易导航栏查看！！！");
+            mv.setViewName("seconffb");
+            return mv;
+        }
     }
 //    前台--二手交易--展示
 @RequestMapping("/getMessage")

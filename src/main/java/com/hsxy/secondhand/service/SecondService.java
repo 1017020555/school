@@ -6,6 +6,7 @@ import com.hsxy.secondhand.pojo.Second;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Date;
 import java.util.List;
 
 @Service
@@ -77,4 +78,7 @@ public class SecondService {
     }
 
 
+    public void fb(String name, String categoryid, String context, Integer userid, Date time, String price, String fileName) {
+        secondMapper.fb(name,categoryid,context,userid,time,price,fileName);
+    }
 }

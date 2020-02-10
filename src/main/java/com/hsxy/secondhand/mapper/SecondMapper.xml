@@ -14,10 +14,10 @@
         select * from message
     </select>
     <select id="getMessage" resultType="com.hsxy.secondhand.pojo.Second">
-        select * from second
+        select * from second order by id desc
     </select>
     <select id="getMessage2" resultType="com.hsxy.secondhand.pojo.Second">
-        select * from second where categoryid=#{categoryid}
+        select * from second where categoryid=#{categoryid}  order by id desc
     </select>
 
     <select id="search1" resultType="com.hsxy.secondhand.pojo.Second">
@@ -64,5 +64,10 @@
     <update id="modify4">
         update message set context=#{context} where id=#{id}
     </update>
+
+    <insert id="fb">
+        insert into second(name,categoryid,context,userid,time,price,photo)
+         values(#{name},#{categoryid},#{context},#{userid},#{time},#{price},#{photo})
+    </insert>
 </mapper>
 

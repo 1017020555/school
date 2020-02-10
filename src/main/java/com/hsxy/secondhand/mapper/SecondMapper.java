@@ -5,6 +5,7 @@ import com.hsxy.secondhand.pojo.Second;
 import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;
 
+import java.util.Date;
 import java.util.List;
 
 @Repository
@@ -38,5 +39,9 @@ public interface SecondMapper {
     void delete2(@Param("id") Integer id);
     Message modify3(@Param("id")Integer id);
     void modify4(@Param("context") String context,@Param("id") String id);
+
+    void fb(@Param("name") String name,@Param("categoryid") String categoryid, @Param("context") String context,
+            @Param("userid") Integer userid,@Param("time") Date time,@Param("price") String price,
+            @Param("photo") String photo);
 
 }

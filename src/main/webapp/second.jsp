@@ -37,7 +37,7 @@
                 <div>
                     <img src="/upload/${second.photo}" style="width: 120px;height: 120px;" alt="图片" class="img-thumbnail"><br>
                     <label>名称：${second.name}</label><br>
-                    <label>地点：${second.price}</label>
+                    <label>价格：${second.price}</label>
                 </div>
             </li>
         </c:forEach>
