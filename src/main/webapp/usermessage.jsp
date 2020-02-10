@@ -9,24 +9,21 @@
 <html>
 <head>
     <title>usermessage</title>
-    <!--引入css-->
-    <link rel="stylesheet" href="css/bootstrap.min.css">
-    <!--引入js-->
-    <script src="js/jquery-3.4.1.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
-
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/bootstrap.min.css">
+    <script src="${pageContext.request.contextPath}/js/jquery-3.4.1.min.js"></script>
+    <script src="${pageContext.request.contextPath}/js/bootstrap.min.js"></script>
 </head>
 <body>
     <jsp:include page="head.jsp"></jsp:include>
 
     <div id="d1" style="margin-left: 170px;margin-top:50px;width: 200px;">
         <ul class="nav nav-pills nav-stacked">
-            <li role="presentation" class="active"><a href="#">用户中心</a></li>
+            <li role="presentation" class="active"><a href="#" onclick="javascript:void(0)">用户中心</a></li>
             <li role="presentation"><a href="#" class="studentmessage.jsp">个人资料</a></li>
             <li role="presentation"><a href="#" class="studentpass.jsp">修改密码</a></li>
-            <li role="presentation"><a href="#" class="usermessagelose.jsp">发布失物申请</a></li>
-            <li role="presentation"><a href="#" class="usermessagesecond.jsp">发布二手申请</a></li>
-            <li role="presentation"><a href="#">安全退出</a></li>
+            <li role="presentation"><a href="${pageContext.request.contextPath}/lose/loselose">发布失物申请</a></li>
+            <li role="presentation"><a href="#">发布二手申请</a></li>
+            <li role="presentation"><a href="${pageContext.request.contextPath}/user/unload">安全退出</a></li>
         </ul>
     </div>
 

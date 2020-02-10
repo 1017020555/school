@@ -27,6 +27,10 @@ public class SecondService {
     public List<Second> getMessage() {
         return secondMapper.getMessage();
     }
+    public List<Second> getMessage2(String categoryid) {
+        return secondMapper.getMessage2(categoryid);
+    }
+
 
     public List<Second> search1(String name, String time, String categoryid) {
         if (name!="" && time !=""){
@@ -71,4 +75,6 @@ public class SecondService {
     public void modify4(String context, String id) {
         secondMapper.modify4(context,id);
     }
+
+
 }

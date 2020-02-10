@@ -23,6 +23,12 @@ public class SecondController {
     @Autowired
     private SecondService secondService;
 
+//   前台--用户中心--发布二手交易
+    @RequestMapping("/fb")
+    public String fb(){
+
+        return "";
+    }
 //    前台--二手交易--展示
 @RequestMapping("/getMessage")
 public ModelAndView getMessage(
@@ -30,14 +36,27 @@ public ModelAndView getMessage(
         @RequestParam(required=true,value="pageSize",defaultValue="6") Integer pageSize){
     ModelAndView mv=new ModelAndView();
     PageHelper.startPage(pageNum, pageSize);
-
-    List<Second> seconds= secondService.getMessage();
-    PageInfo<Second> pageInfo=new PageInfo<>(seconds);
-    mv.addObject("pageInfo",pageInfo);
-    mv.addObject("seconds",seconds);
-    mv.setViewName("lose");
+        List<Second> seconds= secondService.getMessage();
+        PageInfo<Second> pageInfo=new PageInfo<>(seconds);
+        mv.addObject("pageInfo",pageInfo);
+        mv.addObject("seconds",seconds);
+    mv.setViewName("second");
     return mv;
 }
+//前台--二手交易信息展示--根据分类显示
+    @RequestMapping("/getMessage2/{categoryid}")
+    public ModelAndView getMessage(@PathVariable("categoryid") String categoryid,
+            @RequestParam(required=true,value="pageNum",defaultValue="1") Integer pageNum,
+            @RequestParam(required=true,value="pageSize",defaultValue="6") Integer pageSize){
+        ModelAndView mv=new ModelAndView();
+        PageHelper.startPage(pageNum, pageSize);
+        List<Second> seconds= secondService.getMessage2(categoryid);
+        PageInfo<Second> pageInfo=new PageInfo<>(seconds);
+        mv.addObject("pageInfo",pageInfo);
+        mv.addObject("seconds",seconds);
+        mv.setViewName("second");
+        return mv;
+    }
 
 
 

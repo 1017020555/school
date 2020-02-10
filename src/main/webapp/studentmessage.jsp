@@ -1,21 +1,10 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: user
-  Date: 2020/1/11
-  Time: 19:27
-  To change this template use File | Settings | File Templates.
---%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
     <title>Title</title>
-
-    <!--引入css-->
-    <link rel="stylesheet" href="css/bootstrap.min.css">
-    <!--引入js-->
-    <script src="js/jquery-3.4.1.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
-
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/bootstrap.min.css">
+    <script src="${pageContext.request.contextPath}/js/jquery-3.4.1.min.js"></script>
+    <script src="${pageContext.request.contextPath}/js/bootstrap.min.js"></script>
     <style type="text/css">
         #u1 input{
             width: 200px;
@@ -26,6 +15,7 @@
 </head>
 <body>
 
+<div >
     <ul class="list-group nav nav-pills nav-stacked" id="u1">
         <li role="presentation" class="active">
             <a href="javascript:void(0)">个人资料：</a>
@@ -53,6 +43,6 @@
                         >
         </li>
     </ul>
-
+</div>
 </body>
 </html>

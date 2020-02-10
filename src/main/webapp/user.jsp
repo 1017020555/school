@@ -27,7 +27,7 @@
 
 <form class="form-horizontal" action="${pageContext.request.contextPath}/user/load" method="post">
 
-        <img id="img"  src="img/banner.jpg" class="img-thumbnail">
+        <img id="img"  src="${pageContext.request.contextPath}/img/banner.jpg" class="img-thumbnail">
 
     <div class="form-group">
         <label id="e1" for="inputEmail3" class="col-sm-2 control-label">学号:</label>

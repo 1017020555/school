@@ -20,6 +20,17 @@ public class UserController {
     @Autowired
    private UserService userService;
 
+// 前台--head.jsp--用户中心
+@RequestMapping("/pd")
+    public String pd(HttpSession session){
+        User user=(User) session.getAttribute("user1");
+        if (user==null){
+            return "user";
+        }else {
+            return "redirect:/usermessage.jsp";
+        }
+    }
+// 前台--生成二维码
     @RequestMapping(value="getCode")
     public void getCode(@RequestParam(value = "time") String time, HttpServletRequest request, HttpServletResponse response) {
         ValidateCode code = new ValidateCode(100, 30, 4, 30, 25, "validateCode");
@@ -58,7 +69,6 @@ public class UserController {
 
     @RequestMapping(value = "/unload")
     public String unload(HttpServletRequest request){
-
         HttpSession session = request.getSession();
         session.removeAttribute("user1");
         session.invalidate();

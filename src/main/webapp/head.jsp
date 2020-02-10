@@ -35,7 +35,7 @@
 					    <a href="news.jsp">新闻资讯</a>
 				</li>
 				<li>
-					    <a href="usermessage.jsp">用户中心</a>
+					    <a href="${pageContext.request.contextPath}/user/pd">用户中心</a>
 				</li>
 			</ul>
 		</div>

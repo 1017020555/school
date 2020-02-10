@@ -13,6 +13,12 @@
     <select id="messages" resultType="com.hsxy.secondhand.pojo.Message">
         select * from message
     </select>
+    <select id="getMessage" resultType="com.hsxy.secondhand.pojo.Second">
+        select * from second
+    </select>
+    <select id="getMessage2" resultType="com.hsxy.secondhand.pojo.Second">
+        select * from second where categoryid=#{categoryid}
+    </select>
 
     <select id="search1" resultType="com.hsxy.secondhand.pojo.Second">
         select * from second where name=#{name} and time=#{time} and categoryid=#{categoryid}

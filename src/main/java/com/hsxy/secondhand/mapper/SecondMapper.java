@@ -17,6 +17,7 @@ public interface SecondMapper {
     List<Message> messages();
 
     List<Second> getMessage();
+    List<Second> getMessage2(@Param("categoryid") String categoryid);
 
     List<Second> search1(@Param("name") String name,@Param("time") String time,@Param("categoryid") String categoryid);
     List<Second> search2(@Param("name") String name,@Param("categoryid") String categoryid);
@@ -37,4 +38,5 @@ public interface SecondMapper {
     void delete2(@Param("id") Integer id);
     Message modify3(@Param("id")Integer id);
     void modify4(@Param("context") String context,@Param("id") String id);
+
 }
