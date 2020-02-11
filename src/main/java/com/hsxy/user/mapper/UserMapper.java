@@ -10,4 +10,6 @@ public interface UserMapper {
 
     public Integer changepass(@Param("id") Integer id,@Param("password") String password);
 
+    void changemess(@Param("email") String email, @Param("phone") String phone,@Param("id") Integer id);
+
 }

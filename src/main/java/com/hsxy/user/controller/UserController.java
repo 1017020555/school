@@ -5,9 +5,12 @@ import com.hsxy.user.service.UserService;
 import com.hsxy.user.utils.ValidateCode;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.ModelAndView;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -36,19 +39,27 @@ public class UserController {
         ValidateCode code = new ValidateCode(100, 30, 4, 30, 25, "validateCode");
         code.getCode(request, response);
     }
-
+//前台--用户中心--修改个人信息
+    @RequestMapping("/changemess")
+    public ModelAndView changemess(String email,String phone,HttpSession session){
+        ModelAndView mv=new ModelAndView();
+        User user=(User) session.getAttribute("user1");
+        userService.changemess(email,phone,user.getId());
+        mv.addObject("msg","个人信息修改成功！！！");
+        mv.setViewName("studentmessage");
+        return mv;
+    }
     //用户中心-修改密码
     @RequestMapping(value = "/changepass",method = RequestMethod.POST)
-    public String changepass(String p2,HttpSession session){
+    public String changepass(String p2,HttpSession session,Model model){
         User user1 = (User) session.getAttribute("user1");
         Integer id = user1.getId();
         Integer i= userService.changepass(id,p2);
-        if (i>=0){
-            session.removeAttribute("user1");
-            session.invalidate();
-        }
+        model.addAttribute("msg","密码修改成功！！！");
         return "redirect:/studentpass.jsp";
     }
+
+
     @RequestMapping(value = "/load",method = RequestMethod.POST)
     public String login(HttpSession session, User user, String path){
         String code=(String) session.getAttribute("validateCode");

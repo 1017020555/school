@@ -11,6 +11,9 @@
     <update id="changepass">
         update user set password=#{password} where id=#{id}
     </update>
+    <update id="changemess">
+        update user set email=#{email},phone=#{phone} where id=#{id}
+    </update>
 </mapper>
 
 

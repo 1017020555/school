@@ -20,4 +20,8 @@ public class UserService {
         String password=p2;
         return userMapper.changepass(id,password);
     }
+
+    public void changemess(String email, String phone, Integer id) {
+        userMapper.changemess(email,phone,id);
+    }
 }

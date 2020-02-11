@@ -61,7 +61,6 @@
                 </a>
             </li>
 
-
         </ul>
     </div>
 
@@ -144,10 +143,6 @@
 
 <script type="text/javascript">
     $(function () {
-        <%--$.ajax({--%>
-        <%--    url:'${pageContext.request.contextPath}/news/index',--%>
-        <%--    method:'get'--%>
-        <%--});--%>
         $.ajax({
             url:"${pageContext.request.contextPath}/lose/index",
             type:'get',

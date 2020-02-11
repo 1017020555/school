@@ -26,6 +26,7 @@
             <span style="display: inline;" id="p22"></span>
         </li>
         <li class="list-group-item">
+            <p style="color: red;font-weight: bold;">${msg}</p>
             --->> &nbsp;&nbsp;&nbsp;&nbsp;<input type="submit" id="p3" value="修改" class="form-control"style="display: inline;">
         </li>
     </ul>
