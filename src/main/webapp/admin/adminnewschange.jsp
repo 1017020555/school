@@ -23,24 +23,34 @@
         <tr>
             <td>标题</td>
             <td>
-                <input name="title" type="text" value="${news.title}">
+                <input class="form-control" name="title" type="text" value="${news.title}">
             </td>
         </tr>
         <tr>
             <td>内容</td>
             <td>
-                <input name="context" type="text" value="${news.context}">
+                <textarea name="context" cols="8" rows="8" class="form-control">${news.context}</textarea>
             </td>
         </tr>
         <tr>
             <td>新闻类型</td>
             <td>
-                <input name="newstypeid" type="text" value="${news.newstypeid}">
+                <select name="newstypeid" class="form-control">
+                    <option value="1">教务管理</option>
+                    <option value="2">教育科研</option>
+                    <option value="3">教育动态</option>
+                    <option value="4">对外交流</option>
+                    <option value="5">校友历史</option>
+                    <option value="6">财务管理</option>
+                    <option value="7">校务公开</option>
+                    <option value="8">办事指南</option>
+                    <option value="9">工会之家</option>
+                </select>
             </td>
         </tr>
         <tr>
             <td colspan="2">
-                <input type="submit"  value="修改" id="change">
+                <input class="form-control" type="submit"  value="修改" id="change">
             </td>
         </tr>
     </table>

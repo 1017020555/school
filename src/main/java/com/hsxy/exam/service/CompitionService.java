@@ -17,9 +17,9 @@ public class CompitionService {
         return compitionMapper.show();
     }
 
-    public void add(String title, String context, Integer userid) {
+    public void add(String title, String context, Integer userid, String typeid) {
         Date time=new Date();
-        compitionMapper.add(title,context,time,userid);
+        compitionMapper.add(title,context,time,userid,typeid);
     }
 
     public void delete(Integer id) {
@@ -30,11 +30,26 @@ public class CompitionService {
         return compitionMapper.modify1(id);
     }
 
-    public void modify2(String title, String context, String id) {
-        compitionMapper.modify2(title,context,id);
+    public void modify2(String title, String context,String typeid, String id) {
+        compitionMapper.modify2(title,context,typeid,id);
     }
 
     public List<Compition> search(String title, String time) {
         return compitionMapper.search(title,time);
+    }
+
+    public List<Compition> getMessage() {
+        return compitionMapper.getMessage();
+    }
+    public List<Compition> getMessage2(String typeid) {
+        return compitionMapper.getMessage2(typeid);
+    }
+
+    public Compition look(String id) {
+        return compitionMapper.look(id);
+    }
+
+    public void look2(int c, String id) {
+        compitionMapper.look2(c,id);
     }
 }

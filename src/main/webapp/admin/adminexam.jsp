@@ -1,10 +1,3 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: user
-  Date: 2020/1/9
-  Time: 14:49
-  To change this template use File | Settings | File Templates.
---%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
@@ -57,6 +50,7 @@
             <td>内容</td>
             <td>发布时间</td>
             <td>点击次数</td>
+            <td>学院</td>
             <td colspan="2">操作</td>
         </tr>
 
@@ -76,7 +70,24 @@
                     <fmt:formatDate value="${c.time}" pattern="yyyy-MM-dd"/>
                 </td>
                 <td>${c.count}</td>
-
+                <td>
+                    <c:if test="${c.typeid=='1'}">文学院 </c:if>
+                    <c:if test="${c.typeid=='2'}">生命与环境科学学院 </c:if>
+                    <c:if test="${c.typeid=='3'}">旅游学院</c:if>
+                    <c:if test="${c.typeid=='4'}">信息工程学院 </c:if>
+                    <c:if test="${c.typeid=='5'}">经济管理学院</c:if>
+                    <c:if test="${c.typeid=='6'}">艺术学院</c:if>
+                    <c:if test="${c.typeid=='7'}">外国语学院</c:if>
+                    <c:if test="${c.typeid=='8'}">数学与统计学院</c:if>
+                    <c:if test="${c.typeid=='9'}">化学化工学院</c:if>
+                    <c:if test="${c.typeid=='10'}">体育学院</c:if>
+                    <c:if test="${c.typeid=='11'}">教育科学学院</c:if>
+                    <c:if test="${c.typeid=='12'}">建筑工程学院</c:if>
+                    <c:if test="${c.typeid=='13'}">马克思主义学院</c:if>
+                    <c:if test="${c.typeid=='14'}">文化与传播学院</c:if>
+                    <c:if test="${c.typeid=='15'}">机电工程学院</c:if>
+                    <c:if test="${c.typeid=='16'}">国际教育学院（继续教育学院）</c:if>
+                </td>
                 <td>
                     <a href="${pageContext.request.contextPath}/compition/modify1/${c.id}">编辑</a>
                 </td>

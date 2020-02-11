@@ -43,12 +43,7 @@
         <tr>
             <td>内容：</td>
             <td>
-
-                <script id="editor" name="content" type="text/plain" style="width:800px;height:150px;"></script>
-                <script type="text/javascript">
-                    var ue = UE.getEditor('editor');
-                </script>
-
+                <textarea name="context" cols="8" rows="8" class="form-control"></textarea>
             </td>
         </tr>
         <tr>

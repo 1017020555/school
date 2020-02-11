@@ -29,10 +29,10 @@
 					<a href="${pageContext.request.contextPath}/lose/getMessage">失物招领</a>
 				</li>
 				<li>
-						<a href="exam.jsp">学科竞赛</a>
+						<a href="${pageContext.request.contextPath}/compition/getMessage">学科竞赛</a>
 				</li>
 				<li>
-					    <a href="news.jsp">新闻资讯</a>
+					    <a href="${pageContext.request.contextPath}/news/getMessage">新闻资讯</a>
 				</li>
 				<li>
 					    <a href="${pageContext.request.contextPath}/user/pd">用户中心</a>

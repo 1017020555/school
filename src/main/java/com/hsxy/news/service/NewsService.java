@@ -19,8 +19,7 @@ public class NewsService {
         return newsMapper.fb();
     }
 
-    public void upload(String title, String content, Date date, Integer id, int newstypename, String fileName) {
-        String context=content;
+    public void upload(String title, String context, Date date, Integer id, int newstypename, String fileName) {
         newsMapper.upload(title,context,date,id,newstypename,fileName);
     }
 
@@ -47,4 +46,12 @@ public class NewsService {
     public List<News> index() {
         return newsMapper.index();
     }
+
+    public List<News> getMessage2(String newstypeid) {
+        return newsMapper.getMessage2(newstypeid);
+    }
+    public News look(String id) {
+       return newsMapper.look(id);
+    }
+
 }

@@ -1,7 +1,6 @@
 package com.hsxy.news.mapper;
 
 import com.hsxy.news.pojo.News;
-import com.hsxy.news.pojo.Newtype;
 import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;
 
@@ -29,4 +28,7 @@ public interface NewsMapper {
 
     List<News> index();
 
+    List<News> getMessage2(@Param("newstypeid") String newstypeid);
+
+    News look(String id);
 }

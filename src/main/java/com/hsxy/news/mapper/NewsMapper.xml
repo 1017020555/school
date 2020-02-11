@@ -13,7 +13,7 @@
           values(#{title},#{context},#{time},#{userid},#{newstypeid},#{file})
     </insert>
     <select id="show" resultType="com.hsxy.news.pojo.News">
-        select * from news
+        select * from news order by time desc
     </select>
     <delete id="delete" parameterType="java.lang.Integer">
         delete from news where id=#{id}
@@ -28,7 +28,13 @@
         select * from news where title=#{title} and time=#{time}
     </select>
     <select id="index" resultType="com.hsxy.news.pojo.News">
-        select * from news
+        select * from news order by time desc
+    </select>
+    <select id="getMessage2" resultType="com.hsxy.news.pojo.News">
+        select * from news where newstypeid=#{newstypeid} order by time desc
+    </select>
+    <select id="look" resultType="com.hsxy.news.pojo.News">
+        select * from news where id=#{id}
     </select>
 </mapper>
 

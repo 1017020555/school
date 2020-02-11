@@ -57,22 +57,22 @@
     <ul class="pagination">
         <c:if test="${pageInfo.hasPreviousPage}">
             <li>
-                <a href="${pageContext.request.contextPath}/compition/getMessage?pageNum=${pageInfo.pageNum-1}" aria-label="Previous">
+                <a href="${pageContext.request.contextPath}/compition/getMessage2/${typeid}?pageNum=${pageInfo.pageNum-1}" aria-label="Previous">
                     <span aria-hidden="true">&laquo;&laquo;</span>
                 </a>
             </li>
         </c:if>
         <c:forEach items="${pageInfo.navigatepageNums}" var="page">
             <c:if test="${page==pageInfo.pageNum }">
-                <li class="active"><a href="${pageContext.request.contextPath}/compition/getMessage?pageNum=${page}">${page}</a></li>
+                <li class="active"><a href="${pageContext.request.contextPath}/compition/getMessage2/${typeid}?pageNum=${page}">${page}</a></li>
             </c:if>
             <c:if test="${page!=pageInfo.pageNum }">
-                <li><a href="${pageContext.request.contextPath}/compition/getMessage?pageNum=${page}">${page}</a></li>
+                <li><a href="${pageContext.request.contextPath}/compition/getMessage2/${typeid}?pageNum=${page}">${page}</a></li>
             </c:if>
         </c:forEach>
         <c:if test="${pageInfo.hasNextPage }">
             <li>
-                <a href="${pageContext.request.contextPath}/compition/getMessage?pageNum=${pageInfo.pageNum+1 }" aria-label="Next">
+                <a href="${pageContext.request.contextPath}/compition/getMessage2/${typeid}?pageNum=${pageInfo.pageNum+1 }" aria-label="Next">
                     <span aria-hidden="true">&raquo;&raquo;</span>
                 </a>
             </li>

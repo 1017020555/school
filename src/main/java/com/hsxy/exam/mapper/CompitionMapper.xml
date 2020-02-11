@@ -5,10 +5,10 @@
 
 <mapper namespace="com.hsxy.exam.mapper.CompitionMapper">
     <select id="show" resultType="com.hsxy.exam.pojo.Compition">
-        select * from compition
+        select * from compition order by time desc
     </select>
     <insert id="add">
-        insert into compition(title,context,time,userid) values(#{title},#{context},#{time},#{userid})
+        insert into compition(title,context,time,userid,typeid) values(#{title},#{context},#{time},#{userid},#{typeid})
     </insert>
     <delete id="delete" parameterType="java.lang.Integer">
         delete from compition where id=#{id}
@@ -17,10 +17,23 @@
         select * from compition where id=#{id}
     </select>
     <update id="modify2">
-        update compition set title=#{title},context=#{context} where id=#{id}
+        update compition set title=#{title},context=#{context},typeid=#{typeid} where id=#{id}
     </update>
     <select id="search" resultType="com.hsxy.exam.pojo.Compition">
         select * from compition where title=#{title} and time=#{time}
     </select>
+
+    <select id="getMessage" resultType="com.hsxy.exam.pojo.Compition">
+        select * from compition order by time desc
+    </select>
+    <select id="getMessage2" resultType="com.hsxy.exam.pojo.Compition">
+        select * from compition where typeid=#{typeid} order by time desc
+    </select>
+    <select id="look" resultType="com.hsxy.exam.pojo.Compition">
+        select * from compition where id=#{id}
+    </select>
+    <update id="look2">
+        update compition set count=#{count} where id=#{id}
+    </update>
 </mapper>
 

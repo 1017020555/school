@@ -10,6 +10,9 @@ public class Compition {
     private Date time;
     private Integer userid;
 
+    private Integer typeid;
+    private CompitionType compitionType;
+
     @Override
     public String toString() {
         return "Compition{" +
@@ -19,7 +22,25 @@ public class Compition {
                 ", count=" + count +
                 ", time=" + time +
                 ", userid=" + userid +
+                ", typeid=" + typeid +
+                ", compitionType=" + compitionType +
                 '}';
+    }
+
+    public Integer getTypeid() {
+        return typeid;
+    }
+
+    public void setTypeid(Integer typeid) {
+        this.typeid = typeid;
+    }
+
+    public CompitionType getCompitionType() {
+        return compitionType;
+    }
+
+    public void setCompitionType(CompitionType compitionType) {
+        this.compitionType = compitionType;
     }
 
     public Integer getId() {
@@ -73,11 +94,13 @@ public class Compition {
     public Compition() {
     }
 
-    public Compition(String title, String context, Integer count, Date time, Integer userid) {
+    public Compition(String title, String context, Integer count, Date time, Integer userid, Integer typeid, CompitionType compitionType) {
         this.title = title;
         this.context = context;
         this.count = count;
         this.time = time;
         this.userid = userid;
+        this.typeid = typeid;
+        this.compitionType = compitionType;
     }
 }

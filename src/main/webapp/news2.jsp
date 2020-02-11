@@ -5,9 +5,7 @@
 <html>
 <head>
     <title>news</title>
-    <!--引入css-->
     <link rel="stylesheet" href="${pageContext.request.contextPath}/css/bootstrap.min.css">
-    <!--引入js-->
     <script src="${pageContext.request.contextPath}/js/jquery-3.4.1.min.js"></script>
     <script src="${pageContext.request.contextPath}/js/bootstrap.min.js"></script>
 
@@ -49,22 +47,22 @@
             <ul class="pagination">
                 <c:if test="${pageInfo.hasPreviousPage}">
                     <li>
-                        <a href="${pageContext.request.contextPath}/news/getMessage?pageNum=${pageInfo.pageNum-1}" aria-label="Previous">
+                        <a href="${pageContext.request.contextPath}/news/getMessage2/${newstypeid}?pageNum=${pageInfo.pageNum-1}" aria-label="Previous">
                             <span aria-hidden="true">&laquo;&laquo;</span>
                         </a>
                     </li>
                 </c:if>
                 <c:forEach items="${pageInfo.navigatepageNums}" var="page">
                     <c:if test="${page==pageInfo.pageNum }">
-                        <li class="active"><a href="${pageContext.request.contextPath}/news/getMessage?pageNum=${page}">${page}</a></li>
+                        <li class="active"><a href="${pageContext.request.contextPath}/news/getMessage2/${newstypeid}?pageNum=${page}">${page}</a></li>
                     </c:if>
                     <c:if test="${page!=pageInfo.pageNum }">
-                        <li><a href="${pageContext.request.contextPath}/news/getMessage?pageNum=${page}">${page}</a></li>
+                        <li><a href="${pageContext.request.contextPath}/news/getMessage2/${newstypeid}?pageNum=${page}">${page}</a></li>
                     </c:if>
                 </c:forEach>
                 <c:if test="${pageInfo.hasNextPage }">
                     <li>
-                        <a href="${pageContext.request.contextPath}/news/getMessage?pageNum=${pageInfo.pageNum+1 }" aria-label="Next">
+                        <a href="${pageContext.request.contextPath}/news/getMessage2/${newstypeid}?pageNum=${pageInfo.pageNum+1 }" aria-label="Next">
                             <span aria-hidden="true">&raquo;&raquo;</span>
                         </a>
                     </li>

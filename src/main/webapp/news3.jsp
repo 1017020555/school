@@ -33,46 +33,17 @@
     <div style="width: 600px;margin-left: 570px;margin-top: -420px;">
         <ul class="nav nav-pills nav-stacked">
             <li role="presentation" class="active"><a href="#" onclick="javascript:void(0)">文章内容：</a></li>
-
-            <c:forEach items="${news}" var="n">
-                <li role="presentation">
-                    <a href="${pageContext.request.contextPath}/news/look/${n.id}/" style="font-weight: bold;font-size: 10px;color: black;">
-                        <fmt:formatDate value="${n.time}" pattern="yyyy-MM-dd"/>&nbsp;&nbsp;&nbsp;&nbsp;
-                            ${n.title}
-                    </a>
-                </li>
-            </c:forEach>
-
         </ul>
-
-        <nav aria-label="Page navigation" style="margin-left: 300px;">
-            <ul class="pagination">
-                <c:if test="${pageInfo.hasPreviousPage}">
-                    <li>
-                        <a href="${pageContext.request.contextPath}/news/getMessage?pageNum=${pageInfo.pageNum-1}" aria-label="Previous">
-                            <span aria-hidden="true">&laquo;&laquo;</span>
-                        </a>
-                    </li>
-                </c:if>
-                <c:forEach items="${pageInfo.navigatepageNums}" var="page">
-                    <c:if test="${page==pageInfo.pageNum }">
-                        <li class="active"><a href="${pageContext.request.contextPath}/news/getMessage?pageNum=${page}">${page}</a></li>
-                    </c:if>
-                    <c:if test="${page!=pageInfo.pageNum }">
-                        <li><a href="${pageContext.request.contextPath}/news/getMessage?pageNum=${page}">${page}</a></li>
-                    </c:if>
-                </c:forEach>
-                <c:if test="${pageInfo.hasNextPage }">
-                    <li>
-                        <a href="${pageContext.request.contextPath}/news/getMessage?pageNum=${pageInfo.pageNum+1 }" aria-label="Next">
-                            <span aria-hidden="true">&raquo;&raquo;</span>
-                        </a>
-                    </li>
-                </c:if>
-            </ul>
-        </nav>
-        当前${pageInfo.pageNum }页，总共${pageInfo.pages}页，总共${pageInfo.total }条记录
-
+    </div>
+    <div class="panel panel-default" style="width: 600px;margin-left: 570px;">
+        <div class="panel-heading">
+            <h3 class="panel-title">标题： ${news.title}</h3>
+        </div>
+        <div class="panel-body">
+            发布日期：<fmt:formatDate value="${news.time}" pattern="yyyy-MM-dd"/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+            ${news.context}<br>
+            附件：<a href="${pageContext.request.contextPath}/news/download2?filename=${news.file}">点击下载</a>
+        </div>
     </div>
 </body>
 </html>

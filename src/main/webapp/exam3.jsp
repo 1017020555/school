@@ -39,48 +39,18 @@
 
 <div style="width: 600px;margin-left: 570px;margin-top: -710px;">
     <ul class="nav nav-pills nav-stacked">
-        <li role="presentation" class="active"><a href="#" onclick="javascript:void(0)">列表显示：</a></li>
-
-      <c:forEach items="${compitions}" var="c">
-              <li role="presentation">
-                  <a href="${pageContext.request.contextPath}/compition/look/${c.id}/${c.count}" style="font-weight: bold;font-size: 10px;color: black;">
-                      <fmt:formatDate value="${c.time}" pattern="yyyy-MM-dd"/>&nbsp;&nbsp;&nbsp;&nbsp;
-                          ${c.title}
-                  </a>
-              </li>
-      </c:forEach>
-
+        <li role="presentation" class="active"><a href="#" onclick="javascript:void(0)">文章内容：</a></li>
     </ul>
-
-
-<nav aria-label="Page navigation" style="margin-left: 300px;">
-    <ul class="pagination">
-        <c:if test="${pageInfo.hasPreviousPage}">
-            <li>
-                <a href="${pageContext.request.contextPath}/compition/getMessage?pageNum=${pageInfo.pageNum-1}" aria-label="Previous">
-                    <span aria-hidden="true">&laquo;&laquo;</span>
-                </a>
-            </li>
-        </c:if>
-        <c:forEach items="${pageInfo.navigatepageNums}" var="page">
-            <c:if test="${page==pageInfo.pageNum }">
-                <li class="active"><a href="${pageContext.request.contextPath}/compition/getMessage?pageNum=${page}">${page}</a></li>
-            </c:if>
-            <c:if test="${page!=pageInfo.pageNum }">
-                <li><a href="${pageContext.request.contextPath}/compition/getMessage?pageNum=${page}">${page}</a></li>
-            </c:if>
-        </c:forEach>
-        <c:if test="${pageInfo.hasNextPage }">
-            <li>
-                <a href="${pageContext.request.contextPath}/compition/getMessage?pageNum=${pageInfo.pageNum+1 }" aria-label="Next">
-                    <span aria-hidden="true">&raquo;&raquo;</span>
-                </a>
-            </li>
-        </c:if>
-    </ul>
-</nav>
-当前${pageInfo.pageNum }页，总共${pageInfo.pages}页，总共${pageInfo.total }条记录
-
+</div>
+<div class="panel panel-default" style="width: 600px;margin-left: 570px;">
+    <div class="panel-heading">
+        <h3 class="panel-title">${compition.title}</h3>
+    </div>
+    <div class="panel-body">
+        发布日期：<fmt:formatDate value="${compition.time}" pattern="yyyy-MM-dd"/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        点击次数:${compition.count}<br>
+        ${compition.context}
+    </div>
 </div>
 </body>
 </html>
