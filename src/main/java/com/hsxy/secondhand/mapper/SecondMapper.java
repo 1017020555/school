@@ -44,4 +44,13 @@ public interface SecondMapper {
             @Param("userid") Integer userid,@Param("time") Date time,@Param("price") String price,
             @Param("photo") String photo);
 
+    Second look(@Param("id") String id);
+
+    List<Message> pl(@Param("secondid") String secondid);
+
+    void de(@Param("id") String id);
+
+    void fb2(@Param("userid") Integer userid,@Param("context") String context,
+             @Param("secondid") String secondid,@Param("time") Date time);
+
 }

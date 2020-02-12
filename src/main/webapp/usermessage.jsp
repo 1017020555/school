@@ -15,12 +15,16 @@
             <li role="presentation"><a href="#" class="studentmessage.jsp">个人资料</a></li>
             <li role="presentation"><a href="#" class="studentpass.jsp">修改密码</a></li>
             <li role="presentation"><a href="${pageContext.request.contextPath}/lose/loselose">发布失物申请</a></li>
+
+            <li role="presentation"><a href="#" class="mylostfb.jsp">我的失物申请</a></li>
             <li role="presentation"><a href="#" class="seconffb.jsp">发布二手申请</a></li>
+            <li role="presentation"><a href="#" class="myseconffb.jsp">我的二手申请</a></li>
+
             <li role="presentation"><a href="${pageContext.request.contextPath}/user/unload">安全退出</a></li>
         </ul>
     </div>
 
-    <div style="margin-left: 550px;margin-top:-300px;width: 600px;">
+    <div style="margin-left: 550px;margin-top:-330px;width: 600px;">
         <iframe frameborder="0" scrolling="yes" style="width:100%;height:100%" src="studentmessage.jsp"></iframe>
     </div>
 

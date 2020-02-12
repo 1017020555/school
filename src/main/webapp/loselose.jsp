@@ -61,7 +61,7 @@
                             </option>
                         </c:forEach>
                     </select>
-                    <p style="display: inline;">${msg}</p>
+                    <p style="display: inline;color: red;font-weight: bold;">${msg}</p>
                 </td>
             </tr>
             <tr>

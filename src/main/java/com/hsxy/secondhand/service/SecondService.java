@@ -81,4 +81,20 @@ public class SecondService {
     public void fb(String name, String categoryid, String context, Integer userid, Date time, String price, String fileName) {
         secondMapper.fb(name,categoryid,context,userid,time,price,fileName);
     }
+
+    public Second look(String id) {
+        return secondMapper.look(id);
+    }
+
+    public List<Message> pl(String secondid) {
+        return secondMapper.pl(secondid);
+    }
+
+    public void de(String id) {
+        secondMapper.de(id);
+    }
+
+    public void fb2(Integer userid, String context, String secondid, Date time) {
+        secondMapper.fb2(userid,context,secondid,time);
+    }
 }

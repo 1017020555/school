@@ -69,5 +69,33 @@
         insert into second(name,categoryid,context,userid,time,price,photo)
          values(#{name},#{categoryid},#{context},#{userid},#{time},#{price},#{photo})
     </insert>
+
+    <select id="look" resultType="com.hsxy.secondhand.pojo.Second">
+        select * from second where id=#{id}
+    </select>
+
+    <resultMap id="pll" type="com.hsxy.secondhand.pojo.Message">
+        <id property="id" column="id"></id>
+        <result property="userid" column="userid"></result>
+        <result property="context" column="context"></result>
+        <result property="secondid" column="secondid"></result>
+        <result property="time" column="time"></result>
+        <association property="user" javaType="com.hsxy.user.pojo.User">
+            <id property="id" column="id"></id>
+            <result property="name" column="name"></result>
+        </association>
+    </resultMap>
+    <select id="pl"  resultMap="pll">
+        select m.*,u.name from message m left join user u on m.userid=u.id
+        where m.secondid=#{secondid} order by m.time desc
+    </select>
+
+    <delete id="de">
+        delete from message where id=#{id}
+    </delete>
+    <insert id="fb2">
+        insert into message(userid,context,secondid,time) values(#{userid},#{context},#{secondid},#{time})
+    </insert>
+
 </mapper>
 
