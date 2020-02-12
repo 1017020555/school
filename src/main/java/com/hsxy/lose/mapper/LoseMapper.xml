@@ -100,6 +100,9 @@
             select * from apply order by applyid desc
         </select>
 
+    <select id="my" resultType="com.hsxy.lose.pojo.Apply">
+        select * from apply where userid=#{userid}
+    </select>
 </mapper>
 
 

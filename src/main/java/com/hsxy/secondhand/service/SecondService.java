@@ -97,4 +97,8 @@ public class SecondService {
     public void fb2(Integer userid, String context, String secondid, Date time) {
         secondMapper.fb2(userid,context,secondid,time);
     }
+
+    public List<Second> my(Integer userid) {
+        return secondMapper.my(userid);
+    }
 }

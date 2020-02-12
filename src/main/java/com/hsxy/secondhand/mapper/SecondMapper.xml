@@ -96,6 +96,9 @@
     <insert id="fb2">
         insert into message(userid,context,secondid,time) values(#{userid},#{context},#{secondid},#{time})
     </insert>
+    <select id="my" resultType="com.hsxy.secondhand.pojo.Second">
+        select * from second where userid=#{userid} order by time desc
+    </select>
 
 </mapper>
 

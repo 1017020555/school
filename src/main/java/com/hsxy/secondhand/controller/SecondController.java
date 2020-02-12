@@ -30,6 +30,23 @@ public class SecondController {
     @Autowired
     private SecondService secondService;
 
+//    前端--用户中心--自己发布的二手交易
+    @RequestMapping("/my")
+    public ModelAndView my(HttpSession session,
+                           @RequestParam(required=true,value="pageNum",defaultValue="1") Integer pageNum,
+                           @RequestParam(required=true,value="pageSize",defaultValue="5") Integer pageSize){
+        PageHelper.startPage(pageNum,pageSize);
+        ModelAndView mv=new ModelAndView();
+        User user=(User) session.getAttribute("user1");
+        PageHelper.startPage(pageNum,pageSize);
+        List<Second> seconds= secondService.my(user.getId());
+        PageInfo<Second> pageInfo=new PageInfo<>(seconds);
+        mv.addObject("pageInfo",pageInfo);
+        mv.addObject("seconds",seconds);
+        mv.setViewName("usermessagemysecond");
+        return mv;
+    }
+
 //前端--二手交易--发布评论
     @RequestMapping(value = "/fb2/{secondid}")
     public ModelAndView fb2(@PathVariable("secondid") String secondid,String context,
@@ -63,7 +80,7 @@ public class SecondController {
             return mv;
         }else {
             secondService.de(id);
-            model.addFlashAttribute("msg", "发布成功！！！");
+            model.addFlashAttribute("msg", "删除成功！！！");
             mv.setViewName("redirect:/second/look/"+secondid);
             return mv;
         }

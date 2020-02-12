@@ -53,4 +53,6 @@ public interface SecondMapper {
     void fb2(@Param("userid") Integer userid,@Param("context") String context,
              @Param("secondid") String secondid,@Param("time") Date time);
 
+    List<Second> my(@Param("userid") Integer userid);
+
 }

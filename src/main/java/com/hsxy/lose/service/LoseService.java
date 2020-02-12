@@ -107,4 +107,7 @@ public class LoseService {
     }
 
 
+    public List<Apply> my(Integer id) {
+        return loseMapper.my(id);
+    }
 }

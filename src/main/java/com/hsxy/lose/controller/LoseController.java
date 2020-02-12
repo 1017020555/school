@@ -125,6 +125,21 @@ public ModelAndView search2(String type,String goodname, String time,
 
 
 
+//    前台--失物招领--用户中心--我的失物申请
+    @RequestMapping("/my")
+    public ModelAndView my(HttpSession session,
+            @RequestParam(required=true,value="pageNum",defaultValue="1") Integer pageNum,
+            @RequestParam(required=true,value="pageSize",defaultValue="6") Integer pageSize){
+        PageHelper.startPage(pageNum,pageSize);
+        User user=(User) session.getAttribute("user1");
+        ModelAndView mv=new ModelAndView();
+        List<Apply> applys= loseService.my(user.getId());
+        PageInfo<Apply> pageInfo=new PageInfo<>(applys);
+        mv.addObject("pageInfo",pageInfo);
+        mv.addObject("applys",applys);
+        mv.setViewName("usermessagemylost");
+        return mv;
+    }
 
 //    前台--失物招领--进入发布失物页面
 @RequestMapping(value = "/loselose")

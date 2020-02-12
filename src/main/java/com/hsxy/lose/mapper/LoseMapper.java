@@ -57,4 +57,6 @@ public interface LoseMapper {
 
     List<Apply> index();
 
+    List<Apply> my(@Param("userid") Integer userid);
+
 }
