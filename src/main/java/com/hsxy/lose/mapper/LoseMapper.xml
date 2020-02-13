@@ -97,11 +97,17 @@
 
 
         <select id="index" resultType="com.hsxy.lose.pojo.Apply">
-            select * from apply order by applyid desc
+            select * from apply order by applytime desc limit 0,6
         </select>
 
     <select id="my" resultType="com.hsxy.lose.pojo.Apply">
         select * from apply where userid=#{userid}
+    </select>
+    <select id="look" resultType="com.hsxy.lose.pojo.Apply">
+        select * from apply where applyid=#{applyid}
+    </select>
+    <select id="look2" resultType="com.hsxy.lose.pojo.Good">
+        select * from good where goodid=#{goodid}
     </select>
 </mapper>
 

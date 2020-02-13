@@ -6,14 +6,12 @@ import com.hsxy.exam.pojo.Compition;
 import com.hsxy.exam.service.CompitionService;
 import com.hsxy.lose.pojo.Apply;
 import com.hsxy.news.pojo.News;
+import com.hsxy.secondhand.pojo.Second;
 import com.hsxy.user.pojo.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpSession;
@@ -24,6 +22,14 @@ import java.util.List;
 public class CompitionController {
     @Autowired
     private CompitionService compitionService;
+
+    //    首页--显示--（index）
+    @RequestMapping("/index")
+    @ResponseBody
+    public List<Compition> index(){
+        List<Compition> compitions= compitionService.index();
+        return compitions;
+    }
 
 //    前台--新闻信息--look
 @RequestMapping("/look/{id}/{count}")

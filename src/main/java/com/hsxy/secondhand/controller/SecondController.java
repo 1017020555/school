@@ -30,6 +30,14 @@ public class SecondController {
     @Autowired
     private SecondService secondService;
 
+    //    首页--显示--（index）
+    @RequestMapping("/index")
+    @ResponseBody
+    public List<Second> index(){
+        List<Second> seconds= secondService.index();
+        return seconds;
+    }
+
 //    前端--用户中心--自己发布的二手交易
     @RequestMapping("/my")
     public ModelAndView my(HttpSession session,

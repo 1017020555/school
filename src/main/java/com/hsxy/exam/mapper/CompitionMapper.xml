@@ -35,5 +35,8 @@
     <update id="look2">
         update compition set count=#{count} where id=#{id}
     </update>
+    <select id="index" resultType="com.hsxy.exam.pojo.Compition">
+        select * from compition order by time desc limit 0,6
+    </select>
 </mapper>
 

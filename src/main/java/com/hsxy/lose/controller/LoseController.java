@@ -5,14 +5,12 @@ import com.github.pagehelper.PageInfo;
 import com.hsxy.lose.pojo.Apply;
 import com.hsxy.lose.pojo.Good;
 import com.hsxy.lose.service.LoseService;
+import com.hsxy.secondhand.pojo.Second;
 import com.hsxy.user.pojo.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -269,13 +267,28 @@ public String loseadvice(){
     }
 
 
-
-
-
-//    首页--显示--（未完）
-    @RequestMapping("/index")
-    public List<Apply> index(){
+    //前台index--点击后显示详细信息--look
+    @RequestMapping("/look/{id}")
+    public ModelAndView look(@PathVariable("id") String id){
         ModelAndView mv=new ModelAndView();
+        Apply apply= loseService.look(id);
+        mv.addObject("apply",apply);
+        mv.setViewName("lose3");
+        return mv;
+    }
+//前台--失物招领--点击后显示详细信息
+    @RequestMapping("/look2/{goodid}")
+    public ModelAndView look2(@PathVariable("goodid") String goodid){
+        ModelAndView mv=new ModelAndView();
+        Good good= loseService.look2(goodid);
+        mv.addObject("good",good);
+        mv.setViewName("lose4");
+        return mv;
+    }
+//    首页--显示--（index）
+    @RequestMapping("/index")
+    @ResponseBody
+    public List<Apply> index(){
         List<Apply> applies= loseService.index();
         return applies;
     }

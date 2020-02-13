@@ -99,6 +99,8 @@
     <select id="my" resultType="com.hsxy.secondhand.pojo.Second">
         select * from second where userid=#{userid} order by time desc
     </select>
-
+    <select id="index" resultType="com.hsxy.secondhand.pojo.Second">
+        select * from second order by time desc limit 0,6
+     </select>
 </mapper>
 

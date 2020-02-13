@@ -34,7 +34,7 @@
         select * from news where newstypeid=#{newstypeid} order by time desc
     </select>
     <select id="look" resultType="com.hsxy.news.pojo.News">
-        select * from news where id=#{id}
+        select * from news where id=#{id} order  by time desc limit 0,6
     </select>
 </mapper>
 

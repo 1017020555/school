@@ -101,4 +101,8 @@ public class SecondService {
     public List<Second> my(Integer userid) {
         return secondMapper.my(userid);
     }
+
+    public List<Second> index() {
+        return secondMapper.index();
+    }
 }

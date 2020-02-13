@@ -55,4 +55,6 @@ public interface SecondMapper {
 
     List<Second> my(@Param("userid") Integer userid);
 
+    List<Second> index();
+
 }

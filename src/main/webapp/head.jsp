@@ -20,7 +20,7 @@
 		<div id="banner">
 			<ul id="lists">
 				<li>
-					<a href="index.jsp">首页</a>
+					<a href="${pageContext.request.contextPath}/user/index">首页</a>
 				</li>
 				<li>
 					<a href="${pageContext.request.contextPath}/second/getMessage">二手交易</a>

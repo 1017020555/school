@@ -59,4 +59,8 @@ public interface LoseMapper {
 
     List<Apply> my(@Param("userid") Integer userid);
 
+    Apply look(@Param("applyid") String applyid);
+
+    Good look2(@Param("goodid") String goodid);
+
 }

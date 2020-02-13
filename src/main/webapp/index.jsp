@@ -4,9 +4,7 @@
 <head>
     <title>Title</title>
 
-    <!--引入css-->
     <link rel="stylesheet" href="${pageContext.request.contextPath}/css/bootstrap.min.css">
-    <!--引入js-->
     <script src="${pageContext.request.contextPath}/js/jquery-3.4.1.min.js"></script>
     <script src="${pageContext.request.contextPath}/js/bootstrap.min.js"></script>
 
@@ -28,16 +26,16 @@
                     </ol>
                     <div class="carousel-inner">
                         <div class="item active">
-                            <img src="img/one.jpg"/>
+                            <img src="${pageContext.request.contextPath}/img/one.jpg"/>
                         </div>
                         <div class="item">
-                            <img src="img/one.jpg"/>
+                            <img src="${pageContext.request.contextPath}img/one.jpg"/>
                         </div>
                         <div class="item">
-                            <img src="img/one.jpg"/>
+                            <img src="${pageContext.request.contextPath}img/one.jpg"/>
                         </div>
                         <div class="item">
-                            <img src="img/one.jpg"/>
+                            <img src="${pageContext.request.contextPath}img/one.jpg"/>
                         </div>
                     </div>
                     <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
@@ -51,90 +49,59 @@
         </div>
     </div>
 
+<table>
+    <tr>
+        <td>
+            <div id="d1" style="margin-left: 140px;width: 600px;margin-top: 60px;">
+                <ul class="nav nav-pills nav-stacked" id="news">
+                    <li role="presentation" class="active">
+                        <a href="${pageContext.request.contextPath}/news/getMessage">新闻资讯：
+                            <span class="badge" style="margin-right: 0px;">更多》</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </td>
+        <td>
+            <div id="d2" style="width: 300px;margin-left: 100px;margin-top: 60px;">
+                <ul class="nav nav-pills nav-stacked" id="lose">
+                    <li role="presentation" class="active">
+                        <a href="${pageContext.request.contextPath}/lose/getMessage">失物招领：
+                            <span class="badge" style="margin-right: 0px;">更多》</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <div id="d3" style="margin-left: 140px;margin-top:100px;width: 600px;">
+                <ul class="nav nav-pills nav-stacked" id="second">
+                    <li role="presentation" class="active">
+                        <a href="${pageContext.request.contextPath}/second/getMessage">二手交易：
+                            <span class="badge" style="margin-right: 0px;">更多》</span>
+                        </a>
+                    </li>
 
+                </ul>
+            </div>
+        </td>
+        <td>
+            <div id="d4" style="margin-left: 100px;width: 300px;">
+                <ul class="nav nav-pills nav-stacked" id="exam">
+                    <li role="presentation" class="active">
+                        <a href="${pageContext.request.contextPath}/compition/getMessage">学科竞赛：
+                            <span class="badge" style="margin-right: 0px;">更多》</span>
+                        </a>
+                    </li>
 
-    <div id="d1" style="margin-left: 170px;margin-top:60px;width: 600px;">
-        <ul class="nav nav-pills nav-stacked">
-            <li role="presentation" class="active" id="news">
-                <a href="news.jsp">新闻资讯：
-                    <span class="badge" style="margin-right: 0px;">更多》</span>
-                </a>
-            </li>
+                </ul>
+            </div>
+        </td>
+    </tr>
+</table>
 
-        </ul>
-    </div>
-
-
-
-    <div id="d2" style="margin-left: 850px;width: 300px;">
-        <ul class="nav nav-pills nav-stacked" id="uu">
-            <li role="presentation" class="active">
-                <a href="${pageContext.request.contextPath}/lose/getMessage">失物招领：
-                    <span class="badge" style="margin-right: 0px;">更多》</span>
-                </a>
-            </li>
-
-            <li role="presentation"><a href="#" class="studentmessage.jsp">lost</a></li>
-
-        </ul>
-    </div>
-
-    <div id="d3" style="margin-left: 170px;margin-top:100px;width: 600px;">
-        <ul class="nav nav-pills nav-stacked">
-            <li role="presentation" class="active">
-                <a href="#">二手交易：
-                    <span class="badge" style="margin-right: 0px;">更多》</span>
-                </a>
-            </li>
-            <li style="width: 200px;height: 120px;float: left;">
-                <div >
-                     <img src="img/one.jpg" alt="is" class="img-thumbnail">
-                    <span>name</span><br>
-                    <span>price</span>
-                </div>
-            </li>
-            <li style="width: 200px;height: 120px;float: left;">
-                <div >
-                    <img src="img/one.jpg" alt="is" class="img-thumbnail">
-                    <span>name</span><br>
-                    <span>price</span>
-                </div>
-            </li>
-            <li style="width: 200px;height: 120px;float: left;">
-                <div >
-                    <img src="img/one.jpg" alt="is" class="img-thumbnail">
-                    <span>name</span><br>
-                    <span>price</span>
-                </div>
-            </li>
-            <li style="width: 200px;height: 120px;float: left;">
-                <div >
-                    <img src="img/one.jpg" alt="is" class="img-thumbnail">
-                    <span>name</span><br>
-                    <span>price</span>
-                </div>
-            </li>
-
-        </ul>
-    </div>
-
-
-    <div id="d2" style="margin-left: 850px;margin-top:-290px;width: 300px;">
-        <ul class="nav nav-pills nav-stacked">
-            <li role="presentation" class="active">
-                <a href="#">学科竞赛：
-                    <span class="badge" style="margin-right: 0px;">更多》</span>
-                </a>
-            </li>
-
-            <li role="presentation"><a href="#" class="studentmessage.jsp">个人资料</a></li>
-            <li role="presentation"><a href="#" class="studentmessage.jsp">个人资料</a></li>
-            <li role="presentation"><a href="#" class="studentmessage.jsp">个人资料</a></li>
-            <li role="presentation"><a href="#" class="studentmessage.jsp">个人资料</a></li>
-            <li role="presentation"><a href="#" class="studentmessage.jsp">个人资料</a></li>
-
-        </ul>
-    </div>
 
 
 <div style="scroll-margin-bottom: 0px;">
@@ -142,21 +109,84 @@
 </div>
 
 <script type="text/javascript">
+    function c(id){
+        window.location.href='${pageContext.request.contextPath}/second/look/'+id;
+    };
+
     $(function () {
         $.ajax({
-            url:"${pageContext.request.contextPath}/lose/index",
+            url:"${pageContext.request.contextPath}/news/index",
             type:'get',
+            dataType:"json",
             success:function(applies) {
-                alert(applies);
                 $.each(applies,function(index,obj){
-                    $("#uu").append(
-                        "<li role='presentation'>" +
-                             "<a href='#' class='studentmessage.jsp'>"+'obj.name'+"</a>"
-                        + "</li>"
+                    var date=new Date(obj.time);
+                    var month=date.getMonth()+1;
+                    var day=date.getDate();
+                    $("#news").append(
+                        "<li role='presentation'>"
+                        + "<a href='${pageContext.request.contextPath}/news/look/"+obj.id+"'>"+date.getFullYear()+"-"+month+"-"+day+"&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"
+                        + obj.title+"</a></li>"
                     );
                 });
             }
-        })
+        });
+        $.ajax({
+            url:"${pageContext.request.contextPath}/lose/index",
+            type:'get',
+            dataType:"json",
+            success:function(applies) {
+                $.each(applies,function(index,obj){
+                    var date=new Date(obj.applytime);
+                    var month=date.getMonth()+1;
+                    var day=date.getDate();
+                    $("#lose").append(
+                        "<li role='presentation'>"
+                        + "<a href='${pageContext.request.contextPath}/lose/look/"+obj.applyid+"'>"+date.getFullYear()+"-"+month+"-"+day+"&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"
+                        + obj.name+"</a></li>"
+                    );
+                });
+            }
+        });
+        $.ajax({
+            url:"${pageContext.request.contextPath}/second/index",
+            type:'get',
+            dataType:"json",
+            success:function(applies) {
+                $.each(applies,function(index,obj){
+                    var date=new Date(obj.time);
+                    var month=date.getMonth()+1;
+                    var day=date.getDate();
+                    $("#second").append(
+                        "<li style='width: 200px;height: 150px;float: left;'>" +
+                            "<div onclick='c("+obj.id+");'>" +
+                                "<img src='/upload/"+obj.photo+"' style='width: 100px;height: 100px;' class='img-thumbnail'>" +
+                                "<br>物品名称：<span>"+obj.name+"</span>" +
+                                "<br>价格：<span>"+obj.price+"</span>" +
+                            "</div>" +
+                        "</li>"
+                    );
+                });
+            }
+        });
+        $.ajax({
+            url:"${pageContext.request.contextPath}/compition/index",
+            type:'get',
+            dataType:"json",
+            success:function(data) {
+                $.each(data,function(index,obj){
+                    var date=new Date(obj.time);
+                    var month=date.getMonth()+1;
+                    var day=date.getDate();
+                    $("#exam").append(
+                        "<li role='presentation'>"
+                        + "<a href='${pageContext.request.contextPath}/compition/look/"+obj.id+"/"+obj.count+"'>"+date.getFullYear()+"-"+month+"-"+day+"&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"
+                        + obj.title+"</a></li>"
+                    );
+                });
+            }
+        });
+
     })
 </script>
 </body>

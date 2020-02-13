@@ -110,4 +110,12 @@ public class LoseService {
     public List<Apply> my(Integer id) {
         return loseMapper.my(id);
     }
+
+    public Apply look(String id) {
+        return loseMapper.look(id);
+    }
+
+    public Good look2(String goodid) {
+        return loseMapper.look2(goodid);
+    }
 }

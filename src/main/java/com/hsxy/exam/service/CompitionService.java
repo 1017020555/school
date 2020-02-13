@@ -52,4 +52,8 @@ public class CompitionService {
     public void look2(int c, String id) {
         compitionMapper.look2(c,id);
     }
+
+    public List<Compition> index() {
+       return compitionMapper.index();
+    }
 }

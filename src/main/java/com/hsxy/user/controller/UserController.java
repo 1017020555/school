@@ -23,6 +23,12 @@ public class UserController {
     @Autowired
    private UserService userService;
 
+//    前台--点击跳转首页
+    @RequestMapping("/index")
+    public String index(){
+        return "index";
+    }
+
 // 前台--head.jsp--用户中心
 @RequestMapping("/pd")
     public String pd(HttpSession session){

@@ -29,4 +29,6 @@ public interface CompitionMapper {
     Compition look(@Param("id") String id);
     void look2(@Param("count") int count,@Param("id") String id);
 
+    List<Compition> index();
+
 }

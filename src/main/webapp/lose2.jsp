@@ -114,7 +114,7 @@
         <ul class="nav nav-pills nav-stacked">
             <c:forEach items="${applys}" var="apply">
                 <li style="width: 200px;height: 200px;float: left;">
-                    <div>
+                    <div onclick="window.location.href='${pageContext.request.contextPath}/lose/look/'+${apply.applyid}">
                         <img src="/upload/${apply.picture}" style="width: 120px;height: 120px;" alt="图片" class="img-thumbnail"><br>
                         <label>名称：${apply.name}</label><br>
                         <label>地点：${apply.place}</label>
@@ -127,7 +127,7 @@
     <ul class="nav nav-pills nav-stacked">
         <c:forEach items="${goods}" var="good">
             <li style="width: 200px;height: 200px;float: left;">
-                <div>
+                <div onclick="window.location.href='${pageContext.request.contextPath}/lose/look2/'+${good.goodid}">
                     <img src="/upload/${good.photo}" style="width: 120px;height: 120px;" alt="图片" class="img-thumbnail"><br>
                     <label>名称：${good.goodname}</label><br>
                     <label>地点：${good.place}</label>

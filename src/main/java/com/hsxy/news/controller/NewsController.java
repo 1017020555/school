@@ -15,10 +15,7 @@ import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -38,15 +35,13 @@ public class NewsController {
     private NewsService newsService;
 
 
-
-//    首页新闻-----(未完)
+//    首页新闻-----新闻资讯管理(index)
     @RequestMapping("/index")
+    @ResponseBody
     public List<News> index(HttpServletRequest request){
-
-        List<News> news= newsService.index();
-
-        return news;
+        return newsService.index();
     }
+
 //前台---新闻咨询管理--显示所有
     @RequestMapping("/getMessage")
     public ModelAndView getMessage(

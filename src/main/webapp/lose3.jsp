@@ -7,6 +7,7 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 <html>
 <head>
     <title>lose</title>
@@ -72,23 +73,18 @@
         </td>
         <td>
     <select class="form-control" style="width: 120px;" name="typeid">
-        <c:forEach items="${types}" var="type">
-            <option
-                    <c:if test="${type=='校园卡'}">value="1" </c:if>
-                    <c:if test="${type=='银行卡'}">value="2" </c:if>
-                    <c:if test="${type=='U盘'}">value="3" </c:if>
-                    <c:if test="${type=='现金或钱包'}">value="4" </c:if>
-                    <c:if test="${type=='钥匙'}">value="5" </c:if>
-                    <c:if test="${type=='手机'}">value="6" </c:if>
-                    <c:if test="${type=='包包或服饰'}">value="7" </c:if>
-                    <c:if test="${type=='图书资料'}">value="8" </c:if>
-                    <c:if test="${type=='生活用品'}">value="9" </c:if>
-                    <c:if test="${type=='其它物品'}">value="10" </c:if>
-                    <c:if test="${type=='眼镜'}">value="11" </c:if>
-                    <c:if test="${type=='身份证'}">value="12" </c:if>
-            >${type}
-            </option>
-        </c:forEach>
+            <option value="1">校园卡</option>
+            <option value="2">银行卡</option>
+            <option value="3">U盘</option>
+            <option value="4">现金或钱包</option>
+            <option value="5">钥匙</option>
+            <option value="6">手机</option>
+            <option value="7">包包或服饰</option>
+            <option value="8">图书资料</option>
+            <option value="9">生活用品</option>
+            <option value="10">其它物品</option>
+            <option value="11">眼镜</option>
+            <option value="12">身份证</option>
     </select>
         </td>
         <td>
@@ -112,51 +108,19 @@
 
 <div id="title5" style="margin-left: 500px;width: 600px;">
         <ul class="nav nav-pills nav-stacked">
-            <c:forEach items="${applys}" var="apply">
-                <li style="width: 200px;height: 200px;float: left;">
-                    <div onclick="window.location.href='${pageContext.request.contextPath}/lose/look/'+${apply.applyid}">
-                        <img src="/upload/${apply.picture}" style="width: 120px;height: 120px;" alt="图片" class="img-thumbnail"><br>
-                        <label>名称：${apply.name}</label><br>
-                        <label>地点：${apply.place}</label>
+                <li>
+                    <div style="width: 600px;">
+                        <img src="/upload/${apply.picture}" style="width: 300px;height: 200px;" alt="图片" class="img-thumbnail"><br>
+                        <label class="form-control">名称：${apply.name}</label><br>
+                        <label class="form-control">地点：${apply.place}</label><br>
+                        <label class="form-control">时间：
+                            <fmt:formatDate value="${apply.applytime}" pattern="yyyy-MM-dd"/>&nbsp;&nbsp;
+                        </label><br>
+                        <textarea class="form-control" cols="4" rows="4">${apply.applyexplain}</textarea>
                     </div>
                 </li>
-            </c:forEach>
         </ul>
 </div>
-<div id="title6" style="margin-left: 500px;width: 600px;">
-    <nav aria-label="Page navigation" style="margin-left: 300px;">
-        <ul class="pagination">
-            <c:if test="${pageInfo.hasPreviousPage}">
-                <li>
-                    <a href="${pageContext.request.contextPath}/lose/getMessage?pageNum=${pageInfo.pageNum-1}" aria-label="Previous">
-                        <span aria-hidden="true">&laquo;&laquo;</span>
-                    </a>
-                </li>
-            </c:if>
-
-            <c:forEach items="${pageInfo.navigatepageNums}" var="page">
-                <c:if test="${page==pageInfo.pageNum }">
-                    <li class="active"><a href="${pageContext.request.contextPath}/lose/getMessage?pageNum=${page}">${page}</a></li>
-                </c:if>
-                <c:if test="${page!=pageInfo.pageNum }">
-                    <li><a href="${pageContext.request.contextPath}/lose/getMessage?pageNum=${page}">${page}</a></li>
-                </c:if>
-            </c:forEach>
-
-            <c:if test="${pageInfo.hasNextPage }">
-                <li>
-                    <a href="${pageContext.request.contextPath}/lose/getMessage?pageNum=${pageInfo.pageNum+1 }" aria-label="Next">
-                        <span aria-hidden="true">&raquo;&raquo;</span>
-                    </a>
-                </li>
-            </c:if>
-
-        </ul>
-    </nav>
-
-    当前${pageInfo.pageNum }页，总共${pageInfo.pages}页，总共${pageInfo.total }条记录
-</div>
-
 
 
 </body>
