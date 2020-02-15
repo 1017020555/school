@@ -20,6 +20,12 @@
     <select id="look" resultType="com.hsxy.user.pojo.User">
         select * from user where name=#{name} and username=#{username}
     </select>
+    <select id="look3" resultType="com.hsxy.user.pojo.User">
+        select * from user where username=#{username}
+    </select>
+    <select id="look4" resultType="com.hsxy.user.pojo.User">
+        select * from user where name=#{name}
+    </select>
 
     <select id="adminmessagechange" resultType="com.hsxy.user.pojo.User">
         select * from user where id=#{id}

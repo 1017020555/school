@@ -35,7 +35,13 @@ public class CompitionService {
     }
 
     public List<Compition> search(String title, String time) {
-        return compitionMapper.search(title,time);
+        if (title=="" && time!=""){
+            return compitionMapper.search2(time);
+        }else if (title!="" && time==""){
+            return compitionMapper.search3(title);
+        }else {
+            return compitionMapper.search(title,time);
+        }
     }
 
     public List<Compition> getMessage() {

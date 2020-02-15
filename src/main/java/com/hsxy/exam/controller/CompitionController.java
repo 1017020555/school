@@ -46,7 +46,7 @@ public ModelAndView look(@PathVariable("id") String id,@PathVariable("count") St
 //    前台--新闻信息--首页根据分类显示
 @RequestMapping("/getMessage2/{typeid}")
 public ModelAndView getMessage2(@PathVariable String typeid,
-                          @RequestParam(required=true,value="pageNum",defaultValue="1") Integer pageNum,
+                          @RequestParam(required=true,value="pageNum",defaultValue="0") Integer pageNum,
                           @RequestParam(required=true,value="pageSize",defaultValue="6") Integer pageSize
                           ){
     ModelAndView mv=new ModelAndView();
@@ -62,7 +62,7 @@ public ModelAndView getMessage2(@PathVariable String typeid,
 //    前台--新闻信息--显示所有
 @RequestMapping("/getMessage")
 public ModelAndView getMessage(
-        @RequestParam(required=true,value="pageNum",defaultValue="1") Integer pageNum,
+        @RequestParam(required=true,value="pageNum",defaultValue="0") Integer pageNum,
         @RequestParam(required=true,value="pageSize",defaultValue="6") Integer pageSize){
     ModelAndView mv=new ModelAndView();
     PageHelper.startPage(pageNum, pageSize);
@@ -78,10 +78,15 @@ public ModelAndView getMessage(
     @RequestMapping("/search")
     public ModelAndView search(String title,String time){
         ModelAndView mv=new ModelAndView();
-        List<Compition> compitions =compitionService.search(title,time);
-        mv.addObject("compitions",compitions);
-        mv.setViewName("admin/adminexam");
-        return mv;
+        if (title=="" && time ==""){
+            mv.setViewName("redirect:/compition/show");
+            return mv;
+        }else {
+            List<Compition> compitions =compitionService.search(title,time);
+            mv.addObject("compitions",compitions);
+            mv.setViewName("admin/adminexam");
+            return mv;
+        }
     }
     //新闻咨询管理--修改编辑页面
     @RequestMapping(value = "/modify2/{id}",method = RequestMethod.POST)
@@ -128,8 +133,8 @@ public ModelAndView getMessage(
 // 学科竞赛信息管理-- 点击左侧显示所有
     @RequestMapping("/show")
     public ModelAndView show(
-            @RequestParam(required=true,value="pageNum",defaultValue="1") Integer pageNum,
-            @RequestParam(required=true,value="pageSize",defaultValue="2") Integer pageSize
+            @RequestParam(required=true,value="pageNum",defaultValue="0") Integer pageNum,
+            @RequestParam(required=true,value="pageSize",defaultValue="5") Integer pageSize
     ){
         ModelAndView mv=new ModelAndView();
         PageHelper.startPage(pageNum, pageSize);

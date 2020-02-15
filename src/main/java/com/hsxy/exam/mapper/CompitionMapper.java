@@ -21,7 +21,9 @@ public interface CompitionMapper {
 
     void modify2(@Param("title") String title, @Param("context") String context,@Param("typeid") String typeid ,@Param("id") String id);
 
-    List<Compition> search(@Param("title")String title,@Param("time") String time);
+    List<Compition> search(@Param("title") String title,@Param("time") String time);
+    List<Compition> search2(@Param("time") String time);
+    List<Compition> search3(@Param("title") String title);
 
     List<Compition> getMessage();
     List<Compition> getMessage2(@Param("typeid") String typeid);

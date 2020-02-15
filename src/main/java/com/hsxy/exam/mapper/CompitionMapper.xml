@@ -19,8 +19,15 @@
     <update id="modify2">
         update compition set title=#{title},context=#{context},typeid=#{typeid} where id=#{id}
     </update>
+
     <select id="search" resultType="com.hsxy.exam.pojo.Compition">
         select * from compition where title=#{title} and time=#{time}
+    </select>
+    <select id="search2" resultType="com.hsxy.exam.pojo.Compition">
+        select * from compition where time=#{time}
+    </select>
+    <select id="search3" resultType="com.hsxy.exam.pojo.Compition">
+        select * from compition where title=#{title}
     </select>
 
     <select id="getMessage" resultType="com.hsxy.exam.pojo.Compition">

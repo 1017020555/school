@@ -24,9 +24,17 @@
     <update id="modify2" parameterType="java.lang.String">
         update news set title=#{title},context=#{context},newstypeid=#{newstypeid} where id=#{id}
     </update>
+
     <select id="search" resultType="com.hsxy.news.pojo.News">
         select * from news where title=#{title} and time=#{time}
     </select>
+    <select id="search1" resultType="com.hsxy.news.pojo.News">
+        select * from news where time=#{time}
+    </select>
+    <select id="search2" resultType="com.hsxy.news.pojo.News">
+        select * from news where title=#{title}
+    </select>
+
     <select id="index" resultType="com.hsxy.news.pojo.News">
         select * from news order by time desc
     </select>

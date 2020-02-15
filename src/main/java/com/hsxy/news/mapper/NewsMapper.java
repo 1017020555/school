@@ -31,4 +31,7 @@ public interface NewsMapper {
     List<News> getMessage2(@Param("newstypeid") String newstypeid);
 
     News look(String id);
+
+    List<News> search1(@Param("time") String time);
+    List<News> search2(@Param("title") String title);
 }

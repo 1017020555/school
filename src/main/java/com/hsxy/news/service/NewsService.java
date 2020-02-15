@@ -40,7 +40,13 @@ public class NewsService {
     }
 
     public List<News> search(String title, String time) {
-        return newsMapper.search(title,time);
+        if (title=="" && time!=""){
+            return newsMapper.search1(time);
+        }else if (title!="" && time==""){
+            return newsMapper.search2(title);
+        }else {
+            return newsMapper.search(title,time);
+        }
     }
 
     public List<News> index() {

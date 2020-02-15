@@ -55,10 +55,10 @@
         </tr>
 
 
-        <c:forEach items="${compitions}" var="c">
+        <c:forEach items="${compitions}" var="c" varStatus="m">
             <tr>
-                <td>1
-                    <input type="checkbox">
+                <td>
+                    ${m.index+1}
                 </td>
                 <td>${c.title}</td>
                 <td>

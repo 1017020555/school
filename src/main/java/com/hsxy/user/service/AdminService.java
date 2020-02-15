@@ -35,7 +35,13 @@ public class AdminService {
     }
 
     public List<User> look(String name, String username) {
-        return adminMapper.look(name,username);
+        if (name=="" && username!=""){
+            return adminMapper.look3(username);
+        }else if (name!="" && username==""){
+            return adminMapper.look4(name);
+        }else {
+            return adminMapper.look(name,username);
+        }
     }
 
     public User adminmessagechange(Integer id) {

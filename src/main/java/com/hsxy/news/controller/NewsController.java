@@ -101,10 +101,15 @@ public class NewsController {
     @RequestMapping("/search")
     public ModelAndView search(String title,String time){
         ModelAndView mv=new ModelAndView();
-        List<News> news =newsService.search(title,time);
-        mv.addObject("news",news);
-        mv.setViewName("admin/adminnews");
-        return mv;
+        if (title=="" && time==""){
+            mv.setViewName("redirect:/news/show");
+            return mv;
+        }else {
+            List<News> news =newsService.search(title,time);
+            mv.addObject("news",news);
+            mv.setViewName("admin/adminnews");
+            return mv;
+        }
     }
 //新闻咨询管理--修改编辑页面
     @RequestMapping(value = "/modify2/{id}",method = RequestMethod.POST)

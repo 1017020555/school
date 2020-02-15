@@ -47,8 +47,8 @@ public class AdminController {
 //    用户管理--查出所有用户
     @RequestMapping("/user")
     public ModelAndView user(
-            @RequestParam(required=true,value="pageNum",defaultValue="1") Integer pageNum,
-            @RequestParam(required=true,value="pageSize",defaultValue="2") Integer pageSize
+            @RequestParam(required=true,value="pageNum",defaultValue="0") Integer pageNum,
+            @RequestParam(required=true,value="pageSize",defaultValue="5") Integer pageSize
             ){
         ModelAndView mv=new ModelAndView();
         PageHelper.startPage(pageNum, pageSize);
@@ -66,14 +66,20 @@ public class AdminController {
     }
 //    用户管理--查询具体的用户
     @RequestMapping("/look")
-    public ModelAndView look(String name,String username){
+    public ModelAndView look(String name,String username,
+                             @RequestParam(required=true,value="pageNum",defaultValue="0") Integer pageNum,
+                             @RequestParam(required=true,value="pageSize",defaultValue="5") Integer pageSize){
         ModelAndView mv=new ModelAndView();
-
-        List<User> users= adminService.look(name,username);
-
-        mv.addObject("users",users);
-        mv.setViewName("admin/admin");
-        return mv;
+        PageHelper.startPage(pageNum,pageSize);
+        if (name=="" && username==""){
+            mv.setViewName("redirect:/admin/user");
+            return mv;
+        }else {
+            List<User> users= adminService.look(name,username);
+            mv.addObject("users",users);
+            mv.setViewName("admin/admin");
+            return mv;
+        }
     }
 //用户管理--编辑某一个用户信息(查询)
     @RequestMapping("/adminmessagechange/{id}")
@@ -92,7 +98,7 @@ public class AdminController {
         ModelAndView mv=new ModelAndView();
         Integer i=adminService.adminmessagechange2(user);
         if (i>0){
-            mv.setViewName("admin/admin");
+            mv.setViewName("redirect:/admin/user");
         }
         return mv;
     }
