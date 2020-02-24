@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -67,11 +68,17 @@ public class UserController {
 
 
     @RequestMapping(value = "/load",method = RequestMethod.POST)
-    public String login(HttpSession session, User user, String path){
+    public String login(HttpSession session, User user, String path,String rem,HttpServletResponse response){
         String code=(String) session.getAttribute("validateCode");
 
         User user1=userService.up(user);
-
+        if ("1".equals(rem)){
+            String loginInfo = user.getUsername()+ "," + user.getPassword();
+            Cookie userCookie = new Cookie("loginInfo", loginInfo);
+            userCookie.setMaxAge(1 * 24 * 60 * 60); // 存活期为一天 1*24*60*60
+            userCookie.setPath("/");
+            response.addCookie(userCookie);
+        }
         if ((path.equals(code)) && (user1!=null) && (user1.getManager()==1)){
             session.removeAttribute("validateCode");
             session.setAttribute("user1",user1);
