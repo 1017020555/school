@@ -266,7 +266,6 @@ public String loseadvice(){
         }
     }
 
-
     //前台index--点击后显示详细信息--look
     @RequestMapping("/look/{id}")
     public ModelAndView look(@PathVariable("id") String id){
@@ -276,6 +275,7 @@ public String loseadvice(){
         mv.setViewName("lose3");
         return mv;
     }
+
 //前台--失物招领--点击后显示详细信息
     @RequestMapping("/look2/{goodid}")
     public ModelAndView look2(@PathVariable("goodid") String goodid){
@@ -285,6 +285,7 @@ public String loseadvice(){
         mv.setViewName("lose4");
         return mv;
     }
+
 //    首页--显示--（index）
     @RequestMapping("/index")
     @ResponseBody

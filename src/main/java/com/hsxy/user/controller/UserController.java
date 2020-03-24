@@ -24,6 +24,17 @@ public class UserController {
     @Autowired
    private UserService userService;
 
+//前台--studentmessage
+    @RequestMapping("/studentmessage")
+    public String studentmessage(){
+        return "studentmessage";
+    }
+    //前台--studentpass
+    @RequestMapping("/studentpass")
+    public String studentpass(){
+        return "studentpass";
+    }
+
 //    前台--点击跳转首页
     @RequestMapping("/index")
     public String index(){

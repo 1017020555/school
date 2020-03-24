@@ -38,6 +38,12 @@ public class SecondController {
         return seconds;
     }
 
+//前台--跳转到--发布二手申请
+    @RequestMapping("/tosecond")
+    public String tosecond(){
+        return "seconffb";
+    }
+
 //    前端--用户中心--自己发布的二手交易
     @RequestMapping("/my")
     public ModelAndView my(HttpSession session,

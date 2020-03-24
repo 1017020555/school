@@ -9,15 +9,31 @@
 
 </head>
 <body>
+<jsp:include page="head.jsp"></jsp:include>
+<div id="d1" style="margin-left: 170px;margin-top:50px;width: 200px;">
+    <ul class="nav nav-pills nav-stacked">
+        <li role="presentation" class="active"><a href="#" onclick="javascript:void(0)">用户中心</a></li>
+        <li role="presentation"><a href="#" class="studentmessage.jsp">个人资料</a></li>
+        <li role="presentation"><a href="#" class="studentpass.jsp">修改密码</a></li>
+        <li role="presentation"><a href="${pageContext.request.contextPath}/lose/loselose">发布失物申请</a></li>
 
-<div id="title2" class="alert alert-info" role="alert">
+        <li role="presentation"><a href="${pageContext.request.contextPath}/lose/my">我的失物申请</a></li>
+
+        <li role="presentation"><a href="${pageContext.request.contextPath}/second/tosecond">发布二手申请</a></li>
+        <li role="presentation"><a href="${pageContext.request.contextPath}/second/my">我的二手申请</a></li>
+
+        <li role="presentation"><a href="${pageContext.request.contextPath}/user/unload">安全退出</a></li>
+    </ul>
+</div>
+
+<div id="title2" class="alert alert-info" role="alert" style="width: 600px;margin-left: 550px;margin-top: -325px;">
     <img src="${pageContext.request.contextPath}/img/img1.png">
     <label>发布二手物品信息：</label>
 </div>
 
 <p style="font-weight: bold;color: red;font-size: large;">${msg}</p>
 <form method="post" enctype="multipart/form-data" action="${pageContext.request.contextPath}/second/fb">
-    <div id="title3">
+    <div id="title3" style="margin-left: 550px;width: 600px;">
         <table>
             <tr>
                 <td>

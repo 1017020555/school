@@ -16,7 +16,6 @@
     <script src="${pageContext.request.contextPath}/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="${pageContext.request.contextPath}/css/lose.css"/>
 
-
 </head>
 <body>
 
@@ -122,6 +121,8 @@
         </ul>
 </div>
 
+<br>
+<br>
 
 </body>
 </html>
