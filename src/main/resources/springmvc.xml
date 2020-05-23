@@ -9,8 +9,6 @@
 		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.0.xsd
 		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.0.xsd">
 
-<!-- springmvc扫描Controller层 -->
-<context:component-scan base-package="com.hsxy.*.controller"/>
 
 <bean id="internalResourceViewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
 	<property name="prefix" value="/"/>
@@ -20,12 +18,25 @@
 	<!--处理静态资源-->
 	<mvc:default-servlet-handler/>
 	<!--开启注解-->
-	<mvc:annotation-driven/>
+<!--	<mvc:annotation-driven/>-->
+	<mvc:annotation-driven >
+		<!-- 消息转换器 -->
+		<mvc:message-converters register-defaults="true">
+			<bean class="org.springframework.http.converter.StringHttpMessageConverter">
+				<property name="supportedMediaTypes" value="text/plain;charset=UTF-8"/>
+			</bean>
+		</mvc:message-converters>
+	</mvc:annotation-driven>
+
+	<!-- springmvc扫描Controller层 -->
+	<context:component-scan base-package="com.hsxy.*.controller"/>
 
 	<!--上传下载大小配置-->
 	<bean class="org.springframework.web.multipart.commons.CommonsMultipartResolver" id="multipartResolver">
 		<property name="defaultEncoding" value="UTF-8"></property>
 		<property name="maxUploadSize" value="#{1024*1024*5}"></property>
 	</bean>
+
+	<mvc:resources mapping="/**" location="/img"></mvc:resources>
 
 </beans>

@@ -5,6 +5,9 @@ import com.hsxy.user.pojo.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
 
 @Service
 public class UserService {
@@ -24,4 +27,5 @@ public class UserService {
     public void changemess(String email, String phone, Integer id) {
         userMapper.changemess(email,phone,id);
     }
+
 }

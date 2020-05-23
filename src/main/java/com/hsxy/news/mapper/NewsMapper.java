@@ -12,8 +12,11 @@ public interface NewsMapper {
 
     List fb();
 
-    void upload(@Param("title") String title,@Param("context") String context,@Param("time") Date date,
-                @Param("userid") Integer id,@Param("newstypeid")int newstypename, @Param("file") String fileName);
+    void upload(@Param("title") String title, @Param("context") String context, @Param("time") Date date,
+                @Param("userid") Integer id, @Param("newstypeid") int newstypename, @Param("file") String fileName,@Param("path") String pathName);
+
+    void upload2(@Param("id") Integer id, @Param("title") String title, @Param("context") String context, @Param("time") Date date,
+                 @Param("userid") Integer userid, @Param("newstypeid") int newstypename, @Param("file") String fileName,@Param("path") String pathName);
 
     List<News> show();
 
@@ -34,4 +37,6 @@ public interface NewsMapper {
 
     List<News> search1(@Param("time") String time);
     List<News> search2(@Param("title") String title);
+
+
 }

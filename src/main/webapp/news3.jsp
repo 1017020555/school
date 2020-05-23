@@ -41,7 +41,11 @@
         </div>
         <div class="panel-body">
             发布日期：<fmt:formatDate value="${news.time}" pattern="yyyy-MM-dd"/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+
             ${news.context}<br>
+
+            <img src="/upload/${news.path}" style="width: 200px;height: 200px;" alt="图片" class="img-thumbnail"><br>
+
             附件：<a href="${pageContext.request.contextPath}/news/download2?filename=${news.file}">点击下载</a>
         </div>
     </div>

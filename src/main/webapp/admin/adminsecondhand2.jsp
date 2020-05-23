@@ -24,9 +24,12 @@
     </style>
 </head>
 <body>
-
+<div class="panel panel-success">
+    <div class="panel-heading">
 <div id="d1">
-    <label>查询条件：</label><br>
+     <span class="page-header" style="font-weight: bold;color: #761c19;">
+           <h4>查询条件：</h4>
+       </span>
     <label style="margin-left: 80px;">商品留言管理：</label>
             <button class="btn btn-primary" type="button" onclick="window.location.href='${pageContext.request.contextPath}/second/messages'">
                 点击跳转 <span class="badge">${count}</span>
@@ -54,10 +57,10 @@
         <button style="display: inline;width: 80px;" type="submit" class="form-control" >查询</button>
     </form>
 </div>
-<br>
-<div>
-    <table class="table table-bordered table-striped" style="text-align: center;">
-        <tr>
+    </div>
+    <table class="table table-hover" style="text-align: center;">
+        <div class="panel-body" style="margin-top: -30px;">
+        <tr class="info">
             <td>序号</td>
             <td>物品名称</td>
             <td>描述</td>

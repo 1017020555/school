@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.Date;
 import java.util.List;
+import java.util.Map;
 
 @Service
 public class SecondService {
@@ -104,5 +105,9 @@ public class SecondService {
 
     public List<Second> index() {
         return secondMapper.index();
+    }
+
+    public Map<String,Object> count2() {
+        return secondMapper.count2();
     }
 }

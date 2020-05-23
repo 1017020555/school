@@ -4,10 +4,13 @@ import com.github.pagehelper.PageInfo;
 import com.hsxy.exam.pojo.Compition;
 import com.hsxy.news.pojo.News;
 import com.hsxy.news.pojo.Newtype;
+import com.hsxy.news.pojo.WangEditor;
 import com.hsxy.news.service.NewsService;
 import com.hsxy.user.pojo.User;
 import com.sun.org.apache.xpath.internal.operations.Mod;
 import org.apache.commons.io.FileUtils;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
@@ -24,9 +27,13 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import java.io.File;
 import java.io.IOException;
+import java.io.InputStream;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.UUID;
+
 
 @Controller
 @RequestMapping("/news")
@@ -34,13 +41,14 @@ public class NewsController {
     @Autowired
     private NewsService newsService;
 
+    private Logger log = LoggerFactory.getLogger(getClass());
 
 //    首页新闻-----新闻资讯管理(index)
     @RequestMapping("/index")
     @ResponseBody
     public List<News> index(HttpServletRequest request){
         return newsService.index();
-    }
+}
 
 //前台---新闻咨询管理--显示所有
     @RequestMapping("/getMessage")
@@ -146,7 +154,7 @@ public String modify1(Model model,@PathVariable Integer id){
     }
 //新闻咨询管理--发布新闻按钮（发布新闻）
     @RequestMapping(value="/upload",method= RequestMethod.POST)
-    public ModelAndView uploadFile(@RequestParam MultipartFile file, HttpSession session,
+    public ModelAndView uploadFile(@RequestParam MultipartFile file,@RequestParam MultipartFile path, HttpSession session,
                                    String title, String context,String newstypeid, HttpServletRequest request) throws IllegalStateException, IOException {
         ModelAndView mv=new ModelAndView();
         String realPath = "F:\\schoolimages";
@@ -155,13 +163,20 @@ public String modify1(Model model,@PathVariable Integer id){
             f.mkdirs();
         }
         String fileName= UUID.randomUUID().toString().replaceAll("-", "")+file.getOriginalFilename();
+        String pathName=UUID.randomUUID().toString().replaceAll("-", "")+path.getOriginalFilename();
+
         User user=(User) session.getAttribute("user1");
         int newstypename = Integer.parseInt(newstypeid);
 
-        newsService.upload(title,context,new Date(),user.getId(),newstypename,fileName);
+        Integer id =(Integer) session.getAttribute("id");
+        newsService.upload(id,title,context,new Date(),user.getId(),newstypename,fileName,pathName);
+        session.removeAttribute("id");
 
         file.transferTo(new File(realPath+"/"+fileName));
+        path.transferTo(new File(realPath+"/"+pathName));
         mv.addObject("filePath",fileName);
+        mv.addObject("pathName",pathName);
+
         mv.setViewName("redirect:/news/show");
         return mv;
     }
@@ -184,5 +199,6 @@ public String modify1(Model model,@PathVariable Integer id){
         mv.addObject("pageInfo",pageInfo);
         return mv;
     }
+
 
 }

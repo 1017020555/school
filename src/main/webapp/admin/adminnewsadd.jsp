@@ -1,10 +1,3 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: user
-  Date: 2020/1/28
-  Time: 17:41
-  To change this template use File | Settings | File Templates.
---%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
@@ -16,34 +9,32 @@
     <script src="${pageContext.request.contextPath}/js/jquery-3.4.1.min.js"></script>
     <script src="${pageContext.request.contextPath}/js/bootstrap.min.js"></script>
 
-
-    <script type="text/javascript" charset="utf-8" src="${pageContext.request.contextPath}/admin/ueditor/ueditor.config.js"></script>
-    <script type="text/javascript" charset="utf-8" src="${pageContext.request.contextPath}/admin/ueditor/ueditor.all.min.js"> </script>
-    <!--建议手动加在语言，避免在ie下有时因为加载语言失败导致编辑器加载失败-->
-    <!--这里加载的语言文件会覆盖你在配置项目里添加的语言类型，比如你在配置项目里配置的是英文，
-     这里加载的中文，那最后就是中文-->
-    <script type="text/javascript" charset="utf-8" src="${pageContext.request.contextPath}/admin/ueditor/lang/zh-cn/zh-cn.js"></script>
     <style type="text/css">
-        div{
-            width:100%;
+        #f1 input{
+            width: 200px;
+            margin-left: 300px;
+        }
+        #f1 textarea{
+            width: 500px;
+            height: 300px;
+            margin-left: 200px;
         }
     </style>
-
 </head>
 <body>
 
-<form action="${pageContext.request.contextPath}/news/upload"  method="post" enctype="multipart/form-data">
-    <table class="table table-bordered table-striped" style="text-align: center;">
+<form id="f1" action="${pageContext.request.contextPath}/news/upload"  method="post" enctype="multipart/form-data">
+    <table class="table table-bordered table-striped" >
         <tr>
             <td>标题：</td>
             <td>
-                <input id="title" class="form-control" name="title" type="text">
+                <input  id="title" class="form-control" name="title" type="text">
             </td>
         </tr>
         <tr>
             <td>内容：</td>
             <td>
-                <textarea name="context" cols="8" rows="8" class="form-control"></textarea>
+                   <textarea id="context" rows="6"  name="context" class="form-control"></textarea>
             </td>
         </tr>
         <tr>
@@ -69,12 +60,17 @@
             </td>
         </tr>
         <tr>
-            <td>上传文件</td>
+            <td>上传图片</td>
+            <td>
+                <input id="path" name="path" type="file">
+            </td>
+        </tr>
+        <tr>
+            <td>上传附件</td>
             <td>
                 <input id="file" name="file" type="file">
             </td>
         </tr>
-
         <tr>
             <td colspan="2">
                 <input type="submit"  class="form-control" value="发布" id="change">
@@ -85,4 +81,5 @@
 </form>
 
 </body>
+
 </html>

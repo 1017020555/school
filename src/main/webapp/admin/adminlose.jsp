@@ -32,11 +32,15 @@
 </head>
 <body>
 
-<form method="get" action="${pageContext.request.contextPath}/lose/search2">
-<div id="d1">
-    <label>查询条件：</label><br>
+<div class="panel panel-success">
+  <div class="panel-heading">
+   <div id="d1">
+   <form method="get" action="${pageContext.request.contextPath}/lose/search2">
+     <span class="page-header" style="font-weight: bold;color: #761c19;">
+           <h4>查询条件：</h4>
+       </span>
     <label>所属类型</label>
-    <select name="type" class="form-control" style="margin-left: 30px;">
+    <select name="type" class="form-control" style="margin-left: 10px;">
         <option value="lose">丢失物品</option>
         <option value="found">找到物品</option>
     </select>
@@ -45,13 +49,13 @@
     <label>丢失时间</label>
         <input name="time" type="date" class="form-control">
     <button type="submit" class="form-control" >查询</button>
-</div>
 </form>
-<br>
+</div>
+</div>
 
-<div>
-    <table class="table table-bordered table-striped" style="text-align: center;">
-        <tr>
+    <table class="table table-hover" style="text-align: center;">
+        <div class="panel-body" style="margin-top: -30px;">
+        <tr class="info">
             <td>序号</td>
             <td>物品名称</td>
             <td>描述</td>
@@ -64,7 +68,6 @@
         <c:forEach items="${applys}" var="apply" varStatus="i">
             <tr>
                 <td>${i.index+1}
-                    <input type="checkbox">
                 </td>
                 <td>${apply.name}</td>
                 <td>
@@ -98,9 +101,9 @@
                 </td>
             </tr>
         </c:forEach>
-    </table>
-</div>
 
+</div>
+</table>
 <nav aria-label="Page navigation" style="margin-left: 300px;">
     <ul class="pagination">
         <c:if test="${pageInfo.hasPreviousPage}">

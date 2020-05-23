@@ -66,6 +66,7 @@ public ModelAndView getMessage(
         @RequestParam(required=true,value="pageSize",defaultValue="6") Integer pageSize){
     ModelAndView mv=new ModelAndView();
     PageHelper.startPage(pageNum, pageSize);
+
     List<Compition> compitions= compitionService.getMessage();
     PageInfo<Compition> pageInfo=new PageInfo<>(compitions);
     mv.addObject("pageInfo",pageInfo);

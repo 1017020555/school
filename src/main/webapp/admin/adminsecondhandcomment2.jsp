@@ -25,6 +25,8 @@
     </style>
 </head>
 <body>
+<div class="panel panel-success">
+    <div class="panel-heading">
 <div id="d1">
     <form method="get" action="${pageContext.request.contextPath}/second/searchcomment">
         <label>查询条件：</label><br>
@@ -35,10 +37,11 @@
         <button type="submit" class="form-control" >查询</button>
     </form>
 </div>
-<br>
-<div>
-    <table class="table table-bordered table-striped" style="text-align: center;">
-        <tr>
+    </div>
+    <table class="table table-hover" style="text-align: center;">
+    <div class="panel-body" style="margin-top: -30px;">
+
+        <tr class="info">
             <td>序号</td>
             <td>留言人id</td>
             <td>评论内容</td>

@@ -12,4 +12,5 @@ public interface UserMapper {
 
     void changemess(@Param("email") String email, @Param("phone") String phone,@Param("id") Integer id);
 
+    boolean insert(User user);
 }

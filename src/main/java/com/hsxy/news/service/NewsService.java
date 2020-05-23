@@ -19,8 +19,12 @@ public class NewsService {
         return newsMapper.fb();
     }
 
-    public void upload(String title, String context, Date date, Integer id, int newstypename, String fileName) {
-        newsMapper.upload(title,context,date,id,newstypename,fileName);
+    public void upload(Integer id, String title, String context, Date date, Integer userid, int newstypename, String fileName, String pathName) {
+        if (null==id){
+            newsMapper.upload2(id,title,context,date,userid,newstypename,fileName,pathName);
+        }else {
+            newsMapper.upload(title,context,date,userid,newstypename,fileName,pathName);
+        }
     }
 
     public List<News> show() {
@@ -59,5 +63,6 @@ public class NewsService {
     public News look(String id) {
        return newsMapper.look(id);
     }
+
 
 }

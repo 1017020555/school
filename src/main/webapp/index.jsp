@@ -11,10 +11,7 @@
 </head>
 <body>
     <jsp:include page="head.jsp"></jsp:include>
-
     <div class="container">
-        <br>
-        <br>
         <div class="row">
             <div class="col-md-12">
                 <div class="carousel slide" id="carousel-example-generic" data-ride="carousel" data-interval="3000">
@@ -48,32 +45,28 @@
 <table>
     <tr>
         <td>
-            <div id="d1" style="margin-left: 140px;width: 600px;margin-top: 60px;">
-                <ul class="nav nav-pills nav-stacked" id="news">
+                <ul class="nav nav-pills nav-stacked" id="news" style="width: 500px;margin-left: 170px;margin-top: 50px;">
                     <li role="presentation" class="active">
                         <a href="${pageContext.request.contextPath}/news/getMessage">新闻资讯：
                             <span class="badge" style="margin-right: 0px;">更多》</span>
                         </a>
                     </li>
                 </ul>
-            </div>
         </td>
         <td>
-            <div id="d2" style="width: 300px;margin-left: 100px;margin-top: 60px;">
-                <ul class="nav nav-pills nav-stacked" id="lose">
+                <ul class="nav nav-pills nav-stacked" id="lose" style="width: 300px;margin-left:150px;margin-top: 50px;">
                     <li role="presentation" class="active">
                         <a href="${pageContext.request.contextPath}/lose/getMessage">失物招领：
                             <span class="badge" style="margin-right: 0px;">更多》</span>
                         </a>
                     </li>
                 </ul>
-            </div>
         </td>
     </tr>
     <tr>
         <td>
-            <div id="d3" style="margin-left: 140px;margin-top:100px;width: 600px;">
-                <ul class="nav nav-pills nav-stacked" id="second">
+<%--            <div id="d3" >--%>
+                <ul class="nav nav-pills nav-stacked" id="second" style="width: 500px;margin-left: 170px;margin-top: 50px;">
                     <li role="presentation" class="active">
                         <a href="${pageContext.request.contextPath}/second/getMessage">二手交易：
                             <span class="badge" style="margin-right: 0px;">更多》</span>
@@ -81,11 +74,11 @@
                     </li>
 
                 </ul>
-            </div>
+<%--            </div>--%>
         </td>
+
         <td>
-            <div id="d4" style="margin-left: 100px;width: 300px;">
-                <ul class="nav nav-pills nav-stacked" id="exam">
+                <ul class="nav nav-pills nav-stacked" id="exam" style="width: 300px;margin-left:150px;margin-top: -150px;">
                     <li role="presentation" class="active">
                         <a href="${pageContext.request.contextPath}/compition/getMessage">学科竞赛：
                             <span class="badge" style="margin-right: 0px;">更多》</span>
@@ -93,11 +86,9 @@
                     </li>
 
                 </ul>
-            </div>
         </td>
     </tr>
 </table>
-
 
 
 <div style="scroll-margin-bottom: 0px;">
@@ -121,7 +112,8 @@
                     var day=date.getDate();
                     $("#news").append(
                         "<li role='presentation'>"
-                        + "<a href='${pageContext.request.contextPath}/news/look/"+obj.id+"'>"+date.getFullYear()+"-"+month+"-"+day+"&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"
+                        + "<a href='${pageContext.request.contextPath}/news/look/"+obj.id+"'>"
+                        +date.getFullYear()+"-"+month+"-"+day+"&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"
                         + obj.title+"</a></li>"
                     );
                 });

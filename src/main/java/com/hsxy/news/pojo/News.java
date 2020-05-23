@@ -19,10 +19,12 @@ public class News {
 
     private String file;
 
+    private String path;
 
     public News() {
     }
-    public News(String title, String context, Date time, User user, Integer userid, Integer state, Integer newstypeid, Newtype newtype, String file) {
+
+    public News(String title, String context, Date time, User user, Integer userid, Integer state, Integer newstypeid, Newtype newtype, String file, String path) {
         this.title = title;
         this.context = context;
         this.time = time;
@@ -32,8 +34,10 @@ public class News {
         this.newstypeid = newstypeid;
         this.newtype = newtype;
         this.file = file;
+        this.path = path;
     }
-    public News(Integer id, String title, String context, Date time, User user, Integer userid, Integer state, Integer newstypeid, Newtype newtype, String file) {
+
+    public News(Integer id, String title, String context, Date time, User user, Integer userid, Integer state, Integer newstypeid, Newtype newtype, String file, String path) {
         this.id = id;
         this.title = title;
         this.context = context;
@@ -44,6 +48,7 @@ public class News {
         this.newstypeid = newstypeid;
         this.newtype = newtype;
         this.file = file;
+        this.path = path;
     }
 
     @Override
@@ -60,6 +65,14 @@ public class News {
                 ", newtype=" + newtype +
                 ", file='" + file + '\'' +
                 '}';
+    }
+
+    public String getPath() {
+        return path;
+    }
+
+    public void setPath(String path) {
+        this.path = path;
     }
 
     public Integer getId() {

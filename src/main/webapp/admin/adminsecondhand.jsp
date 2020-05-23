@@ -23,19 +23,24 @@
         }
     </style>
 </head>
-<body>
-
-<div id="d1">
-    <label>查询条件：</label><br>
-    <label style="margin-left: 80px;">商品留言管理：</label>
+<div class="panel panel-success">
+  <div class="panel-heading">
+   <div id="d1">
+    <label >商品留言管理：</label>
             <button class="btn btn-primary" type="button"
                     onclick="window.location.href='${pageContext.request.contextPath}/second/messages'">
                 点击跳转 <span class="badge">${count}</span>
             </button>
-    <br><br>
-
+            &nbsp;&nbsp;&nbsp;&nbsp;
+            <button class="btn" type="button"
+                    onclick="window.location.href='${pageContext.request.contextPath}/second/count'">
+                统计每月发布数量 </span>
+            </button>
+       <span class="page-header" style="font-weight: bold;color: #761c19;">
+           <h4>查询条件：</h4>
+       </span>
     <form method="get" action="${pageContext.request.contextPath}/second/search1">
-        <label style="margin-left: 80px;">二手物品名称</label>
+        <label >二手物品名称</label>
             <input name="name" type="text" class="form-control" placeholder="请输入物品名称：">
         <label>发布时间</label>
             <input name="time" type="date" class="form-control">
@@ -54,11 +59,11 @@
         </select>
         <button style="display: inline;width: 80px;" type="submit" class="form-control" >查询</button>
     </form>
+   </div>
 </div>
-<br>
-<div>
-    <table class="table table-bordered table-striped" style="text-align: center;">
-        <tr>
+    <table class="table table-hover" style="text-align: center;">
+<div class="panel-body" style="margin-top: -30px;">
+        <tr class="info">
             <td>序号</td>
             <td>物品名称</td>
             <td>描述</td>
@@ -67,9 +72,8 @@
             <td>价格</td>
             <td colspan="2">操作</td>
         </tr>
-
         <c:forEach varStatus="i" items="${seconds}" var="s">
-            <tr>
+            <tr >
                 <td>
                     ${i.index+1}
                 </td>
@@ -103,8 +107,8 @@
                 </td>
             </tr>
         </c:forEach>
-    </table>
 
+  </div></table>
     <nav aria-label="Page navigation" style="margin-left: 300px;">
         <ul class="pagination">
             <c:if test="${pageInfo.hasPreviousPage}">

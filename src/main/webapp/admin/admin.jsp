@@ -20,12 +20,16 @@
 
 </head>
 <body>
-    <div id="h1">
+<div class="panel panel-success">
+    <div class="panel-heading">
+    <div id="h1"  >
         <form method="get" action="${pageContext.request.contextPath}/admin/look">
             <table>
-                <tr>
-                    <td>查询用户:</td>
-                </tr>
+               <tr>
+                   <span class="page-header" style="font-weight: bold;color: #761c19;">
+                       <h4>查询条件：</h4>
+                   </span>
+               </tr>
                 <tr>
                     <td><label>姓名：</label></td>
                     <td><label>学号：</label></td>
@@ -33,17 +37,27 @@
                 <tr>
                     <td><input id="name" name="name" class="form-control" type="text"></td>
                     <td><input id="username" name="username" class="form-control" type="text"></td>
-                    <td>
-                        <button type="submit" class="btn btn-info">查询</button>
-                    </td>
+                    <td><button type="submit" class="btn btn-info">查询</button></td>
                 </tr>
             </table>
         </form>
+<hr style="color: black;"/>
+            <form method="post"  enctype="multipart/form-data" id="form1" action="${pageContext.request.contextPath}/user/fileUpload">
+                   <table>
+                        <tr>
+                            <td>批量导入上传文件: </td>
+                            <td> <input class="form-control" id="upfile" type="file" name="upfile" accept=".xls,.xlsx" /></td>
+                            <td><input class="form-control"  type="submit" value="提交" onclick="return checkData()" /></td>
+                        </tr>
+                   </table>
+            </form>
     </div>
 
-    <div id="h2">
-        <table class="table table-bordered table-striped" style="text-align: center;">
-            <tr>
+    </div>
+
+    <table class="table table-hover" style="text-align: center;">
+        <div class="panel-body" style="margin-top: -30px;">
+            <tr class="info">
                 <td>序号</td>
                 <td>学号</td>
                 <td>密码</td>
@@ -55,16 +69,22 @@
                 <td colspan="2">操作</td>
             </tr>
 
-
             <c:forEach items="${users}" var="l" varStatus="m">
-                <tr>
+                <tr >
                     <td>
                         ${m.index+1}
                     </td>
                     <td>${l.username}</td>
                     <td>${l.password}</td>
                     <td>${l.name}</td>
-                    <td>${l.gender}</td>
+                    <td>
+                                <c:if test="${l.gender==1}">
+                                    男
+                                </c:if>
+                                <c:if test="${l.gender==0}">
+                                    女
+                                </c:if>
+                    </td>
                     <td>${l.email}</td>
                     <td>${l.phone}</td>
                     <td>${l.departmentid}</td>
@@ -114,7 +134,22 @@
 
     </div>
 
-
+    <script type="text/javascript">
+        //JS校验form表单信息
+        function checkData(){
+            var fileDir = $("#upfile").val();
+            var suffix = fileDir.substr(fileDir.lastIndexOf("."));
+            if("" == fileDir){
+                alert("选择需要导入的Excel文件！");
+                return false;
+            }
+            if(".xls" != suffix && ".xlsx" != suffix ){
+                alert("选择Excel格式的文件导入！");
+                return false;
+            }
+            return true;
+        }
+    </script>
 
 </body>
 </html>

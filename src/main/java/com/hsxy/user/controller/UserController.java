@@ -1,6 +1,7 @@
 package com.hsxy.user.controller;
 
 import com.hsxy.user.pojo.User;
+import com.hsxy.user.service.ExcelServiceImpl;
 import com.hsxy.user.service.UserService;
 import com.hsxy.user.utils.ValidateCode;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,6 +10,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.Cookie;
@@ -23,6 +25,15 @@ import java.io.PrintWriter;
 public class UserController {
     @Autowired
    private UserService userService;
+    @Autowired
+    private ExcelServiceImpl excelService;
+
+//  后台----批量上传
+    @ResponseBody
+    @RequestMapping(value="/fileUpload",produces = "application/json;charset=utf-8")
+    public String UploadExcel(HttpServletRequest request, HttpServletResponse response) throws Exception {
+        return excelService.ajaxUploadExcel(request, response);
+    }
 
 //前台--studentmessage
     @RequestMapping("/studentmessage")

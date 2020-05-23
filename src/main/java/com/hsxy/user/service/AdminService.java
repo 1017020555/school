@@ -8,6 +8,8 @@ import com.hsxy.user.pojo.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import java.util.List;
 
 @Service
@@ -55,4 +57,5 @@ public class AdminService {
     public void admindelete(Integer id) {
         adminMapper.admindelete(id);
     }
+
 }

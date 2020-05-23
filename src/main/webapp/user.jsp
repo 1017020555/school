@@ -9,7 +9,7 @@
     <script src="${pageContext.request.contextPath}/js/jquery-3.4.1.min.js"></script>
     <script src="${pageContext.request.contextPath}/js/bootstrap.min.js"></script>
 
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/user.css"/>
+<%--    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/user.css"/>--%>
 
     <script type="text/javascript">
         $(function () {
@@ -18,59 +18,66 @@
             });
         });
     </script>
-
 </head>
-<body>
+<body style=" background: url(http://global.bing.com/az/hprichbg/rb/RavenWolf_EN-US4433795745_1920x1080.jpg) no-repeat center center fixed;
+ background-size: 100%;">
 
     <jsp:include page="head.jsp"></jsp:include>
-
-
-<form class="form-horizontal" action="${pageContext.request.contextPath}/user/load" method="post">
-
-        <img id="img"  src="${pageContext.request.contextPath}/img/banner.jpg" class="img-thumbnail">
-
-    <div class="form-group">
-        <label id="e1" for="inputEmail3" class="col-sm-2 control-label">学号:</label>
-        <div class="col-sm-10">
-            <input type="input" style="width: 210px;" class="form-control" id="inputEmail3"
-                   name="username" placeholder="请输入学号：" value="${username }">
-        </div>
-    </div>
-
-    <div class="form-group"  >
-        <div class="col-sm-10" >
-            <label style="margin-left: 432px;margin-top: -230px;" for="inputPassword3" class="col-sm-2 control-label">密码：</label>
-            <input style="margin-left: 700px;margin-top: -230px;width: 210px;" type="password" class="form-control"
-                  name="password" id="inputPassword3" placeholder="请输入密码：" value="${password}">
-        </div>
-    </div>
-
-    <div class="form-group" >
-        <div>
-            <input type="text" style="width: 210px;margin-left: 564px;margin-top: -200px;"
-                   placeholder="请输入验证码..." maxlength="4" autocomplete="off" name="path" id="path" class="form-control">
-            <img name="code" style="margin-left: 800px;margin-top: -160px;" id="code"
-                 src="${pageContext.request.contextPath}/user/getCode?time='+new Date()'">
-        </div>
-    </div>
-
-    <div class="form-group">
-        <div >
-            <div class="checkbox" style="margin-left: 600px;margin-top: -160px;" >
-                <label >
-                    <input type="checkbox" name="rem" onclick="remember();">
-                    <span>记住密码</span>
-                </label>
+<div class="modal-dialog" style="margin-top: 5%;">
+  <div class="modal-content">
+    <form class="form-horizontal" action="${pageContext.request.contextPath}/user/load" method="post">
+            <div class="modal-header">
+                <h4 class="modal-title text-center" id="myModalLabel">登录</h4>
             </div>
-        </div>
-    </div>
-    <div class="form-group">
-        <div  style="margin-left: 800px;margin-top: -180px;" >
-            <input class="btn btn-default" type="submit" value="登陆">
-        </div>
-    </div>
-
-</form>
+            <div class="modal-body" id = "model-body">
+                <div class="form-group">
+                    <label style="display: inline;margin-left: 100px;" id="e1" for="inputEmail3" class="control-label">学号:</label>
+                    <input style="display: inline;width: 200px;margin-left: 130px;" type="input" class="form-control" id="inputEmail3"
+                           name="username" placeholder="请输入学号：" value="${username }">
+                </div>
+                <div class="form-group">
+                    <label style="display: inline;margin-left: 100px;"  for="inputPassword3" class="control-label">密码：</label>
+                    <input style="display: inline;width: 200px;margin-left: 120px;"  type="password" class="form-control"
+                           name="password" id="inputPassword3" placeholder="请输入密码：" value="${password}">
+                </div>
+                <div class="form-group">
+                    <label style="display: inline;margin-left: 100px;"   class="control-label">验证码：</label>
+                    <input type="text" style="width: 130px;display: inline;margin-left: 105px;"
+                           placeholder="请输入验证码..." maxlength="4" autocomplete="off"
+                           name="path" id="path" class="form-control">
+                    <img name="code"  id="code" style="display: inline;margin-left: 32px;"
+                         src="${pageContext.request.contextPath}/user/getCode?time='+new Date()'">
+                </div>
+                <div class="form-group" >
+                    <input type="checkbox" style="display: inline;margin-left: 100px;" name="rem" onclick="remember();">
+                    <span>记住密码</span>
+                </div>
+                <div class="form-group">
+                    <input class="btn btn-success" style="display: inline;margin-left: 100px;"
+                           type="submit" value="登陆" onclick="ch()">
+            </div>
+            </div>
+    </form>
+</div>
+</div>
+  <script>
+      $("#inputEmail3").blur(function () {
+          if ($("#inputEmail3").val()==""){
+              alert("账户不能为空！");
+          }
+      });
+      $("#inputPassword3").blur(function () {
+          if ($("#inputPassword3").val()==""){
+              alert("密码不能为空！");
+          }
+      });
+      function ch() {
+          if ($("#inputEmail3").val()=="" || $("#inputPassword3").val()==""){
+              alert("账户或密码不能为空！");
+              return false;
+          }
+      }
+  </script>
 
 <script>
     $(document).ready(function(){

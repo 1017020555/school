@@ -102,5 +102,26 @@
     <select id="index" resultType="com.hsxy.secondhand.pojo.Second">
         select * from second order by time desc limit 0,6
      </select>
+
+
+    <select id="count2" resultType="map">
+        SELECT
+            SUM(CASE MONTH(a.`time`) WHEN '1' THEN 1 ELSE 0 END) AS '1',
+            SUM(CASE MONTH(a.`time`) WHEN '2' THEN 1 ELSE 0 END) AS '2',
+            SUM(CASE MONTH(a.`time`)WHEN '3' THEN 1 ELSE 0 END) AS '3',
+            SUM(CASE MONTH(a.`time`) WHEN '4' THEN 1 ELSE 0 END) AS '4',
+            SUM(CASE MONTH(a.`time`) WHEN '5' THEN 1 ELSE 0 END) AS '5',
+            SUM(CASE MONTH(a.`time`) WHEN '6' THEN 1 ELSE 0 END) AS '6',
+            SUM(CASE MONTH(a.`time`) WHEN '7' THEN 1 ELSE 0 END) AS '7',
+            SUM(CASE MONTH(a.`time`)WHEN '8' THEN 1 ELSE 0 END) AS '8',
+            SUM(CASE MONTH(a.`time`) WHEN '9' THEN 1 ELSE 0 END) AS '9',
+            SUM(CASE MONTH(a.`time`)WHEN '10' THEN 1 ELSE 0 END) AS '10',
+            SUM(CASE MONTH(a.`time`)WHEN '11' THEN 1 ELSE 0 END) AS '11',
+            SUM(CASE MONTH(a.`time`) WHEN '12' THEN 1 ELSE 0 END) AS '12'
+            FROM second as a
+            WHERE YEAR(a.`time`)= YEAR(NOW());
+
+    </select>
+
 </mapper>
 

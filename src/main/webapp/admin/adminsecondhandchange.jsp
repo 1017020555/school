@@ -15,7 +15,7 @@
 </head>
 <body>
 <form id="f1" method="post" action="${pageContext.request.contextPath}/second/modify2/${second.id}">
-    <table class="table table-bordered table-striped" style="text-align: center;">
+    <table class="table table-hover" style="text-align: center;">
         <tr>
             <td>物品名称：</td>
             <td>

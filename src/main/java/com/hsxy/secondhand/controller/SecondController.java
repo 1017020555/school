@@ -20,15 +20,25 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import javax.servlet.http.HttpSession;
 import java.io.File;
 import java.io.IOException;
-import java.util.Date;
-import java.util.List;
-import java.util.UUID;
+import java.util.*;
 
 @Controller
 @RequestMapping("/second")
 public class SecondController {
     @Autowired
     private SecondService secondService;
+
+//    后台--echart
+    @RequestMapping("/count")
+    public String count(){
+        return "admin/adminsecondhandCount";
+    }
+    @RequestMapping(value = "/count2",method = RequestMethod.POST)
+    @ResponseBody
+    public Map<String,Object> count2(){
+        Map<String,Object>  s=secondService.count2();
+        return s;
+    }
 
     //    首页--显示--（index）
     @RequestMapping("/index")

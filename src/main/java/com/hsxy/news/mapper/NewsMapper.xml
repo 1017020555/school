@@ -9,9 +9,14 @@
         select name from newtype
     </select>
     <insert id="upload">
-        insert into news(title,context,time,userid,newstypeid,file)
-          values(#{title},#{context},#{time},#{userid},#{newstypeid},#{file})
+        insert into news(title,context,time,userid,newstypeid,file,path)
+          values(#{title},#{context},#{time},#{userid},#{newstypeid},#{file},#{path})
     </insert>
+    <insert id="upload2">
+        insert into news(id,title,context,time,userid,newstypeid,file,path)
+          values(#{id},#{title},#{context},#{time},#{userid},#{newstypeid},#{file},#{path})
+    </insert>
+
     <select id="show" resultType="com.hsxy.news.pojo.News">
         select * from news order by time desc
     </select>
@@ -44,5 +49,8 @@
     <select id="look" resultType="com.hsxy.news.pojo.News">
         select * from news where id=#{id} order  by time desc limit 0,6
     </select>
+
+
+
 </mapper>
 

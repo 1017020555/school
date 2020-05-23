@@ -14,6 +14,12 @@
     <update id="changemess">
         update user set email=#{email},phone=#{phone} where id=#{id}
     </update>
+
+    <insert id="insert" parameterType="com.hsxy.user.pojo.User">
+        insert into user(username,password,name,gender,email,phone,departmentid)
+        values(#{username},#{password},#{name},#{gender},#{email},#{phone},#{departmentid})
+    </insert>
+
 </mapper>
 
 

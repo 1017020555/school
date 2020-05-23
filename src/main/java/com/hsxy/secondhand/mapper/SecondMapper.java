@@ -7,6 +7,7 @@ import org.springframework.stereotype.Repository;
 
 import java.util.Date;
 import java.util.List;
+import java.util.Map;
 
 @Repository
 public interface SecondMapper {
@@ -57,4 +58,5 @@ public interface SecondMapper {
 
     List<Second> index();
 
+    Map<String,Object> count2();
 }

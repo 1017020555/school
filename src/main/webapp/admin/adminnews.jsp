@@ -34,10 +34,14 @@
     </style>
 </head>
 <body>
-<form action="${pageContext.request.contextPath}/news/search" method="post">
+<div class="panel panel-success">
+    <div class="panel-heading">
     <div id="d1">
-        <label>查询条件：</label><br>
-        <label style="margin-left: 100px;">新闻标题</label>
+        <form action="${pageContext.request.contextPath}/news/search" method="post">
+       <span class="page-header" style="font-weight: bold;color: #761c19;">
+          <h4>查询条件：</h4>
+       </span><br>
+        <label >新闻标题</label>
             <input name="title" type="text" class="form-control" placeholder="请输入文章标题：">
         <label>新闻发布时间</label>
             <input name="time" type="date" class="form-control">
@@ -45,14 +49,13 @@
 
         <input type="button" class="form-control" value="点击发布新闻！"
                onclick="window.location.href='${pageContext.request.contextPath}/news/fb'">
-    </div>
+
 </form>
-
-    <br>
-
-    <div>
-        <table class="table table-bordered table-striped" style="text-align: center;">
-            <tr>
+    </div>
+    </div>
+    <table class="table table-hover" style="text-align: center;">
+        <div class="panel-body" style="margin-top: -30px;">
+            <tr class="info">
                 <td>序号</td>
                 <td>标题</td>
                 <td>内容</td>
@@ -61,11 +64,10 @@
                 <td colspan="2">操作</td>
             </tr>
 
-            <c:forEach items="${news}" var="n">
-            <tr>
+            <c:forEach items="${news}" var="n" varStatus="i">
+            <tr >
                 <td>
-                    1
-                    <input type="checkbox">
+                    ${i.index+1}
                 </td>
                 <td>${n.title}</td>
                 <td>
